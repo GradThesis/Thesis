@@ -1,5 +1,5 @@
 New Coursera universities:
-2014-09-24 16:41:05.674
+2016-04-10 15:43:44.213
 -------------------------
 
 University name: University of New Mexico
@@ -38,7 +38,7 @@ University name: University of Tennessee System
 ID: 125
 Website: 
 
-University name: Universit? Bocconi
+University name: Università Bocconi
 ID: 157
 Website: http://www.unibocconi.eu/
 
@@ -50,7 +50,7 @@ University name: Technical University of Denmark (DTU)
 ID: 57
 Website: http://www.dtu.dk/
 
-University name: Technische Universit?t M?nchen (TUM)
+University name: Technische Universität München (TUM)
 ID: 78
 Website: http://www.tum.de/
 
@@ -78,7 +78,7 @@ University name: IE Business School
 ID: 61
 Website: http://www.ie.edu/
 
-University name: Universidade de S?o Paulo
+University name: Universidade de São Paulo
 ID: 221
 Website: http://www.usp.br/
 
@@ -126,11 +126,11 @@ University name: The University of Melbourne
 ID: 33
 Website: http://www.unimelb.edu.au/
 
-University name: University of Wisconsin?Madison
+University name: University of Wisconsin–Madison
 ID: 65
 Website: http://www.wisc.edu/
 
-University name: Funda??o Lemann
+University name: Fundação Lemann
 ID: 224
 Website: http://fundacaolemann.org.br/
 
@@ -174,7 +174,7 @@ University name: The World Bank
 ID: 73
 Website: http://www.worldbank.org/
 
-University name: ?cole Centrale Paris
+University name: École Centrale Paris
 ID: 128
 Website: http://www.ecp.fr/
 
@@ -202,7 +202,7 @@ University name: HEC Paris
 ID: 161
 Website: http://www.hec.edu/
 
-University name: Ludwig-Maximilians-Universit?t M?nchen (LMU)
+University name: Ludwig-Maximilians-Universität München (LMU)
 ID: 64
 Website: http://www.en.lmu.de/
 
@@ -266,7 +266,7 @@ University name: New Teacher Center
 ID: 103
 Website: http://www.newteachercenter.org/
 
-University name: ?cole Polytechnique
+University name: École Polytechnique
 ID: 66
 Website: http://www.polytechnique.edu/
 
@@ -278,7 +278,7 @@ University name: Exploratorium
 ID: 108
 Website: http://www.exploratorium.edu/
 
-University name: ?cole normale sup?rieure
+University name: École normale supérieure
 ID: 130
 Website: http://www.ens.fr/
 
@@ -290,7 +290,7 @@ University name: University of Michigan
 ID: 3
 Website: http://www.umich.edu/
 
-University name: Universitat Aut?noma de Barcelona
+University name: Universitat Autònoma de Barcelona
 ID: 80
 Website: http://www.uab.es/
 
@@ -330,11 +330,11 @@ University name: Eindhoven University of Technology
 ID: 177
 Website: http://www.tue.nl/en
 
-University name: Ko? University
+University name: Koç University
 ID: 182
 Website: http://www.ku.edu.tr/
 
-University name: ?cole Polytechnique F?d?rale de Lausanne
+University name: École Polytechnique Fédérale de Lausanne
 ID: 16
 Website: http://www.epfl.ch/
 
@@ -386,7 +386,7 @@ University name: University of Houston System
 ID: 119
 Website: http://www.uhsa.uh.edu/
 
-University name: Universidad Nacional Aut?noma de M?xico
+University name: Universidad Nacional Autónoma de México
 ID: 58
 Website: http://www.unam.mx/
 
@@ -442,7 +442,7 @@ University name: Case Western Reserve University
 ID: 68
 Website: http://case.edu/
 
-University name: Tecnol?gico de Monterrey
+University name: Tecnológico de Monterrey
 ID: 62
 Website: http://www.itesm.edu/
 

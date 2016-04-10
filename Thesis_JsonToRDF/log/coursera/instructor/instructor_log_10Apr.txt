@@ -1,5 +1,5 @@
 New Coursera instructors:
-2014-09-24 16:41:05.869
+2016-04-10 15:43:44.283
 -------------------------
 
 Instructor Name: Martin Kleinsteuber
@@ -35,13 +35,13 @@ ID: 6171141
 Instructor Name: Sandra Eugenia Barajas Montiel
 ID: 6313273
 
-Instructor Name: Jos? V?zquez-Cognet
+Instructor Name: José Vázquez-Cognet
 ID: 884324
 
 Instructor Name: Chad Carr
 ID: 6341458
 
-Instructor Name: Mikkel J?rgensen
+Instructor Name: Mikkel Jørgensen
 ID: 6282956
 
 Instructor Name: Michael Scharf
@@ -56,7 +56,7 @@ ID: 246867
 Instructor Name: J.R. Jenkins
 ID: 3953607
 
-Instructor Name: Margarita Le?n
+Instructor Name: Margarita León
 ID: 6735813
 
 Instructor Name: Leonid Polishchuk
@@ -77,7 +77,7 @@ ID: 2792685
 Instructor Name: Hayley  Walters
 ID: 6853521
 
-Instructor Name: Christoph L?thi
+Instructor Name: Christoph Lüthi
 ID: 3155467
 
 Instructor Name: Prahlad Vadakkepat
@@ -98,7 +98,7 @@ ID: 3560006
 Instructor Name: Andrey Gavrikov
 ID: 5154901
 
-Instructor Name: Patricia Salinas Mart?nez
+Instructor Name: Patricia Salinas Martínez
 ID: 2672777
 
 Instructor Name: Wylie Burke
@@ -158,7 +158,7 @@ ID: 3084976
 Instructor Name: Celine Caquineau
 ID: 7013461
 
-Instructor Name: Jean-C?dric Chappelier
+Instructor Name: Jean-Cédric Chappelier
 ID: 4018645
 
 Instructor Name: Krista Walton
@@ -188,7 +188,7 @@ ID: 3322567
 Instructor Name: John Cagnol
 ID: 3699217
 
-Instructor Name: Pierre-Yves Gilli?ron
+Instructor Name: Pierre-Yves Gilliéron
 ID: 4229712
 
 Instructor Name: Jamie Wikenheiser
@@ -248,7 +248,7 @@ ID: 4096687
 Instructor Name: Katie Ferraro
 ID: 994329
 
-Instructor Name: H?kan Vigre
+Instructor Name: Håkan Vigre
 ID: 7259449
 
 Instructor Name: Mary Dolansky
@@ -386,7 +386,7 @@ ID: 15735
 Instructor Name: Marco Picasso
 ID: 1757953
 
-Instructor Name: Quim Brugu?
+Instructor Name: Quim Brugué
 ID: 6724257
 
 Instructor Name: Ebrahim Afsah
@@ -602,7 +602,7 @@ ID: 5063956
 Instructor Name: Arne Astrup
 ID: 2569351
 
-Instructor Name: Rodolfo Fern?ndez de Lara Hadad
+Instructor Name: Rodolfo Fernández de Lara Hadad
 ID: 4360475
 
 Instructor Name: Alison Gibbs
@@ -659,7 +659,7 @@ ID: 2659937
 Instructor Name: Patrick O'Malley
 ID: 3107018
 
-Instructor Name: Jos? Vladimir  Burgos Aguilar
+Instructor Name: José Vladimir  Burgos Aguilar
 ID: 2645262
 
 Instructor Name: Wade Smith
@@ -713,7 +713,7 @@ ID: 3962813
 Instructor Name: Orin  Gutlerner
 ID: 3219450
 
-Instructor Name: Larisa Enr?quez
+Instructor Name: Larisa Enríquez
 ID: 1177458
 
 Instructor Name: Jaume Blasco
@@ -866,10 +866,10 @@ ID: 5314065
 Instructor Name: Jie Zhang
 ID: 6935612
 
-Instructor Name: Mauro Guill?n
+Instructor Name: Mauro Guillén
 ID: 4703683
 
-Instructor Name: Jos? Rodrigo  Salm?n Folgueras
+Instructor Name: José Rodrigo  Salmón Folgueras
 ID: 3473689
 
 Instructor Name: Franklin Allen
@@ -881,7 +881,7 @@ ID: 5264741
 Instructor Name: Clare Brooks
 ID: 2723485
 
-Instructor Name: Josep Cervell?
+Instructor Name: Josep Cervelló
 ID: 2690314
 
 Instructor Name: Jonathan Garb
@@ -896,7 +896,7 @@ ID: 2641486
 Instructor Name: Mitchell Green
 ID: 757204
 
-Instructor Name: Genaro Zavala Enr?quez
+Instructor Name: Genaro Zavala Enríquez
 ID: 3797221
 
 Instructor Name: Adrian Krishnasamy
@@ -962,7 +962,7 @@ ID: 7415870
 Instructor Name: Xiaojie Wei
 ID: 7768227
 
-Instructor Name: Bj?rn Lundqvist
+Instructor Name: Björn Lundqvist
 ID: 7945100
 
 Instructor Name: Darrin York
@@ -1001,7 +1001,7 @@ ID: 7346384
 Instructor Name: Margaret Schedel
 ID: 3788568
 
-Instructor Name: Fran?ois Dermange
+Instructor Name: François Dermange
 ID: 2604148
 
 Instructor Name: Maria Johansen
@@ -1103,7 +1103,7 @@ ID: 3605245
 Instructor Name: Christopher Manning
 ID: 68850
 
-Instructor Name: Lluis Ter?s
+Instructor Name: Lluis Terés
 ID: 4086935
 
 Instructor Name: John Lavine
@@ -1112,7 +1112,7 @@ ID: 1841753
 Instructor Name: Lan Liu
 ID: 6950822
 
-Instructor Name: Roger Mart?nez-D?vila
+Instructor Name: Roger Martínez-Dávila
 ID: 5095820
 
 Instructor Name: Nathan Taback
@@ -1163,7 +1163,7 @@ ID: 882099
 Instructor Name: Adam Porter
 ID: 2921188
 
-Instructor Name: Sylvie M?l?ard
+Instructor Name: Sylvie Méléard
 ID: 1914201
 
 Instructor Name: Mary Kalantzis
@@ -1235,7 +1235,7 @@ ID: 8119639
 Instructor Name: Jamie  Pope
 ID: 1331704
 
-Instructor Name: Fran?ois  Golse
+Instructor Name: François  Golse
 ID: 2580055
 
 Instructor Name: Mark Hughes
@@ -1394,7 +1394,7 @@ ID: 2688952
 Instructor Name: Guillermo Sapiro
 ID: 729871
 
-Instructor Name: Merc? Villanueva
+Instructor Name: Mercè Villanueva
 ID: 3189498
 
 Instructor Name: Stephanie Pau
@@ -1406,7 +1406,7 @@ ID: 804990
 Instructor Name: Stefaan Van den Bogaert
 ID: 1819928
 
-Instructor Name: J?r?me Chenal
+Instructor Name: Jérôme Chenal
 ID: 3959836
 
 Instructor Name: Lars Larsen
@@ -1547,7 +1547,7 @@ ID: 7719561
 Instructor Name: Mark  Bocko
 ID: 2204104
 
-Instructor Name: Marcel Salath?
+Instructor Name: Marcel Salathé
 ID: 72633
 
 Instructor Name: Mira Bergelson
@@ -1583,7 +1583,7 @@ ID: 1909875
 Instructor Name: ?? ?
 ID: 7691084
 
-Instructor Name: Mar?a Leticia Mendoza Anguiano
+Instructor Name: María Leticia Mendoza Anguiano
 ID: 6339408
 
 Instructor Name: Andrew Szegedy-Maszak
@@ -1778,7 +1778,7 @@ ID: 5104816
 Instructor Name: Larry Lagerstrom
 ID: 2691794
 
-Instructor Name: Marcela Georgina Gomez Zerme?o
+Instructor Name: Marcela Georgina Gomez Zermeño
 ID: 7435337
 
 Instructor Name: ???  Li-chuan Ou
@@ -1931,7 +1931,7 @@ ID: 5690991
 Instructor Name: Corbin Schrader
 ID: 4806980
 
-Instructor Name: Jean-C?dric Chappelier
+Instructor Name: Jean-Cédric Chappelier
 ID: 1116355
 
 Instructor Name: Maurits Berger
@@ -2072,7 +2072,7 @@ ID: 2286634
 Instructor Name: Emanuel  Derman
 ID: 1325471
 
-Instructor Name: Mine ?etinkaya-Rundel
+Instructor Name: Mine Çetinkaya-Rundel
 ID: 1549355
 
 Instructor Name: Andreas Dewanto
@@ -2120,7 +2120,7 @@ ID: 862822
 Instructor Name: Hongfei Yan
 ID: 6276679
 
-Instructor Name: David  Romero D?az
+Instructor Name: David  Romero Díaz
 ID: 2688759
 
 Instructor Name: Mark Hargreaves
@@ -2318,13 +2318,13 @@ ID: 1293448
 Instructor Name: Michael Collins
 ID: 1325520
 
-Instructor Name: St?phane Udry
+Instructor Name: Stéphane Udry
 ID: 2696515
 
-Instructor Name: Thomas Rams?y
+Instructor Name: Thomas Ramsøy
 ID: 5012688
 
-Instructor Name: Mia R?nnmar 
+Instructor Name: Mia Rönnmar 
 ID: 7944952
 
 Instructor Name: Elizabeth Du
@@ -2408,7 +2408,7 @@ ID: 4176164
 Instructor Name: Wu Jinlu
 ID: 3676802
 
-Instructor Name: Edgar Gerardo Salinas Gurri?n
+Instructor Name: Edgar Gerardo Salinas Gurrión
 ID: 142122
 
 Instructor Name: Judith Hubbard
@@ -2417,7 +2417,7 @@ ID: 3950388
 Instructor Name: Sergey  Roshchin
 ID: 5192199
 
-Instructor Name: Birger Langkj?r
+Instructor Name: Birger Langkjær
 ID: 5690999
 
 Instructor Name: David Hughes
@@ -2426,7 +2426,7 @@ ID: 2687771
 Instructor Name: Mick Grierson
 ID: 1961937
 
-Instructor Name: Sergio  Ortiz Vald?s
+Instructor Name: Sergio  Ortiz Valdés
 ID: 2645282
 
 Instructor Name: John Zahorjan
@@ -2450,7 +2450,7 @@ ID: 4061619
 Instructor Name: Jennifer Adams
 ID: 2687391
 
-Instructor Name: Damien S?gransan
+Instructor Name: Damien Ségransan
 ID: 5570288
 
 Instructor Name: James (Jim) Rolf
@@ -2486,7 +2486,7 @@ ID: 1600503
 Instructor Name: Zhao ?
 ID: 6946113
 
-Instructor Name: J?rgen Hettne
+Instructor Name: Jörgen Hettne
 ID: 7944704
 
 Instructor Name: Matthew Yee-King
@@ -2540,7 +2540,7 @@ ID: 4431732
 Instructor Name: Kris Olds
 ID: 2605731
 
-Instructor Name: Teresa L?pez-Pellisa
+Instructor Name: Teresa López-Pellisa
 ID: 6792134
 
 Instructor Name: Stewart Friedman
@@ -2819,10 +2819,10 @@ ID: 471278
 Instructor Name: Glyn Davis
 ID: 4356076
 
-Instructor Name: Mikkel J?rgensen
+Instructor Name: Mikkel Jørgensen
 ID: 7035039
 
-Instructor Name: C?cile Brokelind
+Instructor Name: Cécile Brokelind
 ID: 4599053
 
 Instructor Name: Gavin Brown
@@ -2840,7 +2840,7 @@ ID: 3359851
 Instructor Name: Bruce Jentleson
 ID: 3279667
 
-Instructor Name: Lorena Yadira Alem?n de la Garza
+Instructor Name: Lorena Yadira Alemán de la Garza
 ID: 7435331
 
 Instructor Name: Heather Bacon
@@ -2852,7 +2852,7 @@ ID: 1267
 Instructor Name: Olivier Delbard
 ID: 8065088
 
-Instructor Name: Thorkild S?rensen
+Instructor Name: Thorkild Sørensen
 ID: 6888537
 
 Instructor Name: Terry Talley
@@ -2912,7 +2912,7 @@ ID: 226710
 Instructor Name: Philip Mead
 ID: 5802742
 
-Instructor Name: Emilio Fern?ndez Pe?a
+Instructor Name: Emilio Fernández Peña
 ID: 2262957
 
 Instructor Name: Niels Egelund
@@ -2954,7 +2954,7 @@ ID: 2600270
 Instructor Name: Elsa Brown
 ID: 1474140
 
-Instructor Name: Marc Par?s
+Instructor Name: Marc Parés
 ID: 6723758
 
 Instructor Name: Wulfram Gerstner
@@ -3029,7 +3029,7 @@ ID: 4256709
 Instructor Name: Jennifer Groh
 ID: 2443158
 
-Instructor Name: Jos? Lull
+Instructor Name: José Lull
 ID: 2690319
 
 Instructor Name: Susanne Pedersen
@@ -3110,7 +3110,7 @@ ID: 2685318
 Instructor Name: Yang-Hann Kim
 ID: 7297830
 
-Instructor Name: Gur? Bergkvist
+Instructor Name: Gurå Bergkvist
 ID: 3103174
 
 Instructor Name: Larry Diamond
@@ -3119,7 +3119,7 @@ ID: 2295274
 Instructor Name: University of Illinois Coursera Staff
 ID: 7698199
 
-Instructor Name: Jean-Ren? Chazottes
+Instructor Name: Jean-René Chazottes
 ID: 2593255
 
 Instructor Name: Paul Doherty
@@ -3164,7 +3164,7 @@ ID: 7415662
 Instructor Name: Kelleann Foster
 ID: 7223499
 
-Instructor Name: Meri Torras Franc?s
+Instructor Name: Meri Torras Francès
 ID: 6073198
 
 Instructor Name: Mehul Motani
@@ -3242,7 +3242,7 @@ ID: 7035004
 Instructor Name: Nathan Parrish
 ID: 3228973
 
-Instructor Name: Mar?a Soledad Ram?rez Montoya
+Instructor Name: María Soledad Ramírez Montoya
 ID: 2645257
 
 Instructor Name: Pascal Quiry
@@ -3284,7 +3284,7 @@ ID: 5219938
 Instructor Name: Kevin Sabet
 ID: 6289540
 
-Instructor Name: Fr?d?ric Worms
+Instructor Name: Frédéric Worms
 ID: 4004965
 
 Instructor Name: Wil van der Aalst
@@ -3317,7 +3317,7 @@ ID: 2705792
 Instructor Name: Annemarie Zand Scholten
 ID: 959950
 
-Instructor Name: Aina P?rez Fontdevila
+Instructor Name: Aina Pérez Fontdevila
 ID: 6118909
 
 Instructor Name: Pavel  Pevzner
@@ -3377,7 +3377,7 @@ ID: 1337829
 Instructor Name: Kanta Kumari Rigaud 
 ID: 5152268
 
-Instructor Name: Marc Cr?pon
+Instructor Name: Marc Crépon
 ID: 4003315
 
 Instructor Name: Joanne Souza
@@ -3584,7 +3584,7 @@ ID: 4356481
 Instructor Name: Phineas Dunne
 ID: 3067039
 
-Instructor Name: Arturo Molina Guti?rrez 
+Instructor Name: Arturo Molina Gutiérrez 
 ID: 2688754
 
 Instructor Name: Barbara Kahn
@@ -3641,7 +3641,7 @@ ID: 2683483
 Instructor Name: Armistead Booker
 ID: 3058288
 
-Instructor Name: Sini?a Vukovi?
+Instructor Name: Siniša Vukovi?
 ID: 6206503
 
 Instructor Name: John Freebairn
@@ -3770,13 +3770,13 @@ ID: 517478
 Instructor Name: Jarrett Whitaker
 ID: 386687
 
-Instructor Name: Enrique Tam?s
+Instructor Name: Enrique Tamés
 ID: 2645293
 
 Instructor Name: John O'Rorke
 ID: 4297043
 
-Instructor Name: Avi Ma?ayan
+Instructor Name: Avi Ma’ayan
 ID: 1305172
 
 Instructor Name: Allan Hazlett
@@ -3878,7 +3878,7 @@ ID: 7570174
 Instructor Name: Richard Worth
 ID: 5185427
 
-Instructor Name: Carlo Carnevale Maff?
+Instructor Name: Carlo Carnevale Maffè
 ID: 5180241
 
 Instructor Name: Matthias Schwannauer
@@ -3929,7 +3929,7 @@ ID: 3950639
 Instructor Name: John Covach
 ID: 2599979
 
-Instructor Name: Noem? Acedo Alonso
+Instructor Name: Noemí Acedo Alonso
 ID: 5599009
 
 Instructor Name: Vincent Lepetit

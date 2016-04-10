@@ -44,13 +44,13 @@ public class Category {
 	public OntModel writeToRDF(OntModel m) {
 		Prefixes p = new Prefixes();
 	    Date date = new Date();
-	    Timestamp timestamp = new Timestamp(date.getTime());
+	    Timestamp timestamp = new Timestamp(date.getDate());
 	    
 
 	    
 	    try {
 	    	// Set up log file
-	    	File logFile = new File("log/coursera/category/category_log_" + timestamp);
+	    	File logFile = new File("log/coursera/category/category_log_10Apr.txt");
 		    FileOutputStream log = new FileOutputStream(logFile);
 		    String header = "New Coursera categories:\n" + timestamp.toString() 
 		    		+ "\n-------------------------\n\n";

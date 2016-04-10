@@ -1,5 +1,5 @@
 New Coursera courses:
-2014-09-24 16:41:06.284
+2016-04-10 15:43:44.678
 -------------------------
 Individual Name: coursera_course_69
 Course Name: Contraception: Choices, Culture and Consequences
@@ -78,7 +78,7 @@ Course Name: Introduction to European Business Law
 ID: 1750
 
 Individual Name: coursera_course_408
-Course Name: Tecnolog?as de informaci?n y comunicaci?n en la educaci?n
+Course Name: Tecnologías de información y comunicación en la educación
 ID: 408
 
 Individual Name: coursera_course_170
@@ -114,7 +114,7 @@ Course Name: A New History for a New China, 1700-2000: New Data and New Methods,
 ID: 217
 
 Individual Name: coursera_course_1422
-Course Name: Fundamentos de la escritura en espa?ol
+Course Name: Fundamentos de la escritura en español
 ID: 1422
 
 Individual Name: coursera_course_449
@@ -158,11 +158,11 @@ Course Name: Imagining Other Earths
 ID: 1041
 
 Individual Name: coursera_course_1426
-Course Name: Pensamiento algor?tmico
+Course Name: Pensamiento algorítmico
 ID: 1426
 
 Individual Name: coursera_course_385
-Course Name: Calvin - Histoire et r?ception d'une R?forme
+Course Name: Calvin - Histoire et réception d'une Réforme
 ID: 385
 
 Individual Name: coursera_course_384
@@ -274,7 +274,7 @@ Course Name: International Human Rights Law: Prospects and Challenges
 ID: 1386
 
 Individual Name: coursera_course_1265
-Course Name: Correcci?n y Estilo en Espa?ol
+Course Name: Corrección y Estilo en Español
 ID: 1265
 
 Individual Name: coursera_course_25
@@ -302,11 +302,11 @@ Course Name: Copyright for Educators & Librarians
 ID: 1760
 
 Individual Name: coursera_course_1298
-Course Name: The Data Scientist?s Toolbox
+Course Name: The Data Scientist’s Toolbox
 ID: 1298
 
 Individual Name: coursera_course_504
-Course Name: Egiptolog?a (Egyptology)
+Course Name: Egiptología (Egyptology)
 ID: 504
 
 Individual Name: coursera_course_110
@@ -414,7 +414,7 @@ Course Name: Grundlagenkurs Unfallchirurgie
 ID: 1398
 
 Individual Name: coursera_course_1115
-Course Name: What?s Your Big Idea?
+Course Name: What’s Your Big Idea?
 ID: 1115
 
 Individual Name: coursera_course_228
@@ -662,7 +662,7 @@ Course Name: The Science of Safety in Healthcare
 ID: 527
 
 Individual Name: coursera_course_312
-Course Name: Initiation ? la programmation (en Java)
+Course Name: Initiation à la programmation (en Java)
 ID: 312
 
 Individual Name: coursera_course_74
@@ -734,7 +734,7 @@ Course Name: Citizenship and U.S. Immigration
 ID: 201
 
 Individual Name: coursera_course_1199
-Course Name: ?ok De?i?kenli Fonksiyonlarda T?rev ve Entegral I: Temel Kavram ve Y?ntemler / Multivariable Calculus I: Fundamental Concepts and Basic Techniques
+Course Name: Çok De?i?kenli Fonksiyonlarda Türev ve Entegral I: Temel Kavram ve Yöntemler / Multivariable Calculus I: Fundamental Concepts and Basic Techniques
 ID: 1199
 
 Individual Name: coursera_course_1153
@@ -790,7 +790,7 @@ Course Name: MOS Transistors
 ID: 260
 
 Individual Name: coursera_course_1123
-Course Name: Turn Down the Heat: Why a 4?C Warmer World Must be Avoided
+Course Name: Turn Down the Heat: Why a 4°C Warmer World Must be Avoided
 ID: 1123
 
 Individual Name: coursera_course_1174
@@ -914,15 +914,15 @@ Course Name: Creative Problem Solving
 ID: 1296
 
 Individual Name: coursera_course_1624
-Course Name: Liderazgo en gesti?n educativa estrat?gica a trav?s del uso de la tecnolog?a
+Course Name: Liderazgo en gestión educativa estratégica a través del uso de la tecnología
 ID: 1624
 
 Individual Name: coursera_course_461
-Course Name: La visione del mondo della Relativit? e della Meccanica Quantistica
+Course Name: La visione del mondo della Relatività e della Meccanica Quantistica
 ID: 461
 
 Individual Name: coursera_course_493
-Course Name: Exploring Beethoven?s Piano Sonatas
+Course Name: Exploring Beethoven’s Piano Sonatas
 ID: 493
 
 Individual Name: coursera_course_1195
@@ -970,7 +970,7 @@ Course Name: Buddhism and Modern Psychology
 ID: 1121
 
 Individual Name: coursera_course_1064
-Course Name: Les probl?mes m?taphysiques ? l??preuve de la politique, 1943-1968
+Course Name: Les problèmes métaphysiques à l’épreuve de la politique, 1943-1968
 ID: 1064
 
 Individual Name: coursera_course_403
@@ -1094,7 +1094,7 @@ Course Name: Guinea Pigs, Heroes & Desperate Patients: The History & Ethics of H
 ID: 526
 
 Individual Name: coursera_course_637
-Course Name: The Brain-Targeted Teaching? Model for 21st Century Schools
+Course Name: The Brain-Targeted Teaching® Model for 21st Century Schools
 ID: 637
 
 Individual Name: coursera_course_489
@@ -1114,7 +1114,7 @@ Course Name: History of the Slave South
 ID: 1039
 
 Individual Name: coursera_course_706
-Course Name: Using The Next Generation Science Standards for Students? Deeper Understanding 
+Course Name: Using The Next Generation Science Standards for Students’ Deeper Understanding 
 ID: 706
 
 Individual Name: coursera_course_96
@@ -1166,7 +1166,7 @@ Course Name: Growing Old Around the Globe
 ID: 371
 
 Individual Name: coursera_course_503
-Course Name: Matem?ticas y Movimiento
+Course Name: Matemáticas y Movimiento
 ID: 503
 
 Individual Name: coursera_course_128
@@ -1202,7 +1202,7 @@ Course Name: Science from Superheroes to Global Warming
 ID: 205
 
 Individual Name: coursera_course_508
-Course Name: Einf?hrung in Computer Vision
+Course Name: Einführung in Computer Vision
 ID: 508
 
 Individual Name: coursera_course_311
@@ -1282,7 +1282,7 @@ Course Name: A History of the World since 1300
 ID: 45
 
 Individual Name: coursera_course_161
-Course Name: Accountable Talk?: Conversation that Works
+Course Name: Accountable Talk®: Conversation that Works
 ID: 161
 
 Individual Name: coursera_course_1301
@@ -1294,7 +1294,7 @@ Course Name: Analytic Combinatorics
 ID: 689
 
 Individual Name: coursera_course_444
-Course Name: M?canique I
+Course Name: Mécanique I
 ID: 444
 
 Individual Name: coursera_course_1374
@@ -1322,7 +1322,7 @@ Course Name: Software Defined Networking
 ID: 176
 
 Individual Name: coursera_course_402
-Course Name: S?ren Kierkegaard - Subjectivity, Irony and the Crisis of Modernity
+Course Name: Søren Kierkegaard - Subjectivity, Irony and the Crisis of Modernity
 ID: 402
 
 Individual Name: coursera_course_22
@@ -1358,7 +1358,7 @@ Course Name: Algorithms, Part II
 ID: 27
 
 Individual Name: coursera_course_413
-Course Name: Pensamiento Cient?fico
+Course Name: Pensamiento Científico
 ID: 413
 
 Individual Name: coursera_course_641
@@ -1370,7 +1370,7 @@ Course Name: Health for All Through Primary Health Care
 ID: 71
 
 Individual Name: coursera_course_391
-Course Name: Ser m?s creativos
+Course Name: Ser más creativos
 ID: 391
 
 Individual Name: coursera_course_12
@@ -1394,15 +1394,15 @@ Course Name: Healthcare Innovation and Entrepreneurship
 ID: 54
 
 Individual Name: coursera_course_313
-Course Name: Initiation ? la programmation (en C++)
+Course Name: Initiation à la programmation (en C++)
 ID: 313
 
 Individual Name: coursera_course_1271
-Course Name: Introduction aux droits de l?homme
+Course Name: Introduction aux droits de l’homme
 ID: 1271
 
 Individual Name: coursera_course_144
-Course Name: Introduction ? la programmation orient?e objet (en Java)
+Course Name: Introduction à la programmation orientée objet (en Java)
 ID: 144
 
 Individual Name: coursera_course_713
@@ -1410,7 +1410,7 @@ Course Name: Plagues, Witches, and War: The Worlds of Historical Fiction
 ID: 713
 
 Individual Name: coursera_course_498
-Course Name: Desarrollo r?pido de productos innovadores para mercados emergentes
+Course Name: Desarrollo rápido de productos innovadores para mercados emergentes
 ID: 498
 
 Individual Name: coursera_course_1332
@@ -1710,7 +1710,7 @@ Course Name: Pre-Calculus
 ID: 505
 
 Individual Name: coursera_course_438
-Course Name: Initiation ? la th?orie des distributions
+Course Name: Initiation à la théorie des distributions
 ID: 438
 
 Individual Name: coursera_course_431
@@ -1786,7 +1786,7 @@ Course Name: Physics 1 for Physical Science Majors
 ID: 487
 
 Individual Name: coursera_course_1509
-Course Name: ?ok De?i?kenli Fonksiyonlarda T?rev ve Entegral II: ?leri Konular ve Uygulamalar / Multivariable Calculus II: Applications and Advanced Topics
+Course Name: Çok De?i?kenli Fonksiyonlarda Türev ve Entegral II: ?leri Konular ve Uygulamalar / Multivariable Calculus II: Applications and Advanced Topics
 ID: 1509
 
 Individual Name: coursera_course_1081
@@ -1806,7 +1806,7 @@ Course Name: A Beginner's Guide to Irrational Behavior
 ID: 123
 
 Individual Name: coursera_course_458
-Course Name: Innovaci?n educativa con recursos abiertos
+Course Name: Innovación educativa con recursos abiertos
 ID: 458
 
 Individual Name: coursera_course_1181
@@ -1826,7 +1826,7 @@ Course Name: Networks: Friends, Money, and Bytes
 ID: 48
 
 Individual Name: coursera_course_525
-Course Name: L'art des structures 1 : C?bles et arcs
+Course Name: L'art des structures 1 : Câbles et arcs
 ID: 525
 
 Individual Name: coursera_course_855
@@ -1974,11 +1974,11 @@ Course Name: Foundations of Teaching for Learning 7: Being a Professional
 ID: 643
 
 Individual Name: coursera_course_1220
-Course Name: Digital Systems - Sistemas Digitales: De las puertas l?gicas al procesador
+Course Name: Digital Systems - Sistemas Digitales: De las puertas lógicas al procesador
 ID: 1220
 
 Individual Name: coursera_course_907
-Course Name: ?l?ments de G?omatique
+Course Name: Éléments de Géomatique
 ID: 907
 
 Individual Name: coursera_course_31
@@ -2054,11 +2054,11 @@ Course Name: An Introduction to Global Health
 ID: 386
 
 Individual Name: coursera_course_314
-Course Name: Introduction ? la programmation orient?e objet (en C++)
+Course Name: Introduction à la programmation orientée objet (en C++)
 ID: 314
 
 Individual Name: coursera_course_446
-Course Name: Conception et mise en ?uvre d'algorithmes.
+Course Name: Conception et mise en œuvre d'algorithmes.
 ID: 446
 
 Individual Name: coursera_course_595
@@ -2090,7 +2090,7 @@ Course Name: Volcanic Eruptions: a material science.
 ID: 465
 
 Individual Name: coursera_course_1649
-Course Name: Democracia y decisiones p?blicas. Introducci?n al an?lisis de pol?ticas p?blicas
+Course Name: Democracia y decisiones públicas. Introducción al análisis de políticas públicas
 ID: 1649
 
 Individual Name: coursera_course_450
@@ -2154,7 +2154,7 @@ Course Name: Ocean Solutions
 ID: 1385
 
 Individual Name: coursera_course_963
-Course Name: Informatik f?r ?konomen
+Course Name: Informatik für Ökonomen
 ID: 963
 
 Individual Name: coursera_course_40
@@ -2222,7 +2222,7 @@ Course Name: Algorithms: Design and Analysis, Part 1
 ID: 8
 
 Individual Name: coursera_course_290
-Course Name: Analyse Num?rique pour Ing?nieurs
+Course Name: Analyse Numérique pour Ingénieurs
 ID: 290
 
 Individual Name: coursera_course_119
@@ -2234,7 +2234,7 @@ Course Name: Think Again: How to Reason and Argue
 ID: 58
 
 Individual Name: coursera_course_914
-Course Name: Comprendre les Microcontr?leurs
+Course Name: Comprendre les Microcontrôleurs
 ID: 914
 
 Individual Name: coursera_course_378
@@ -2310,7 +2310,7 @@ Course Name: General Chemistry ????
 ID: 999
 
 Individual Name: coursera_course_620
-Course Name: Effective Classroom Interactions: Supporting Young Children?s Development
+Course Name: Effective Classroom Interactions: Supporting Young Children’s Development
 ID: 620
 
 Individual Name: coursera_course_1512
@@ -2318,7 +2318,7 @@ Course Name: Teaching goes massive: new skills required
 ID: 1512
 
 Individual Name: coursera_course_447
-Course Name: Al?atoire : une Introduction aux Probabilit?s 
+Course Name: Aléatoire : une Introduction aux Probabilités 
 ID: 447
 
 Individual Name: coursera_course_315
@@ -2418,7 +2418,7 @@ Course Name: Surviving Disruptive Technologies
 ID: 268
 
 Individual Name: coursera_course_807
-Course Name: Introduction ? la th?orie de Galois
+Course Name: Introduction à la théorie de Galois
 ID: 807
 
 Individual Name: coursera_course_1561
@@ -2438,11 +2438,11 @@ Course Name: Scandinavian Film and Television
 ID: 400
 
 Individual Name: coursera_course_828
-Course Name: Villes africaines: une introduction ? la planification urbaine / African cities : an introduction to urban planning
+Course Name: Villes africaines: une introduction à la planification urbaine / African cities : an introduction to urban planning
 ID: 828
 
 Individual Name: coursera_course_960
-Course Name: Conceptos y Herramientas para la F?sica Universitaria
+Course Name: Conceptos y Herramientas para la Física Universitaria
 ID: 960
 
 Individual Name: coursera_course_635
@@ -2458,7 +2458,7 @@ Course Name: Reason and Persuasion: Thinking Through Three Dialogues By Plato
 ID: 720
 
 Individual Name: coursera_course_1165
-Course Name: Durabilit? : ?tat des lieux plan?taire, sc?narios envisageables
+Course Name: Durabilité : état des lieux planétaire, scénarios envisageables
 ID: 1165
 
 Individual Name: coursera_course_94
@@ -2510,7 +2510,7 @@ Course Name: ?????? (Understanding the Greek Philosophy)
 ID: 1261
 
 Individual Name: coursera_course_427
-Course Name: Globalizing Higher Education and Research for the ?Knowledge Economy?
+Course Name: Globalizing Higher Education and Research for the ‘Knowledge Economy’
 ID: 427
 
 Individual Name: coursera_course_596
@@ -2562,7 +2562,7 @@ Course Name: Principles of Obesity Economics
 ID: 62
 
 Individual Name: coursera_course_1004
-Course Name: Evaluation financi?re de l'entreprise
+Course Name: Evaluation financière de l'entreprise
 ID: 1004
 
 Individual Name: coursera_course_178
@@ -2678,7 +2678,7 @@ Course Name: Introduction to Music Production
 ID: 222
 
 Individual Name: coursera_course_592
-Course Name: What a Plant Knows (and other things you didn?t know about plants)
+Course Name: What a Plant Knows (and other things you didn’t know about plants)
 ID: 592
 
 Individual Name: coursera_course_496

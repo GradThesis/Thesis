@@ -38,7 +38,7 @@ public class University {
 
 	    try {
 	    	// Set up log file
-	    	File logFile = new File("log/coursera/university/university_log_" + timestamp);
+	    	File logFile = new File("log/coursera/university/university_log_10Apr.txt");
 		    FileOutputStream log = new FileOutputStream(logFile);
 		    String header = "New Coursera universities:\n" + timestamp.toString() 
 		    		+ "\n-------------------------\n\n";

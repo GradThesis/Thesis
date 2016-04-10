@@ -30,7 +30,7 @@ public class Session {
 
 	    try {
 	    	// Set up log file
-	    	File logFile = new File("log/coursera/session/session_log_" + timestamp);
+	    	File logFile = new File("log/coursera/session/session_log_10Apr.txt");
 		    FileOutputStream log = new FileOutputStream(logFile);
 		    String header = "New Coursera sessions:\n" + timestamp.toString() 
 		    		+ "\n-------------------------\n\n";

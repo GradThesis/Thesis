@@ -47,7 +47,7 @@ public class Instructor {
 
 	    try {
 	    	// Set up log file
-	    	File logFile = new File("log/coursera/instructor/instructor_log_" + timestamp);
+	    	File logFile = new File("log/coursera/instructor/instructor_log_10Apr.txt");
 		    FileOutputStream log = new FileOutputStream(logFile);
 		    String header = "New Coursera instructors:\n" + timestamp.toString() 
 		    		+ "\n-------------------------\n\n";

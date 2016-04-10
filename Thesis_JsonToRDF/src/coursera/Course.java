@@ -45,7 +45,7 @@ public class Course {
 
 	    try {
 	    	// Set up log file
-	    	File logFile = new File("log/coursera/course/course_log_" + timestamp);
+	    	File logFile = new File("log/coursera/course/course_log_10Apr.txt");
 		    FileOutputStream log = new FileOutputStream(logFile);
 		    String header = "New Coursera courses:\n" + timestamp.toString() 
 		    		+ "\n-------------------------\n";
