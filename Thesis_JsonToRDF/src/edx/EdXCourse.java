@@ -46,7 +46,7 @@ public class EdXCourse {
 
 		    try {
 		    	// Set up log file
-		    	File logFile = new File("log/udacity/course_log_" + timestamp);
+		    	File logFile = new File("log/udacity/course_log_apr10.txt");
 			    FileOutputStream log = new FileOutputStream(logFile);
 			    String header = "New Coursera courses:\n" + timestamp.toString() 
 			    		+ "\n-------------------------\n";
@@ -199,7 +199,7 @@ public class EdXCourse {
 
 			    courseJson.writeToRDF(m);
 			    
-			    File file = new File("data/rdf/mooc_7_10_edx.rdf");
+			    File file = new File("data/rdf/mooc_edx.rdf");
 			    FileOutputStream out = new FileOutputStream(file);
 			    m.write(out);
 			    out.close();

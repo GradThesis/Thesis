@@ -1,0 +1,917 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:terms="http://purl.org/dc/terms/"
+    xmlns:vocab="http://vocab.sindice.net/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:schema="http://schema.org/"
+    xmlns:j.0="http://mooclink.asu.edu/coursera#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://cdhekne.github.io/mooc.owl#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://cdhekne.github.io/mooc.owl">
+    <owl:imports rdf:resource="http://schema.rdfs.org/all"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Category">
+    <rdfs:label xml:lang="en">Category</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Category"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Course"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.org/Person"/>
+  <owl:Class rdf:about="http://schema.org/CreativeWork"/>
+  <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Session">
+    <rdfs:label xml:lang="en">Session</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Course"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Course">
+    <rdfs:label>Course</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdfs:subClassOf rdf:resource="http://schema.org/CreativeWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Course_Certificate">
+    <rdfs:label>Course Certificate</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Certificate"/>
+    <rdfs:subClassOf rdf:resource="http://schema.org/CreativeWork"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://cdhekne.github.io/mooc.owl#Course_Track">
+    <rdfs:label>Course Track</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Track"/>
+    <rdfs:subClassOf rdf:resource="http://schema.org/CreativeWork"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#includesCourse">
+    <rdfs:label xml:lang="en">Includes Course</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#includesCourse"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Category"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#belongsToCourse">
+    <rdfs:label xml:lang="en">Belongs to Course</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#belongsToCourse"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#hasSession"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#belongsToTrack">
+    <rdfs:label xml:lang="en">Belongs to Track</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#belongsToTrack"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Track"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#hasCourse"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#hasSession">
+    <rdfs:label xml:lang="en">Has Session</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#hasSession"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#teaches">
+    <rdfs:label xml:lang="en">Teaches</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#teaches"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdfs:domain rdf:resource="http://schema.org/Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#hasCourse">
+    <rdfs:label xml:lang="en">Has Course</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#hasCourse"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Track"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#hasCategory">
+    <rdfs:label xml:lang="en">Has Category</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#hasCategory"/>
+    <rdfs:range rdf:resource="http://cdhekne.github.io/mooc.owl#Category"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <owl:inverseOf rdf:resource="http://cdhekne.github.io/mooc.owl#includesCourse"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#isTaughtBy">
+    <rdfs:label xml:lang="en">Is Taught By</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#isTaughtBy"/>
+    <rdfs:range rdf:resource="http://schema.org/Person"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <owl:inverseOf rdf:resource="http://cdhekne.github.io/mooc.owl#teaches"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Short_Name">
+    <rdfs:label xml:lang="en">Short Name</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Short_Name"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Start_Date">
+    <rdfs:label xml:lang="en">Start Date</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Start_Date"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Eligible_for_Signature_Track">
+    <rdfs:label xml:lang="en">Eligible for Signature Track</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Eligible_for_Signature_Track"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Session_ID">
+    <rdfs:label xml:lang="en">Session ID</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Session_ID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_ID">
+    <rdfs:label xml:lang="en">Course ID</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Certificate_ID">
+    <rdfs:label xml:lang="en">Certificate ID</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Certificate_ID"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Category_ID">
+    <rdfs:label xml:lang="en">Category ID</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Category_ID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Category"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Syllabus_Link">
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Syllabus_Link"/>
+    <rdfs:label xml:lang="en">Syllabus Link</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Format">
+    <rdfs:label xml:lang="en">Course Format</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Format"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Recommended_Background">
+    <rdfs:label xml:lang="en">Recommended Background</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Recommended_Background"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Eligible_for_Certificates">
+    <rdfs:label xml:lang="en">Eligible for Certificates</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Eligible_for_Certificates"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Syllabus">
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Syllabus"/>
+    <rdfs:label xml:lang="en">Course Syllabus</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Difficulty">
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Difficulty"/>
+    <rdfs:label xml:lang="en">Difficulty</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Active">
+    <rdfs:label xml:lang="en">Active</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Active"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Organization_ID">
+    <rdfs:label xml:lang="en">Organization ID</rdfs:label>
+    <rdfs:label rdf:resource="http://cdhekne.github.io/mooc.owl#Organization_ID"/>
+    <rdfs:domain rdf:resource="http://schema.org/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Duration">
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Duration"/>
+    <rdfs:label xml:lang="en">Duration</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Session_Status">
+    <rdfs:label xml:lang="en">Session Status</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Session_Status"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Session"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_ep245">
+    <schema:name>How_to_Build_a_Startup</schema:name>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_ep245</j.0:isTaughtBy>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Learn the key tools and steps to build a successful startup (or at least reduce the risk of failure). An introduction to the basics of Steve Blank's famous Customer Development process, where entrepreneurs "get out of the building" to gather massive amounts of customer and marketplace feedback, and then use that feedback to continuously iterate and evolve their startup business models, improving the chances of success at every step.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;You'll learn the key steps of the Customer Development process: how to identify and engage the first customers for your product, and how to gather, evaluate and use their feedback to make your product, marketing and business model far stronger.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Prior knowledge or experience are not required. Passion, tenacity, and a willingness to work hard are essential. Ideally, you'll join the class with at least a rough idea of the business model of the startup you'll work on step-by-step through the course of the class.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: What We Now Know&lt;/strong&gt;&lt;p&gt;Why startups are not smaller versions of large companies&lt;/p&gt;&lt;strong&gt;Lessons 1.5A and 1.5B: Business Models and Customer Development&lt;/strong&gt;&lt;p&gt;How to articulate and test hypotheses&lt;/p&gt;&lt;strong&gt;Lesson 2: Value Proposition&lt;/strong&gt;&lt;p&gt;How do you find your minimum viable product?&lt;/p&gt;&lt;strong&gt;Lesson 3: Customer Segments&lt;/strong&gt;&lt;p&gt;How do you find your customer archetype?&lt;/p&gt;&lt;strong&gt;Lesson 4: Channels&lt;/strong&gt;&lt;p&gt;How does your product gets to customers?&lt;/p&gt;&lt;strong&gt;Lesson 5: Customer Relationships&lt;/strong&gt;&lt;p&gt;How do you get, keep and grow customers?&lt;/p&gt;&lt;strong&gt;Lesson 6: Revenue Models&lt;/strong&gt;&lt;p&gt;How do you make your money?&lt;/p&gt;&lt;strong&gt;Lesson 7: Partners&lt;/strong&gt;&lt;p&gt;Who are your partners and suppliers?&lt;/p&gt;&lt;strong&gt;Lesson 8: Resources, Activities and Costs&lt;/strong&gt;&lt;p&gt;What is most important for the business?&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Recommended_Background>&lt;p&gt;Prior knowledge or experience are not required. Passion, tenacity, and a willingness to work hard are essential. Ideally, you'll join the class with at least a rough idea of the business model of the startup you'll work on step-by-step through the course of the class.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_ID>ep245</j.0:Course_ID>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_ph100">
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Recommended_Background>&lt;p&gt;This course is suitable for anyone; a basic understanding of algebra is suggested.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_ID>ph100</j.0:Course_ID>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Study physics abroad in Europe -- virtually! Learn the basics of physics on location in Italy, the Netherlands and the UK, by answering some of the discipline's major questions from over the last 2000 years.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This unique class gives you the chance to see the sites where physics history was made and learn some of the subject's most captivating concepts.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course is suitable for anyone; a basic understanding of algebra is suggested.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_ph100</j.0:isTaughtBy>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: How can we measure the circumference of the Earth?&lt;/strong&gt;&lt;p&gt;Basics of geometry and trigonometry&lt;/p&gt;&lt;strong&gt;Lesson 2: How do objects move?&lt;/strong&gt;&lt;p&gt;Data analysis and kinematics&lt;/p&gt;&lt;strong&gt;Lesson 3: What causes motion?&lt;/strong&gt;&lt;p&gt;Forces, acceleration, and Newton’s Laws&lt;/p&gt;&lt;strong&gt;Lesson 4: How can we use motion?&lt;/strong&gt;&lt;p&gt;Work, energy, and simple machines&lt;/p&gt;&lt;strong&gt;Lesson 5: How can we determine our longitude at sea?&lt;/strong&gt;&lt;p&gt;Simple harmonic motion&lt;/p&gt;&lt;strong&gt;Lesson 6: What is electricity?&lt;/strong&gt;&lt;p&gt;Charge and electric fields&lt;/p&gt;&lt;strong&gt;Lesson 7: What is left to discover?&lt;/strong&gt;&lt;p&gt;Modern physics and open questions&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:name>Introduction_to_Physics</schema:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs253">
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Recommended_Background>&lt;p&gt;A moderate amount of programming and computer science experience is necessary for this course.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_Syllabus>&lt;strong&gt;How the Web Works&lt;/strong&gt;&lt;p&gt;Introduction to HTTP and Web Applications&lt;/p&gt;&lt;strong&gt;How to Have Users&lt;/strong&gt;&lt;p&gt;Getting and processing user input&lt;/p&gt;&lt;strong&gt;How to Manage State&lt;/strong&gt;&lt;p&gt;Databases and persistent data&lt;/p&gt;&lt;strong&gt;Whom to Trust&lt;/strong&gt;&lt;p&gt;User authentication and access control&lt;/p&gt;&lt;strong&gt;How to Connect&lt;/strong&gt;&lt;p&gt;Web applications as services, using APIs&lt;/p&gt;&lt;strong&gt;How to Serve Millions&lt;/strong&gt;&lt;p&gt;Scaling, caching, optimizations&lt;/p&gt;&lt;strong&gt;Changing the World&lt;/strong&gt;&lt;p&gt;Building a successful web application, project&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:name>Web_Development</schema:name>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs253</j.0:isTaughtBy>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;Starting from the basics of how the web works, this class will walk you through everything you need to know to build your own blog application and scale it to support large numbers of users.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;In this project-based course your knowledge will be evaluated as you learn to build your own blog application! Learn everything Steve Huffman wished he would have known when he broke into the startup world. Read more about Huffman and the course &lt;a href="http://www.udacity.blogspot.com/2012/05/steve-huffman-has-something-to-teach.html"&gt;here.&lt;/a&gt;&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;A moderate amount of programming and computer science experience is necessary for this course.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;strong&gt;What Will I Learn?&lt;/strong&gt;&#xD;
+&lt;strong&gt;Projects&lt;/strong&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;Make a webpage that anyone can add to and edit.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;</schema:about>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Course_ID>cs253</j.0:Course_ID>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_ma006">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_ma006</j.0:teaches>
+    <schema:affiliation>San Jose State University</schema:affiliation>
+    <schema:name>Susan McClory, Sandra DeSousa and Chris Saden</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs373">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs373</j.0:teaches>
+    <schema:affiliation>Stanford University</schema:affiliation>
+    <schema:name>Sebastian Thrun</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs212">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs212</j.0:teaches>
+    <schema:affiliation>Stanford University</schema:affiliation>
+    <schema:name>Peter Norvig</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs313">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs313</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Sebastian Wernicke</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_ph100">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_ph100</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Andy Brown</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs387">
+    <j.0:Course_ID>cs387</j.0:Course_ID>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:name>CS387_-_Applied_Cryptography</schema:name>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Recommended_Background>&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course, as well as some understanding of probability and theory of computation and algorithm analysis.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs387</j.0:isTaughtBy>
+    <j.0:Course_Syllabus>&lt;p&gt;&lt;strong&gt;Lesson 1: Perfect Ciphers&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;What makes certain ciphers perfect, how the Lorenz Cipher was broken&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 2: Symmetric Encryption&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Sending messages when two people share a secret&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 3: Key Exchange&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Technics to establish a shared secret&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 4: Asymmetric Encryption&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Exchanging information using public key cryptosystems&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 5: Public Key Protocols&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Encrypted key exchange, certificates, secure commerce&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 6: Using Cryptographic Primitives&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;How cryptography can be useful for anonymizing communication, voting, and digital cash&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lesson 7: Secure Computation&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Computing without exposing data&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Cryptography is present in everyday life, from paying with a credit card to using the telephone. Learn all about making and breaking puzzles in computing.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Explore how secrets are written and shared, as well as what can go wrong when cryptography is misused or implemented badly.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course, as well as some understanding of probability and theory of computation and algorithm analysis.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs258">
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Course_ID>cs258</j.0:Course_ID>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs258</j.0:isTaughtBy>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Domains, Ranges, Oracles, and Kinds of Testing&lt;/strong&gt;&lt;p&gt;How to think about the different elements of software testing&lt;/p&gt;&lt;strong&gt;Lesson 2: Code Coverage&lt;/strong&gt;&lt;p&gt;How to find parts of a program that need more testing&lt;/p&gt;&lt;strong&gt;Lesson 3: Random Testing&lt;/strong&gt;&lt;p&gt;How to automatically generate test cases that break code in unexpected ways&lt;/p&gt;&lt;strong&gt;Lesson 4: Advanced Random Testing&lt;/strong&gt;&lt;p&gt;How to engineer a sophisticated random test case generator&lt;/p&gt;&lt;strong&gt;Lesson 5: Consequences&lt;/strong&gt;&lt;p&gt;How to deal with lots of bugs, how to take a big input that triggers a bug and make it smaller, how to report a bug, and more!&lt;/p&gt;&lt;strong&gt;Lesson 6: Conclusion&lt;/strong&gt;</j.0:Course_Syllabus>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;When writing software, destruction can be just as valuable as creation. Learn how to catch bugs and break software as you discover different testing methods that will help you build better software.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course will teach you how to think like a software tester, how to find bugs in code earlier, and write better code.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Programming experience is required.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <schema:name>Software_Testing</schema:name>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Recommended_Background>&lt;p&gt;Programming experience is required.&lt;/p&gt;</j.0:Recommended_Background>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs222">
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs222</j.0:isTaughtBy>
+    <j.0:Course_ID>cs222</j.0:Course_ID>
+    <schema:name>Differential_Equations_in_Action</schema:name>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;In this course you will examine real world problems -- rescue the Apollo 13 astronauts, stop the spread of epidemics, and fight forest fires -- involving differential equations and figure out how to solve them using numerical methods.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;By the end of this course, you'll develop an intuition for the use of differential equations in the applied sciences. You'll also learn how to build mathematical models for systems of differential equations. Along the way, you'll learn how to translate mathematical expressions into Python code, and solve some really cool problems!&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;You'll need a basic knowledge of programming for this course, around the level of &lt;a href="http://www.udacity.com/overview/Course/cs101/CourseRev/apr2012"&gt;CS 101&lt;/a&gt; or equivalent. You'll also need to understand trigonometry at the high school level, as well as basic vector algebra. This class will primarily involve solving equations numerically rather than analytically, but some exposure to&lt;a href="http://www.khanacademy.org/math/calculus/"&gt;calculus&lt;/a&gt; and physics at the level of &lt;a href="http://www.udacity.com/overview/Course/pstrong00/CourseRev/1"&gt;PH 100&lt;/a&gt; wouldn't hurt.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Rescuing Apollo 13, Part 1&lt;/strong&gt;&lt;p&gt;Introduction to the Forward Euler Method&lt;/p&gt;&lt;strong&gt;Lesson 2: Rescuing Apollo 13, Part 2&lt;/strong&gt;&lt;p&gt;Comparing solvers, Heun’s Method and Symplectic Euler Method&lt;/p&gt;&lt;strong&gt;Lesson 3: Analyzing the Spread of Diseases&lt;/strong&gt;&lt;p&gt;Implicit methods and stiffness&lt;/p&gt;&lt;strong&gt;Lesson 4: There’s Plenty of Fish in the Sea?&lt;/strong&gt;&lt;p&gt;Stability, sensitivity, and optimization&lt;/p&gt;&lt;strong&gt;Lesson 5: Antilock Brake Systems&lt;/strong&gt;&lt;p&gt;Friction, equilibria, and control theory&lt;/p&gt;&lt;strong&gt;Lesson 6: The Path of a Forest Fire&lt;/strong&gt;&lt;p&gt;Partial differential equations and heat conduction&lt;/p&gt;&lt;strong&gt;Lesson 7: Advanced Applications of Numerical Methods&lt;/strong&gt;&lt;p&gt;Chaos, software, and predictive capability&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Recommended_Background>&lt;p&gt;You'll need a basic knowledge of programming for this course, around the level of &lt;a href="http://www.udacity.com/overview/Course/cs101/CourseRev/apr2012"&gt;CS 101&lt;/a&gt; or equivalent. You'll also need to understand trigonometry at the high school level, as well as basic vector algebra. This class will primarily involve solving equations numerically rather than analytically, but some exposure to&lt;a href="http://www.khanacademy.org/math/calculus/"&gt;calculus&lt;/a&gt; and physics at the level of &lt;a href="http://www.udacity.com/overview/Course/pstrong00/CourseRev/1"&gt;PH 100&lt;/a&gt; wouldn't hurt.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs101">
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;In this introductory course, you’ll learn and practice key computer science concepts by building your own versions of popular web applications. You’ll learn Python, a powerful, easy-to-learn, and widely used programming language, and you’ll explore fundamental computer science concepts, as you build your own search engine and social network.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;You’ll learn the programming language Python, and you’ll explore foundational concepts in computer science. Most importantly, you’ll start thinking like a software engineer by solving interesting problems (how to build a web crawler or a social network) using computer science.&lt;/p&gt;&#xD;
+&lt;p&gt;This course is a first step into the world of computer science, and whether you want to become a software engineer, or collaborate with software engineers, this course is for you. You’ll be prepared for intermediate-level computer science courses when you’ve mastered the concepts covered in this course.&lt;/p&gt;&#xD;
+&lt;p&gt;Build a Search Engine:&lt;/p&gt;&#xD;
+&lt;p&gt;Throughout this course, you’ll build a search engine by learning about and producing key search engine components including a crawler, an index and a page rank algorithm. As you build these pieces, you’ll be learning about and practicing computer science skills that will ready you for intermediate level computer science courses.&lt;/p&gt;&#xD;
+&lt;p&gt;Build a Social Network:&lt;/p&gt;&#xD;
+&lt;p&gt;At the end of the course we will give you a set of relationships (i.e. strings of phrases like “Dave likes Andy, Kathleen and Kristy”) and you will use your new computer science skills to organize these relationships into a social network. With your new social network, you can explore relationships and gain insight into how you fit into your own social networks.&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&#xD;
+&lt;div&gt;&#xD;
+&lt;p&gt;There is no prior programming knowledge needed for this course. Beginners are welcome!&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;/div&gt;</schema:about>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs101</j.0:isTaughtBy>
+    <j.0:Recommended_Background>&lt;p&gt;There is no prior programming knowledge needed for this course. Beginners are welcome!&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: How to Get Started&lt;/strong&gt;&lt;p&gt;Your first program: Extracting a link&lt;/p&gt;&lt;strong&gt;Lesson 2: How to Repeat&lt;/strong&gt;&lt;p&gt;Procedures, decisions (if), loops; finding all of the links on a page&lt;/p&gt;&lt;strong&gt;Additional Lesson: How to Solve Problems&lt;/strong&gt;&lt;p&gt;Universal techniques for solving programming problems&lt;/p&gt;&lt;strong&gt;Lesson 3: How to Manage Data&lt;/strong&gt;&lt;p&gt;Lists; crawling the web&lt;/p&gt;&lt;strong&gt;Lesson 4: Responding to Queries&lt;/strong&gt;&lt;p&gt;Complex data structures; building a reverse index to do searches; networks&lt;/p&gt;&lt;strong&gt;Lesson 5: How Programs Run&lt;/strong&gt;&lt;p&gt;Reasoning about cost; hash tables (Dictionary)&lt;/p&gt;&lt;strong&gt;Lesson 6: How to Have Infinite Power&lt;/strong&gt;&lt;p&gt;Recursive definitions; ranking search results&lt;/p&gt;&lt;strong&gt;Lesson 7: Where to Go from Here&lt;/strong&gt;&lt;p&gt;Past, present, and future of computing; exam&lt;/p&gt;&lt;strong&gt;Final Project: Build a Social Network&lt;/strong&gt;</j.0:Course_Syllabus>
+    <schema:name>Introduction_to_Computer_Science</schema:name>
+    <j.0:Course_ID>cs101</j.0:Course_ID>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs262">
+    <schema:name>Programming_Languages</schema:name>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs262</j.0:isTaughtBy>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;This class will give you an introduction to the fundamentals of programming languages. Key concepts include how to specify and process valid strings, sentences and program structures.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Take this class and learn how to build your own simple web browser complete with the ability to parse and understand HTML and JavaScript.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Course_Syllabus>&lt;strong&gt;String Patterns&lt;/strong&gt;&lt;p&gt;Finding and specifying classes of strings using regular expressions&lt;/p&gt;&lt;strong&gt;Lexical Analysis&lt;/strong&gt;&lt;p&gt;Breaking strings down into important words&lt;/p&gt;&lt;strong&gt;Grammars&lt;/strong&gt;&lt;p&gt;Specifying and deconstructing valid sentences&lt;/p&gt;&lt;strong&gt;Parsing&lt;/strong&gt;&lt;p&gt;Turning sentences into trees&lt;/p&gt;&lt;strong&gt;Interpreting&lt;/strong&gt;&lt;p&gt;Simulating programs&lt;/p&gt;&lt;strong&gt;Building a Web Browser&lt;/strong&gt;&lt;p&gt;Interpreting HTML and JavaScript&lt;/p&gt;&lt;strong&gt;Wrap-up&lt;/strong&gt;&lt;p&gt;Exam testing your knowledge&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Course_ID>cs262</j.0:Course_ID>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Recommended_Background>&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_ma006">
+    <j.0:Course_ID>ma006</j.0:Course_ID>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Throughout this course, we will use algebra to quantify and describe the world around us. Have you ever wondered how many songs can fit onto your flash drive? By the end of the course, you’ll have stronger skills for modeling problems, analyzing patterns, and using algebra to arrive at conclusions.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Understand and develop the language, models, and tools for math reasoning.&lt;/p&gt;&#xD;
+&lt;p&gt;Reason with numbers and units to solve problems.&lt;/p&gt;&#xD;
+&lt;p&gt;Identify, analyze, extend, and create patterns and functions.&lt;/p&gt;&#xD;
+&lt;p&gt;Make connections about relations and functions through multiple representations: graphs, charts, tables, equations.&lt;/p&gt;&#xD;
+&lt;p&gt;Apply mathematical reasoning and logic to solve equations and write equivalent forms.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Almost nothing! Students should know their multiplication tables (1-12) and be proficient with adding and subtracting integers (for example, -7 - 16). A pencil and paper will be a student’s best aid rather than a calculator.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Recommended_Background>&lt;p&gt;Almost nothing! Students should know their multiplication tables (1-12) and be proficient with adding and subtracting integers (for example, -7 - 16). A pencil and paper will be a student’s best aid rather than a calculator.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_Syllabus>&lt;p&gt;Unit 1 - Review of Foundations&lt;/p&gt;&lt;p&gt;Unit 2 - Equations and Inequalities&lt;/p&gt;&lt;p&gt;Unit 3 - Graphs of Linear Equations&lt;/p&gt;&lt;p&gt;Unit 4 - Systems of Equations&lt;/p&gt;&lt;p&gt;Unit 5 - Exponents and Polynomials&lt;/p&gt;&lt;p&gt;Unit 6 - Factoring&lt;/p&gt;&lt;p&gt;Unit 7 - Rational Expressions&lt;/p&gt;&lt;p&gt;Unit 8 - Rational Exponents and Radicals&lt;/p&gt;&lt;p&gt;Unit 9 - Solving Quadratic Equations&lt;/p&gt;&lt;p&gt;Unit 10 - Quadratic Equations and Applications&lt;/p&gt;&lt;p&gt;Unit 11 - Conic Sections&lt;/p&gt;&lt;p&gt;Unit 12 - Inverses, Exponentials, and Logarithms&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:name>Visualizing_Algebra</schema:name>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_ma006</j.0:isTaughtBy>
+    <schema:inLanguage>English</schema:inLanguage>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs291">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs291</j.0:teaches>
+    <schema:affiliation>Autodesk</schema:affiliation>
+    <schema:name>Eric Haines</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs271">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs271</j.0:teaches>
+    <schema:affiliation>Stanford University</schema:affiliation>
+    <schema:name>Sebastian Thrun and Peter Norvig</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs344">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs344</j.0:teaches>
+    <schema:affiliation>NvidiaUniversity of California, Davis</schema:affiliation>
+    <schema:name>John Owens and David Luebke</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs255">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs255</j.0:teaches>
+    <schema:affiliation>Google</schema:affiliation>
+    <schema:name>Colt McAnlis and Peter Lubbers</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs215">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs215</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Michael Littman</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs348">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs348</j.0:teaches>
+    <schema:affiliation>Cadence</schema:affiliation>
+    <schema:name>Axel Scherer and Hannes Fröhlich</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs259">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs259</j.0:teaches>
+    <schema:affiliation>Saarland University</schema:affiliation>
+    <schema:name>Andreas Zeller</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs344">
+    <j.0:Course_ID>cs344</j.0:Course_ID>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: GPU Programming Model&lt;/strong&gt;&lt;p&gt;Project 1: Greyscale Conversion (for that classy touch!)&lt;/p&gt;&lt;strong&gt;Lesson 2: GPU Hardware and Parallel Communication&lt;/strong&gt;&lt;p&gt;Project 2: Smart Blurring (miracle product for removing wrinkles!)&lt;/p&gt;&lt;strong&gt;Lesson 3: Fundamental Parallel Algorithms&lt;/strong&gt;&lt;p&gt;Project 3: HDR Tonemapping (when 1000:1 contrast is not enough!)&lt;/p&gt;&lt;strong&gt;Lesson 4: Using Sort and Scan&lt;/strong&gt;&lt;p&gt;Project 4: Red Eye Removal (soothing relief for bright red eyes)&lt;/p&gt;&lt;strong&gt;Lesson 5: Optimizing GPU Programs&lt;/strong&gt;&lt;p&gt;Project 5: Accelerating Histograms (when fast isn't fast enough)&lt;/p&gt;&lt;strong&gt;Lesson 6: Parallel Computing Patterns&lt;/strong&gt;&lt;p&gt;Project 6: Seamless Image Compositing (polar bear in the swimming pool)&lt;/p&gt;&lt;strong&gt;Lesson 7: The Frontiers and Future of GPU Computing&lt;/strong&gt;</j.0:Course_Syllabus>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Learn the fundamentals of parallel computing with the GPU and the CUDA programming environment! In this class, you'll learn about parallel programming by coding a series of image processing algorithms, such as you might find in Photoshop or Instagram. You'll be able to program and run your assignments on high-end GPUs, even if you don't own one yourself.&lt;/p&gt;&#xD;
+&lt;p&gt;Why It’s Important to Think Parallel&lt;/p&gt;&#xD;
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=3DbAB2ChDBw"&gt;Third Pillar of Science&lt;/a&gt; &lt;br&gt;Learn how scientific discovery can be accelerated by combining theory and experimentation with computing to fight cancer, prevent heart attacks, and spur new advances in robotic surgery.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;You'll master the fundamentals of massively parallel computing by using CUDA C/C++ to program modern GPUs. You'll learn the GPU programming model and architecture, key algorithms and parallel programming patterns, and optimization techniques. Your assignments will illustrate these concepts through image processing applications, but this is a parallel computing course and what you learn will translate to any application domain. Most of all we hope you'll learn how to think in parallel.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;We expect students to have a solid experience with the C programming language and basic knowledge of data structures and algorithms.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs344</j.0:isTaughtBy>
+    <j.0:Recommended_Background>&lt;p&gt;We expect students to have a solid experience with the C programming language and basic knowledge of data structures and algorithms.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:name>Intro_to_Parallel_Programming</schema:name>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs255">
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;This course will walk you through the major components of building GRITS, an HTML5 game. We'll talk about how to take standard game development techniques, and use them to create high performance HTML5 applications.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;At the end of this course, you'll understand how to develop an HTML5 game. You will gain familiarity with HTML5 features such as 2D canvas and techniques for improving performance.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Knowledge of HTML, Javascript, and how the web works is necessary for this course. There is an optional lesson on the specific parts of Javascript and the DOM that you'll need for this class as a refresher, but this is not an introductory course on Javascript.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Recommended_Background>&lt;p&gt;Knowledge of HTML, Javascript, and how the web works is necessary for this course. There is an optional lesson on the specific parts of Javascript and the DOM that you'll need for this class as a refresher, but this is not an introductory course on Javascript.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_ID>cs255</j.0:Course_ID>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs255</j.0:isTaughtBy>
+    <schema:name>HTML5_Game_Development</schema:name>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 0&lt;/strong&gt;&lt;p&gt;Optional HTML/Javascript crash course&lt;/p&gt;&lt;strong&gt;Lesson 1&lt;/strong&gt;&lt;p&gt;Introduction to Canvas rendering&lt;/p&gt;&lt;strong&gt;Lesson 2&lt;/strong&gt;&lt;p&gt;Atlases&lt;/p&gt;&lt;strong&gt;Lesson 3&lt;/strong&gt;&lt;p&gt;Map rendering&lt;/p&gt;&lt;strong&gt;Lesson 4&lt;/strong&gt;&lt;p&gt;Basic Input, handling events&lt;/p&gt;&lt;strong&gt;Lesson 5&lt;/strong&gt;&lt;p&gt;The entity hierarchy&lt;/p&gt;&lt;strong&gt;Lesson 6&lt;/strong&gt;&lt;p&gt;Box2D, and using external libraries&lt;/p&gt;&lt;strong&gt;Lesson 7&lt;/strong&gt;&lt;p&gt;Adding sound&lt;/p&gt;&lt;strong&gt;Lesson 8&lt;/strong&gt;&lt;p&gt;Asynchronous Loading&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs348">
+    <j.0:Course_Syllabus>&lt;p&gt;Lesson 1: Introduction to Hardware Verification&lt;/p&gt;&lt;p&gt;Lesson 2: Basic stimulus modeling and generation&lt;/p&gt;&lt;p&gt;Lesson 3: Interfacing to the Hardware Model&lt;/p&gt;&lt;p&gt;Lesson 4: Monitoring and Functional Coverage&lt;/p&gt;&lt;p&gt;Lesson 5: Checking&lt;/p&gt;&lt;p&gt;Lesson 6: Aspect Oriented Programming&lt;/p&gt;&lt;p&gt;Lesson 7: Reuse Methodology&lt;/p&gt;&lt;p&gt;Lesson 8: Debugging&lt;/p&gt;&lt;p&gt;Lesson 9: Conclusion and Exam&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:name>Functional_Hardware_Verification</schema:name>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Course_ID>cs348</j.0:Course_ID>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Recommended_Background>&lt;p&gt;Programming experience including object-oriented programming. Data &amp;amp; Control structure. &lt;br&gt;&lt;br&gt;&lt;br&gt;This course is developed by Cadence Design Systems, a global leader in electronic design automation.&lt;a href="http://www.cadence.com/solutions/ev/Pages/default.aspx" target="_blank"&gt;Cadence® software&lt;/a&gt;, hardware, IP, and services help customers around the world to overcome a range of technical and economic hurdles.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;When developing chips it is essential that they get verified thoroughly because it is very hard or impossible to fix them once they have been manufactured. In this class, you will learn how to program verification environments that verify chip functionality efficiently, as well as understand and leverage automation such as constrained random test generation and improve code reuse leveraging a standardized methodology.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course will teach you how to think like a verification engineer. It will show the software development aspects you need to know to ensure chips are working as expected. You will learn how to implement verification environments.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Programming experience including object-oriented programming. Data &amp;amp; Control structure. &lt;br&gt;&lt;br&gt;&lt;br&gt;This course is developed by Cadence Design Systems, a global leader in electronic design automation.&lt;a href="http://www.cadence.com/solutions/ev/Pages/default.aspx" target="_blank"&gt;Cadence® software&lt;/a&gt;, hardware, IP, and services help customers around the world to overcome a range of technical and economic hurdles.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs348</j.0:isTaughtBy>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_st095">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_st095</j.0:teaches>
+    <schema:affiliation>San Jose State University</schema:affiliation>
+    <schema:name>Sean Laraway, Ronald Rogers and Katie Kormanik</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs259">
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Course_ID>cs259</j.0:Course_ID>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:name>Software_Debugging</schema:name>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs259</j.0:isTaughtBy>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Recommended_Background>&lt;p&gt;Basic knowledge of programming and Python at the level of Udacity CS101 or better is required. Basic understanding of Object-oriented programming is helpful.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;In this class you will learn how to debug programs systematically, how to automate the debugging process and build several automated debugging tools in Python.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;At the end of this course you will have a solid understanding about systematic debugging, will know how to automate debugging and will have built several functional debugging tools in Python.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Basic knowledge of programming and Python at the level of Udacity CS101 or better is required. Basic understanding of Object-oriented programming is helpful.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: How Debuggers work&lt;/strong&gt;&lt;p&gt;Theory: Scientific method and its application to debugging. &lt;br&gt;Fun fact: First bug in the history of computer science. &lt;br&gt;Practice: Building a simple tracer.&lt;/p&gt;&lt;strong&gt;Lesson 2: Asserting Expectations&lt;/strong&gt;&lt;p&gt;Theory: Assertions in testing and in debugging. &lt;br&gt;Fun fact: The most expensive bug in history. &lt;br&gt;Practice: Improving the tracer.&lt;/p&gt;&lt;strong&gt;Lesson 3: Simplifying Failures&lt;/strong&gt;&lt;p&gt;Theory: Strategy of simplifying failures. Binary search. Delta debugging principle. &lt;br&gt;Fun fact: Mozilla bugathon. &lt;br&gt;Practice: Building a delta debugger.&lt;/p&gt;&lt;strong&gt;Lesson 4: Tracking Origins&lt;/strong&gt;&lt;p&gt;Theory: Cause-effect chain. Deduction. Dependencies. Slices. &lt;br&gt;Fun fact: Sherlock Holmes and Doctor Watson. &lt;br&gt;Practice: Improving the delta debugger.&lt;/p&gt;&lt;strong&gt;Lesson 5: Reproducing Failures&lt;/strong&gt;&lt;p&gt;Theory: Types of bugs (Bohr bug, Heisenbug, Mandelbug, Schrodinbug). Systematic reproduction process. &lt;br&gt;Fun fact: Mad laptop bug. &lt;br&gt;Practice: Building a statistic debugging tool.&lt;/p&gt;&lt;strong&gt;Lesson 6: Learning from Mistakes&lt;/strong&gt;&lt;p&gt;Theory: Bug database management. Classifying bugs. Bug maps. Learning from mistakes. &lt;br&gt;Fun fact: Programmer with the most buggy code. &lt;br&gt;Practice: Improving your tools and practicing on a real world bug database.&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs215">
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:name>Algorithms</schema:name>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Recommended_Background>&lt;p&gt;This class assumes an understanding of programming at the level of CS101, including the ability to read and write short programs in Python; it also assumes a comfort level with mathematical notation at the level of high school Algebra II or the SATs.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: A Social Network Magic Trick&lt;/strong&gt;&lt;p&gt;Becoming familiar with algorithm analysis&lt;/p&gt;&lt;strong&gt;Lesson 2: Growth Rates in Social Networks&lt;/strong&gt;&lt;p&gt;Using mathematical tools to analyze how things are connected&lt;/p&gt;&lt;strong&gt;Lesson 3: Basic Graph Algorithms&lt;/strong&gt;&lt;p&gt;Finding the quickest route to Kevin Bacon&lt;/p&gt;&lt;strong&gt;Lesson 4: It’s Who You Know&lt;/strong&gt;&lt;p&gt;Keeping track of your best friends using heaps&lt;/p&gt;&lt;strong&gt;Lesson 5: Strong and Weak Bonds&lt;/strong&gt;&lt;p&gt;Working with social networks with edge weights.&lt;/p&gt;&lt;strong&gt;Lesson 6: Hardness of Network Problems&lt;/strong&gt;&lt;p&gt;Exploring what it means for a social network problem to be harder than other.&lt;/p&gt;&lt;strong&gt;Lesson 7: Conclusion&lt;/strong&gt;&lt;p&gt;Using your knowledge&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Course_ID>cs215</j.0:Course_ID>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs215</j.0:isTaughtBy>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Ever played the Kevin Bacon game? This class will show you how it works by giving you an introduction to the design and analysis of algorithms, enabling you to discover how individuals are connected.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;By the end of this class you will understand key concepts needed to devise new algorithms for graphs and other important data structures and to evaluate the efficiency of these algorithms.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This class assumes an understanding of programming at the level of CS101, including the ability to read and write short programs in Python; it also assumes a comfort level with mathematical notation at the level of high school Algebra II or the SATs.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs271">
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Recommended_Background>&lt;p&gt;Some of the topics in Introduction to Artificial Intelligence will build on probability theory and linear algebra. You should have understanding of probability theory comparable to that at our ST101: Introduction to Statistics class&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;The objective of this class is to teach you modern AI. You will learn about the basic techniques and tricks of the trade. We also aspire to excite you about the field of AI.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This class introduces students to the basics of Artificial Intelligence, which includes machine learning, probabilistic reasoning, robotics, and natural language processing.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Some of the topics in Introduction to Artificial Intelligence will build on probability theory and linear algebra. You should have understanding of probability theory comparable to that at our ST101: Introduction to Statistics class&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_Syllabus>&lt;p&gt;Overview of AI&lt;/p&gt;&lt;p&gt;Statistics, Uncertainty, and Bayes networks&lt;/p&gt;&lt;p&gt;Machine Learning&lt;/p&gt;&lt;p&gt;Logic and Planning&lt;/p&gt;&lt;p&gt;Markov Decision Processes and Reinforcement Learning&lt;/p&gt;&lt;p&gt;Hidden Markov Models and Filters&lt;/p&gt;&lt;p&gt;Adversarial and Advanced Planning&lt;/p&gt;&lt;p&gt;Image Processing and Computer Vision&lt;/p&gt;&lt;p&gt;Robotics and robot motion planning&lt;/p&gt;&lt;p&gt;Natural Language Processing and Information Retrieval&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Course_ID>cs271</j.0:Course_ID>
+    <j.0:Duration>10 weeks long</j.0:Duration>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:name>Introduction_to_Artificial_Intelligence</schema:name>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs271</j.0:isTaughtBy>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs291">
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;This class will teach you about the basic principles of 3D computer graphics: meshes, transforms, cameras, materials, lighting, and animation.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;By the end of this class you will know enough to make an animated 3D demo program that runs in a web browser, while also understanding the basic principles of how realistic computer images are generated.&lt;/p&gt;&#xD;
+&lt;p&gt;You will also have a portfolio of small interactive programs that run in any web browser that supports WebGL.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Knowing how to program in some language is all you’ll need to get started. Some knowledge of JavaScript is useful later on if you wish to make your projects more interactive and engaging. Familiarity with vectors and matrices will ease your way but is not critical.&lt;/p&gt;&#xD;
+&lt;p&gt;To be able to see the interactive demos and do programming assignments you need a browser that supportsWebGL technology. An up to date version of Chrome or Firefox will work (see our &lt;a href="https://www.udacity.com/tech-requirements"&gt;FAQ&lt;/a&gt; for more information). You can test if your browser supports this technology by visiting the &lt;a href="http://get.webgl.org/"&gt;WebGL project homepage&lt;/a&gt;.&lt;/p&gt;&#xD;
+&lt;p&gt;Almost all programming will be done in JavaScript using &lt;a href="http://en.wikipedia.org/wiki/Threejs"&gt;three.js library/API&lt;/a&gt;.&lt;/p&gt;&#xD;
+&lt;p&gt;&lt;br&gt;About Autodesk&lt;/p&gt;&#xD;
+&lt;p&gt;This course is developed in conjunction with Autodesk, a worldwide leader in 3D design, engineering, and entertainment software. &lt;a href="http://www.autodesk.com/" target="_blank"&gt;http://www.autodesk.com&lt;/a&gt;&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Recommended_Background>&lt;p&gt;Knowing how to program in some language is all you’ll need to get started. Some knowledge of JavaScript is useful later on if you wish to make your projects more interactive and engaging. Familiarity with vectors and matrices will ease your way but is not critical.&lt;/p&gt;&lt;p&gt;To be able to see the interactive demos and do programming assignments you need a browser that supportsWebGL technology. An up to date version of Chrome or Firefox will work (see our &lt;a href="https://www.udacity.com/tech-requirements"&gt;FAQ&lt;/a&gt; for more information). You can test if your browser supports this technology by visiting the &lt;a href="http://get.webgl.org/"&gt;WebGL project homepage&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Almost all programming will be done in JavaScript using &lt;a href="http://en.wikipedia.org/wiki/Threejs"&gt;three.js library/API&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;br&gt;About Autodesk&lt;/p&gt;&lt;p&gt;This course is developed in conjunction with Autodesk, a worldwide leader in 3D design, engineering, and entertainment software. &lt;a href="http://www.autodesk.com/" target="_blank"&gt;http://www.autodesk.com&lt;/a&gt;&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs291</j.0:isTaughtBy>
+    <j.0:Duration>10 weeks long</j.0:Duration>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:name>Interactive_3D_Graphics</schema:name>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Introduction&lt;/strong&gt;&lt;p&gt;Motivation and a trip down the graphics pipeline, laying out the fundamental processes&lt;/p&gt;&lt;strong&gt;Lesson 2: Points, Vectors, and Meshes&lt;/strong&gt;&lt;p&gt;The basics of 3D geometry definition&lt;/p&gt;&lt;strong&gt;Lesson 3: Colors and Materials&lt;/strong&gt;&lt;p&gt;Color representation, material computations, transparency&lt;/p&gt;&lt;strong&gt;Lesson 4: Transforms&lt;/strong&gt;&lt;p&gt;Translation, scale, rotate and how to properly combine all these&lt;/p&gt;&lt;strong&gt;Lesson 5: Matrices&lt;/strong&gt;&lt;p&gt;Transform representation and how to fully control these&lt;/p&gt;&lt;strong&gt;Lesson 6: Lights&lt;/strong&gt;&lt;p&gt;Directional and point light sources&lt;/p&gt;&lt;strong&gt;Lesson 7: Cameras&lt;/strong&gt;&lt;p&gt;How the camera is defined&lt;/p&gt;&lt;strong&gt;Lesson 8: Textures and Reflections&lt;/strong&gt;&lt;p&gt;Color and opacity textures, along with reflection and normal mapping&lt;/p&gt;&lt;strong&gt;Lesson 9: Shader Programming&lt;/strong&gt;&lt;p&gt;An introduction to programming vertex and pixel shaders&lt;/p&gt;&lt;strong&gt;Lesson 10: Interaction and Animation&lt;/strong&gt;&lt;p&gt;How to select and make objects move&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Course_ID>cs291</j.0:Course_ID>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_ma008">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_ma008</j.0:teaches>
+    <schema:affiliation>San Jose State University</schema:affiliation>
+    <schema:name>Julie Sliva Spitzer and Miriam Swords Kalk</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs262">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs262</j.0:teaches>
+    <schema:affiliation>University of Virginia</schema:affiliation>
+    <schema:name>Wes Weimer</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_st101">
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Statistics is about extracting meaning from data. In this class, we will introduce techniques for visualizing relationships in data and systematic techniques for understanding the relationships using mathematics.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course will cover visualization, probability, regression and other topics that will help you learn the basic methods of understanding data with statistics.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course does not require any previous knowledge of statistics. Basic familiarity with algebra such as knowing how to compute the mean, median and mode of a set of numbers will be helpful.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <schema:name>Introduction_to_Statistics</schema:name>
+    <j.0:Course_ID>st101</j.0:Course_ID>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Recommended_Background>&lt;p&gt;This course does not require any previous knowledge of statistics. Basic familiarity with algebra such as knowing how to compute the mean, median and mode of a set of numbers will be helpful.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Visualizing relationships in data&lt;/strong&gt;&lt;p&gt;Seeing relationships in data and predicting based on them; Simpson's paradox&lt;/p&gt;&lt;strong&gt;Lesson 2: Probability&lt;/strong&gt;&lt;p&gt;Probability; Bayes Rule; Correlation vs. Causation&lt;/p&gt;&lt;strong&gt;Lesson 3: Estimation&lt;/strong&gt;&lt;p&gt;Maximum Likelihood Estimation; Mean, Median, Mode; Standard Deviation, Variance&lt;/p&gt;&lt;strong&gt;Lesson 4: Outliers and Normal Distribution&lt;/strong&gt;&lt;p&gt;Outliers, Quartiles; Binomial Distribution; Central Limit Theorem; Manipulating Normal Distribution&lt;/p&gt;&lt;strong&gt;Lesson 5: Inference&lt;/strong&gt;&lt;p&gt;Confidence intervals; Hypothesis Testing&lt;/p&gt;&lt;strong&gt;Lesson 6: Regression&lt;/strong&gt;&lt;p&gt;Linear regression; correlation&lt;/p&gt;&lt;strong&gt;Lesson 7: Final Exam&lt;/strong&gt;</j.0:Course_Syllabus>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_st101</j.0:isTaughtBy>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs387">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs387</j.0:teaches>
+    <schema:affiliation>University of Virginia</schema:affiliation>
+    <schema:name>David Evans</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs222">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs222</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Jörn Loviscach</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs101">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs101</j.0:teaches>
+    <schema:affiliation>University of Virginia</schema:affiliation>
+    <schema:name>Sebastian Thrun and David Evans</schema:name>
+  </schema:Person>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs258">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs258</j.0:teaches>
+    <schema:affiliation>University of Utah</schema:affiliation>
+    <schema:name>John Regehr</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs313">
+    <j.0:Recommended_Background>&lt;p&gt;You should have a basic understanding of algorithms (such as &lt;a href="https://www.udacity.com/course/cs215"&gt;CS215&lt;/a&gt;) and programming (such as &lt;a href="https://www.udacity.com/course/cs101"&gt;CS101&lt;/a&gt;). No prior knowledge about theoretical computer science required!&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Challenging Problems&lt;/strong&gt;&lt;p&gt;An introduction to tough problems and their analysis&lt;/p&gt;&lt;strong&gt;Lesson 2: Understanding Hardness&lt;/strong&gt;&lt;p&gt;What we mean when a problem is “hard” and the concept of NP-completeness&lt;/p&gt;&lt;strong&gt;Lesson 3: Showing Hardness&lt;/strong&gt;&lt;p&gt;Tools to let you recognize and prove that a problem is hard&lt;/p&gt;&lt;strong&gt;Lesson 4: Intelligent Force&lt;/strong&gt;&lt;p&gt;Smart techniques to solve problems that should – theoretically – be impossible to solve&lt;/p&gt;&lt;strong&gt;Lesson 5: Sloppy Solutions&lt;/strong&gt;&lt;p&gt;Gaining speed by accepting approximate solutions&lt;/p&gt;&lt;strong&gt;Lesson 6: Poking Around&lt;/strong&gt;&lt;p&gt;Why randomness can be of help – sometimes. An introduction to complexity classes.&lt;/p&gt;&lt;strong&gt;Lesson 7: Ultimate Limits&lt;/strong&gt;&lt;p&gt;Problems that no computer can ever solve. In theory.&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Course_ID>cs313</j.0:Course_ID>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;This class teaches you about basic concepts in theoretical computer science -- such as NP-completeness -- and what they imply for solving tough algorithmic problems.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;At the end of this course, you will have a solid understanding of theoretical computer science. This will not only allow you to recognize some of the most challenging algorithmic problems out there, but also give you powerful tools to deal with them in practice.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;You should have a basic understanding of algorithms (such as &lt;a href="https://www.udacity.com/course/cs215"&gt;CS215&lt;/a&gt;) and programming (such as &lt;a href="https://www.udacity.com/course/cs101"&gt;CS101&lt;/a&gt;). No prior knowledge about theoretical computer science required!&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:name>Intro_to_Theoretical_Computer_Science</schema:name>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs313</j.0:isTaughtBy>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_ep245">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_ep245</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Steve Blank</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs212">
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs212</j.0:isTaughtBy>
+    <schema:inLanguage>English</schema:inLanguage>
+    <j.0:Course_ID>cs212</j.0:Course_ID>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Recommended_Background>&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course.&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:name>Design_of_Computer_Programs</schema:name>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Winning Poker Hands&lt;/strong&gt;&lt;p&gt;Steps of the design process; Developing for clarity and generality; Arguments for program correctness; Experimentation and simulation.; Design tradeoffs; Simplicity and Clarity. Decomposition and composability.&lt;/p&gt;&lt;strong&gt;Lesson 2: Back of the Envelope&lt;/strong&gt;&lt;p&gt;Back of envelope calculations; When to use brute force and when to be clever; The Zebra puzzle; Generator expressions; Permutations and combinations. Cryptarithmetic; Recursive and wishful thinking.&lt;/p&gt;&lt;strong&gt;Lesson 3: Regular Expressions, other languages and interpreters&lt;/strong&gt;&lt;p&gt;Defining the language of regular expressions; Interpreting the language; Defining the set of strings matched by a regular expression; &lt;br&gt;Other languages.&lt;/p&gt;&lt;strong&gt;Lesson 4: Dealing with complexity through search&lt;/strong&gt;&lt;p&gt;Search: finding your way with a flashlight or boat; pouring water. Analyzing the efficiency of an algorithm; Recurrence relations; Matching data types with algorithms; Longest palindrome substring algorithm.&lt;/p&gt;&lt;strong&gt;Lesson 5: Dealing with uncertainty through probability&lt;/strong&gt;&lt;p&gt;Probability: the game of Pig; Maximizing expected utility to optimize strategy.&lt;/p&gt;&lt;strong&gt;Lesson 6: Word Games&lt;/strong&gt;&lt;p&gt;Managing complexity; Large sets of words; Appropriate data structures; Word games.&lt;/p&gt;&lt;strong&gt;Lesson 7: Conclusion&lt;/strong&gt;&lt;p&gt;Final exam/project&lt;/p&gt;</j.0:Course_Syllabus>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Learn new concepts, patterns, and methods that will expand your programming abilities, helping move you from a novice to an expert programmer.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Move along the path towards becoming an expert programmer! In this class you will practice going from a problem description to a solution, using a series of assignments.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course assumes previous programming experience, comparable to what is covered by the Udacity CS101 course.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_cs373">
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <j.0:Course_ID>cs373</j.0:Course_ID>
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Learn how to program all the major systems of a robotic car from the leader of Google and Stanford's autonomous driving teams. This class will teach you basic methods in Artificial Intelligence, including: probabilistic inference, planning and search, localization, tracking and control, all with a focus on robotics. Extensive programming examples and assignments will apply these methods in the context of building self-driving cars.&lt;/p&gt;&#xD;
+&lt;p&gt;This course is offered as part of the Georgia Tech Masters in Computer Science. The updated course includes a final project, where you must chase a runaway robot that is trying to escape!&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;This course will teach you probabilistic inference, planning and search, localization, tracking and control, all with a focus on robotics.&lt;/p&gt;&#xD;
+&lt;p&gt;At the end of the course, you will leverage what you learned by solving the problem of a runaway robot that you must chase and hunt down!&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Success in this course requires some programming experience and some mathematical fluency.&lt;/p&gt;&#xD;
+&lt;p&gt;Programming in this course is done in Python. We will use some basic object-oriented concepts to model robot motion and perception. If you don’t know Python but have experience with another language, you should be able to pick up the syntax fairly quickly. If you have no programming experience, you should consider taking Udacity’s &lt;a href="https://www.udacity.com/course/cs101" target="_blank"&gt;Introduction to Computer Science&lt;/a&gt; course before attempting this one.&lt;/p&gt;&#xD;
+&lt;p&gt;The math used will be centered on probability and linear algebra. You don’t need to be an expert in either, but some familiarity with concepts in probability (e.g. probabilities must add to one, conditional probability, and Bayes’ rule) will be extremely helpful. It is possible to learn these concepts during the course, but it will take more work. Knowledge of linear algebra, while helpful, is not required.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_Syllabus>&lt;strong&gt;Lesson 1: Localization&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Localization&lt;/li&gt;&#xD;
+&lt;li&gt;Total Probability&lt;/li&gt;&#xD;
+&lt;li&gt;Uniform Distribution&lt;/li&gt;&#xD;
+&lt;li&gt;Probability After Sense&lt;/li&gt;&#xD;
+&lt;li&gt;Normalize Distribution&lt;/li&gt;&#xD;
+&lt;li&gt;Phit and Pmiss&lt;/li&gt;&#xD;
+&lt;li&gt;Sum of Probabilities&lt;/li&gt;&#xD;
+&lt;li&gt;Sense Function&lt;/li&gt;&#xD;
+&lt;li&gt;Exact Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Move Function&lt;/li&gt;&#xD;
+&lt;li&gt;Bayes Rule&lt;/li&gt;&#xD;
+&lt;li&gt;Theorem of Total Probability&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Lesson 2: Kalman Filters&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Gaussian Intro&lt;/li&gt;&#xD;
+&lt;li&gt;Variance Comparison&lt;/li&gt;&#xD;
+&lt;li&gt;Maximize Gaussian&lt;/li&gt;&#xD;
+&lt;li&gt;Measurement and Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Parameter Update&lt;/li&gt;&#xD;
+&lt;li&gt;New Mean Variance&lt;/li&gt;&#xD;
+&lt;li&gt;Gaussian Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Kalman Filter Code&lt;/li&gt;&#xD;
+&lt;li&gt;Kalman Prediction&lt;/li&gt;&#xD;
+&lt;li&gt;Kalman Filter Design&lt;/li&gt;&#xD;
+&lt;li&gt;Kalman Matrices&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Lesson 3: Particle Filters&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Slate Space&lt;/li&gt;&#xD;
+&lt;li&gt;Belief Modality&lt;/li&gt;&#xD;
+&lt;li&gt;Particle Filters&lt;/li&gt;&#xD;
+&lt;li&gt;Using Robot Class&lt;/li&gt;&#xD;
+&lt;li&gt;Robot World&lt;/li&gt;&#xD;
+&lt;li&gt;Robot Particles&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Lesson 4: Search&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Motion Planning&lt;/li&gt;&#xD;
+&lt;li&gt;Compute Cost&lt;/li&gt;&#xD;
+&lt;li&gt;Optimal Path&lt;/li&gt;&#xD;
+&lt;li&gt;First Search Program&lt;/li&gt;&#xD;
+&lt;li&gt;Expansion Grid&lt;/li&gt;&#xD;
+&lt;li&gt;Dynamic Programming&lt;/li&gt;&#xD;
+&lt;li&gt;Computing Value&lt;/li&gt;&#xD;
+&lt;li&gt;Optimal Policy&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Lesson 5: PID Control&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Robot Motion&lt;/li&gt;&#xD;
+&lt;li&gt;Smoothing Algorithm&lt;/li&gt;&#xD;
+&lt;li&gt;Path Smoothing&lt;/li&gt;&#xD;
+&lt;li&gt;Zero Data Weight&lt;/li&gt;&#xD;
+&lt;li&gt;Pid Control&lt;/li&gt;&#xD;
+&lt;li&gt;Proportional Control&lt;/li&gt;&#xD;
+&lt;li&gt;Implement P Controller&lt;/li&gt;&#xD;
+&lt;li&gt;Oscillations&lt;/li&gt;&#xD;
+&lt;li&gt;Pd Controller&lt;/li&gt;&#xD;
+&lt;li&gt;Systematic Bias&lt;/li&gt;&#xD;
+&lt;li&gt;Pid Implementation&lt;/li&gt;&#xD;
+&lt;li&gt;Parameter Optimization&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Lesson 6: SLAM (Simultaneous Localization and Mapping)&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Localization&lt;/li&gt;&#xD;
+&lt;li&gt;Planning&lt;/li&gt;&#xD;
+&lt;li&gt;Segmented Ste&lt;/li&gt;&#xD;
+&lt;li&gt;Fun with Parameters&lt;/li&gt;&#xD;
+&lt;li&gt;SLAM&lt;/li&gt;&#xD;
+&lt;li&gt;Graph SLAM&lt;/li&gt;&#xD;
+&lt;li&gt;Implementing Constraints&lt;/li&gt;&#xD;
+&lt;li&gt;Adding Landmarks&lt;/li&gt;&#xD;
+&lt;li&gt;Matrix Modification&lt;/li&gt;&#xD;
+&lt;li&gt;Untouched Fields&lt;/li&gt;&#xD;
+&lt;li&gt;Landmark Position&lt;/li&gt;&#xD;
+&lt;li&gt;Confident Measurements&lt;/li&gt;&#xD;
+&lt;li&gt;Implementing SLAM&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Runaway Robot Final Project&lt;/strong&gt;</j.0:Course_Syllabus>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Duration>7 weeks long</j.0:Duration>
+    <j.0:Recommended_Background>&lt;p&gt;Success in this course requires some programming experience and some mathematical fluency.&lt;/p&gt;&lt;p&gt;Programming in this course is done in Python. We will use some basic object-oriented concepts to model robot motion and perception. If you don’t know Python but have experience with another language, you should be able to pick up the syntax fairly quickly. If you have no programming experience, you should consider taking Udacity’s &lt;a href="https://www.udacity.com/course/cs101" target="_blank"&gt;Introduction to Computer Science&lt;/a&gt; course before attempting this one.&lt;/p&gt;&lt;p&gt;The math used will be centered on probability and linear algebra. You don’t need to be an expert in either, but some familiarity with concepts in probability (e.g. probabilities must add to one, conditional probability, and Bayes’ rule) will be extremely helpful. It is possible to learn these concepts during the course, but it will take more work. Knowledge of linear algebra, while helpful, is not required.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:name>Artificial_Intelligence_for_Robotics</schema:name>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_cs373</j.0:isTaughtBy>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_st101">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_st101</j.0:teaches>
+    <schema:affiliation>Stanford University</schema:affiliation>
+    <schema:name>Sebastian Thrun</schema:name>
+  </schema:Person>
+  <owl:NamedIndividual rdf:about="http://cdhekne.github.io/mooc.owl#C101">
+    <Recommended_Background>Be able to do at least 10 consecutive jumping jacks.</Recommended_Background>
+    <Course_Syllabus>Week 1: Eskimo pop culture\nWeek2: Eskimo economics</Course_Syllabus>
+    <hasSession>
+      <owl:NamedIndividual rdf:about="http://cdhekne.github.io/mooc.owl#C101-34"/>
+    </hasSession>
+    <hasCategory>
+      <owl:NamedIndividual rdf:about="http://cdhekne.github.io/mooc.owl#Computer_Science:_Software_Engineering"/>
+    </hasCategory>
+    <Course_Format>Obstacle courses, chess tournaments, programming assignments.</Course_Format>
+    <rdf:type rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+    <Syllabus_Link>https://www.coursera.org/course/principlescomputing</Syllabus_Link>
+    <Difficulty>Beginner</Difficulty>
+    <Course_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >353</Course_ID>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_ma008">
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_ma008</j.0:isTaughtBy>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:name>College_Algebra</schema:name>
+    <j.0:Course_ID>ma008</j.0:Course_ID>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;Math is everywhere. In this class, you’ll gain an in-depth understanding of algebraic principles, many of which you may have seen before, and learn how to use them to solve problems that we encounter in everyday life. The online version of College Algebra will cover all of the topics that you would see in more traditional class formats, but it will present the material in a way that we hope you’ll find fresh and interesting. You will learn about functions, polynomials, graphing, complex numbers, exponential and logarithmic equations, and much more, all through exploring real-world scenarios.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;In this course, you will learn...&lt;/p&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;To translate word problems into mathematical expressions or equations&lt;/li&gt;&#xD;
+&lt;li&gt;To manipulate algebraic expressions and solve equations&lt;/li&gt;&#xD;
+&lt;li&gt;To graph different types of functions and to understand the relationship between a function’s graph and its equation&lt;/li&gt;&#xD;
+&lt;li&gt;To model growth and decay&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;Basic arithmetic - addition, subtraction, multiplication and division of positive and negative numbers. &lt;/p&gt;&#xD;
+&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;&#xD;
+&lt;/div&gt;</schema:about>
+    <j.0:Recommended_Background>&lt;p&gt;Basic arithmetic - addition, subtraction, multiplication and division of positive and negative numbers. &lt;/p&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</j.0:Recommended_Background>
+    <j.0:Course_Syllabus>&lt;p&gt;The following topics will be covered. There will be two midterms and one final exam. There are no deadlines unless you are in the SJSU Plus-Udacity for-credit program.&lt;/p&gt;&lt;p&gt;Lesson 1: Number &lt;br&gt;Lesson 2: Expressions &lt;br&gt;Lesson 3: Polynomials &lt;br&gt;Lesson 4: Equations &lt;br&gt;Lesson 5-1: Coordinates &lt;br&gt;Lesson 5-2: Distance &lt;br&gt;Lesson 5-3: Midpoints And Slope &lt;br&gt;Lesson 6-1: Slope And Equations &lt;br&gt;Lesson 6-2: Points &lt;br&gt;Lesson 7: Forms of the Equation of a Line &lt;br&gt;Lesson 8: Inequalities And Absolute Value &lt;br&gt;Lesson 9: More Inequalities And Equations &lt;br&gt;Lesson 10: Parabolas &lt;br&gt;Lesson 11: Factoring &lt;br&gt;Lesson 12: Quadratic and Rational Inequalities &lt;br&gt;Lesson 13: More Parabolas &lt;br&gt;Lesson 14: Completing the Square &lt;br&gt;Lesson 15: Quadratic Formula &lt;br&gt;Lesson 16: Complex Numbers &lt;br&gt;Lesson 17: Functions &lt;br&gt;Lesson 18: Domain and Range &lt;br&gt;Lesson 19: Behavior of Functions &lt;br&gt;Lesson 20: Factor Theorem &lt;br&gt;Lesson 21: Rational Zero Test &lt;br&gt;Lesson 22: Intermediate Value Theorem &lt;br&gt;Lesson 24: Asymptotes &lt;br&gt;Lesson 25: Slant Asymptotes &lt;br&gt;Lesson 26: Transformations &lt;br&gt;Lesson 29: Exponential Functions &lt;br&gt;Lesson 30: Scientific Notation &lt;br&gt;Lesson 31: Logarithmic Functions &lt;br&gt;Lesson 32: Log Properties &lt;br&gt;Lesson 33: Solving Exponential and Logarithmic Equations &lt;br&gt;Lesson 34: Population, Scrolls and Sound&lt;/p&gt;</j.0:Course_Syllabus>
+  </rdf:Description>
+  <schema:Person rdf:about="http://mooclink.asu.edu/coursera#udacity_instructor_cs253">
+    <j.0:teaches>http://mooclink.asu.edu/coursera#udacity_course_cs253</j.0:teaches>
+    <schema:affiliation></schema:affiliation>
+    <schema:name>Steve Huffman</schema:name>
+  </schema:Person>
+  <rdf:Description rdf:about="http://mooclink.asu.edu/coursera#udacity_course_st095">
+    <schema:inLanguage>English</schema:inLanguage>
+    <schema:timeRequired>Assumes 6hr/wk</schema:timeRequired>
+    <j.0:Recommended_Background>&lt;p&gt;It sounds strange to say, but math is not the focus of this class. To do well, however, it is necessary to have a basic understanding of proportions (fractions, decimals, and percentages), negative numbers, basic algebra (solving equations), and exponents and square roots.&lt;/p&gt;</j.0:Recommended_Background>
+    <schema:name>Statistics</schema:name>
+    <j.0:Course_Syllabus>&lt;strong&gt;Module 1: Introduction to Statistics and Methods&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 1: Intro to statistical research methods&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 2: Frequency Distributions &amp;amp; Visualizing data&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Module 2: Describing Data&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 3: Central Tendency&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 4: Variability&lt;/li&gt;&#xD;
+&lt;li&gt;Midterm 1 on Lessons 1-4&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Module 3: Normal Distribution Analysis&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 5: Standardized Scores (z-scores)&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 6: Probability and the Normal Distribution&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 7: Sampling Distributions&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Module 4: Foundations of Inferential Statistics&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 8: Estimation&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 9: Hypothesis Testing&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;p&gt;Midterm 2 on Lessons 5-9&lt;/p&gt;&lt;strong&gt;Module 5: Comparing Means&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 10-11: t-tests&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 12-13: One-way ANOVA&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;strong&gt;Module 6: Correlation, Regression, and Non-Parametrics&lt;/strong&gt;&lt;ul&gt;&#xD;
+&lt;li&gt;Lesson 14: Correlation&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 15: Regression (available soon)&lt;/li&gt;&#xD;
+&lt;li&gt;Lesson 16: Chi-Squared Tests (available soon)&lt;/li&gt;&#xD;
+&lt;/ul&gt;&lt;p&gt;Final Exam on Lessons 10-16 (available soon)&lt;/p&gt;</j.0:Course_Syllabus>
+    <j.0:Start_Date>Self Paced</j.0:Start_Date>
+    <schema:video>http://www.youtube.com/channel/UC0VOktSaVdm_YIUa4X5mBTQ</schema:video>
+    <j.0:isTaughtBy>http://mooclink.asu.edu/coursera#udacity_instructor_st095</j.0:isTaughtBy>
+    <schema:about>&lt;div&gt;&#xD;
+&lt;p&gt;We live in a time of unprecedented access to information...data. Whether researching the best school, job, or relationship, the Internet has thrown open the doors to vast pools of data. Statistics are simply objective and systematic methods for describing and interpreting information so that you may make the most informed decisions about life.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Why Take This Course?&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;ul&gt;&#xD;
+&lt;li&gt;The applications of statistics to everyday life&lt;/li&gt;&#xD;
+&lt;li&gt;Methods for acquiring data through observation and experimentation&lt;/li&gt;&#xD;
+&lt;li&gt;To organize and describe quantitative and categorical forms of data&lt;/li&gt;&#xD;
+&lt;li&gt;Anticipating patterns using basic probability and sampling&lt;/li&gt;&#xD;
+&lt;li&gt;Statistical inference through estimation and hypothesis testing&lt;/li&gt;&#xD;
+&lt;li&gt;Correlation and simple regression&lt;/li&gt;&#xD;
+&lt;li&gt;Ways of describing the strength of relationships between variables&lt;/li&gt;&#xD;
+&lt;/ul&gt;&#xD;
+&lt;/div&gt;&lt;strong&gt;Prerequisites and Requirements&lt;/strong&gt;&lt;div&gt;&#xD;
+&lt;p&gt;It sounds strange to say, but math is not the focus of this class. To do well, however, it is necessary to have a basic understanding of proportions (fractions, decimals, and percentages), negative numbers, basic algebra (solving equations), and exponents and square roots.&lt;/p&gt;&#xD;
+&lt;/div&gt;&lt;p&gt;See the &lt;a href="https://www.udacity.com/tech-requirements" target="_blank"&gt;Technology Requirements&lt;/a&gt; for using Udacity&lt;/p&gt;</schema:about>
+    <j.0:Course_ID>st095</j.0:Course_ID>
+  </rdf:Description>
+</rdf:RDF>

@@ -47,7 +47,7 @@ public class UdacityCourse {
 
 		    try {
 		    	// Set up log file
-		    	File logFile = new File("log/udacity/course_log_" + timestamp);
+		    	File logFile = new File("log/udacity_log_apr10.txt");
 			    FileOutputStream log = new FileOutputStream(logFile);
 			    String header = "New Coursera courses:\n" + timestamp.toString() 
 			    		+ "\n-------------------------\n";
@@ -186,7 +186,7 @@ public class UdacityCourse {
 		{
 	    	final Gson gson = new Gson();
 			try{
-				String inputFileName = "data/rdf/mooc_7_10.rdf";
+				String inputFileName = "data/rdf/Original_MOOC.owl";
 				OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, null);
 				InputStream in = FileManager.get().open(inputFileName);
 			    m.read(in, "RDF/XML");
@@ -198,7 +198,7 @@ public class UdacityCourse {
 
 			    courseJson.writeToRDF(m);
 			    
-			    File file = new File("data/rdf/mooc_7_10_uu.rdf");
+			    File file = new File("data/rdf/mooc_udacity.rdf");
 			    FileOutputStream out = new FileOutputStream(file);
 			    m.write(out);
 			    out.close();
