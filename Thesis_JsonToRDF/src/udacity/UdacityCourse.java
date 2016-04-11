@@ -192,13 +192,13 @@ public class UdacityCourse {
 			    m.read(in, "RDF/XML");
 			    
 			    BufferedReader br = new BufferedReader(
-						new FileReader("data/udacity/udacity.json"));
+						new FileReader("data/udacity/udacity_1.ttl"));
 		        UdacityCourse courseJson = gson.fromJson( br , UdacityCourse.class);
 		        List<UdacityCourse> courses = courseJson.getElements();
 
 			    courseJson.writeToRDF(m);
 			    
-			    File file = new File("data/rdf/mooc_udacity.rdf");
+			    File file = new File("data/rdf/mooc_udacity_ttlVersion.rdf");
 			    FileOutputStream out = new FileOutputStream(file);
 			    m.write(out);
 			    out.close();

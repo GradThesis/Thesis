@@ -193,7 +193,7 @@ public class EdXCourse {
 			    m.read(in, "RDF/XML");
 			    
 			    BufferedReader br = new BufferedReader(
-						new FileReader("data/edx/test.json"));
+						new FileReader("data/edx/edx.ttl"));
 		        EdXCourse courseJson = gson.fromJson( br , EdXCourse.class);
 		        /*List<EdXCourse> courses =null;
 		        for(EdXCourse course: courseJson){
