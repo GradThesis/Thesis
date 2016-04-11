@@ -187,17 +187,21 @@ public class EdXCourse {
 		{
 	    	final Gson gson = new Gson();
 			try{
-				String inputFileName = "data/rdf/Original_MOOC.owl";
+				String inputFileName = "data/rdf/MOOC.owl";
 				OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, null);
 				InputStream in = FileManager.get().open(inputFileName);
 			    m.read(in, "RDF/XML");
 			    
 			    BufferedReader br = new BufferedReader(
-						new FileReader("data/edx/edx.json"));
+						new FileReader("data/edx/test.json"));
 		        EdXCourse courseJson = gson.fromJson( br , EdXCourse.class);
-		        List<EdXCourse> courses = courseJson.getElements();
+		        /*List<EdXCourse> courses =null;
+		        for(EdXCourse course: courseJson){
+		        	courses.add(course);
+		        }*/
+//		        
 
-			    courseJson.writeToRDF(m);
+			    ((EdXCourse) courseJson).writeToRDF(m);
 			    
 			    File file = new File("data/rdf/mooc_edx.rdf");
 			    FileOutputStream out = new FileOutputStream(file);
