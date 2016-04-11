@@ -29,7 +29,7 @@ import com.ml.query.QueryInfo;
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 //	private static final String url = "/home/cdhekne/Documents/Thesis/udacity_1.ttl";
-	private static final String db = "http://localhost:3030/All_data/query";
+	private static final String db = "http://localhost:3030/Coursera/query";
 	private final OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, null);
 	private QueryInfo qi = new QueryInfo();
 	
@@ -46,12 +46,12 @@ public class SearchServlet extends HttpServlet {
 		else {*/
 //			m.read(url, "RDF/XML");
 			
-			String queryString = "prefix edu: <http://cdhekne.github.io/mooc.owl#>\n" +
+			String queryString = "prefix j.0: <http://mooclink.asu.edu/coursera#>\n" +
 				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
 				"PREFIX schema: <http://schema.org/>\n" +
-				"SELECT ?Short_Name ?Duration ?Difficulty WHERE {\n" +
-		        "?course edu:Duration ?Duration ; edu:Short_Name ?Short_Name ; edu:Difficulty ?Difficulty .\n" +
-		        "FILTER (regex(?Short_Name, \"" + keyword + "\", \"i\")).\n" +
+				"SELECT ?Course_ID ?Course_Format ?Course_name WHERE {\n" +
+		        "  ?course j.0:Course_ID ?Course_ID ; j.0:Course_Format ?Course_Format ; schema:name ?Course_name .\n" +
+//		        "FILTER (regex(?Short_Name, \"" + keyword + "\", \"i\")).\n" +
 				"}";
 			
 			Query query = QueryFactory.create(queryString) ;
@@ -74,13 +74,13 @@ public class SearchServlet extends HttpServlet {
 					HashMap<String, String> j = new HashMap<String, String>();
 					Gson gson = new Gson();
 					QuerySolution soln = responseResultSet.nextSolution();
-					RDFNode name = soln.get("?Short_Name");
-					RDFNode duration = soln.get("?Duration");
-					RDFNode difficulty = soln.get("?Difficulty");
+					RDFNode name = soln.get("?Course_ID");
+					RDFNode duration = soln.get("?Course_Format");
+					RDFNode difficulty = soln.get("?Course_name");
 					
-					j.put("name", name.toString());
-					j.put("duration", duration.toString());
-					j.put("difficulty", difficulty.toString());
+					j.put("Course_ID", name.toString());
+					j.put("Course_Format", duration.toString());
+					j.put("Course_name", difficulty.toString());
 					jsonObj.add(j);
 				}
 				
