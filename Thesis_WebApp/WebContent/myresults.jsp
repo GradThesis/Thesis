@@ -72,10 +72,66 @@
 			},
 			success : function(result) {
 				//alert(result.length);
-				for(i=0;i<result.length;i++){
-					
-				}
-				console.log(result);
+				var rowCounter = 0;
+                var course="";
+				for(var i = 0; i <= result.length; i++) {
+
+                        if (result[i] !== undefined) {
+
+                            if ( rowCounter == 0) {
+                                course += "<div class=\"row\">";
+                            }
+
+                            course += "<div class=\"boxContent\">";
+                           /*  course += "<a href=\"#\">";
+                           
+                            if(result[i]["image"] === "-"){
+
+                                if(result[i]["courseProvider"] === "khanacademy.com") {
+                                    course += "<img class=\"img-responsive\" src=\"img/ka.png\" alt=\"\">";    
+                                } else {
+                                    course += "<img class=\"img-responsive\" src=\"img/ocw.png\" alt=\"\">";    
+                                }
+                           		
+                            }
+                           	else{
+                           			course += "<img class=\"img-responsive\" src=\""+data[i]["image"]+"\" alt=\"\">";
+                           	} */
+                           // course += "<\/a>";
+                            course += "<h3> "+result[i]["Course_name"]+"<\/h3>";
+                            //course += "<a title=\""+ result[i]["name"] +"\" href=\""+ result[i]["courseLink"] +"\">"+ result[i]["name"] +"<\/a>";
+                            //course += "<\/h3>";
+                            course += "<p> <strong>Provider:<\/strong> Coursera<br \/>"; 
+                            //course += "<div class=\"description\">";
+                            course += result[i]["desc"].replace(/(<([^>]+)>)/ig,"").truncate(100);
+                            course += "<\/div>";
+                            course += "<ul class=\"course-info\">";
+                            course += "<li><strong>Provider:<\/strong> " + result[i]["courseProvider"] + "<\/li>";
+                            course += "<li><strong>Duration:<\/strong> " + result[i]["duration"] + "<\/li>";
+                            // course += "<li><strong>Published:<\/strong> 19 Nov, 2015<\/li>";
+                            // course += "<li><strong>Type:<\/strong> Video<\/li>";
+                            // course += "<li><strong>Name:<\/strong> <a href=\"http:\/\/tutsplus.com\/authors\/adi-purdila\">" + data[i]["categoryName"] + "<\/a><\/li>";
+                            course += "<li><strong>Categories:<\/strong> " + result[i]["categoryName"] + " <\/li>";
+                            course += "<li><strong>Price:<\/strong> " + result[i]["price"] + " <\/li>";
+                            course += "<li><strong>Teacher:<\/strong> " + result[i]["tname"] + " <\/li>";
+                            course += "<li><strong>Course Type:<\/strong> " + result[i]["type"] + " <\/li>";
+                            course += "<\/ul>";
+                            course += "<\/div>";
+
+                            if (rowCounter == 2) {
+                                course += "</div>";
+                                rowCounter = -1;
+                            }
+
+                            rowCounter++;
+
+
+                        }
+                      
+
+                    }
+				  $('#allresults').append(course);
+				//console.log(result);
 				//makeTable(result);
 				/* alert("Data type process: "+result.name
 				        +" First Name: "+result.duration) */
@@ -181,7 +237,7 @@
 			</div>
 			<section class="nekoDataOwl owl-carousel pb15 imgHover" data-neko_items="6" data-neko_navigation="true" data-neko_pagination="false" data-neko_mousedrag="true"  data-nekoanim="fadeInUp" data-nekodelay="100">
 				<!-- portfolio item -->
-				<article class="item">
+				<article class="item" id="allresults">
 					<div class="imgWrapper">
 						<img alt="" src="http://img.youtube.com/vi/uYzAgwFhxPo/0.jpg" class="img-responsive">
 					</div>
@@ -206,192 +262,6 @@
 					</div>
 				</article>
 				<!-- portfolio item -->
-				<article class="item">
-					<div class="imgWrapper">
-						<img alt="" src="http://img.youtube.com/vi/ww2BdhILIio/0.jpg" class="img-responsive">
-					</div>
-					<div class="mediaHover">
-						<div class="mask"></div>
-						<div class="iconLinks"> 
-							<a href="portfolio-project-fullwidth-video.html" title="link" class="portfolioSheet sizer">
-								<i class="icon-link iconRounded"></i>
-							</a> 
-							<a href="http://www.youtube.com/watch?v=ww2BdhILIio" class="image-iframe" title="Video Popup" >
-								<i class="icon-videocam iconRounded"></i>
-							</a> 
-						</div>   
-					</div>
-					<!-- http://www.youtube.com/v/ww2BdhILIio?version=3&amp;amp;autohide=1 -->
-					<div class="boxContent">
-						<h3 id="content-h">Introduction to Computer Science and Programming Using Python</h3>
-
-						<p> <strong>Provider:</strong> edX<br />
-						<strong>Start Date:</strong> 06/11/14<br /> This course is the first of a two-course sequence: Introduction to Computer Science and Programming Using Python...<br>
-							<a href="portfolio-project-fullwidth-video.html" class="moreLink">&rarr; read more</a> </p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="http://img.youtube.com/vi/LEJZdizgP1k/0.jpg" class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks"> 
-								<a href="portfolio-project-fullwidth-video.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-link iconRounded"></i>
-								</a> 
-								<a href="http://youtube.com/watch?v=LEJZdizgP1k" class="image-iframe" title="Video Popup" >
-									<i class="icon-videocam iconRounded"></i>
-								</a> 
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Developing Innovative Ideas for New Companies: The First Step in Entrepreneurship</h3>
-							<p><strong>Provider:</strong> Coursera<br />
-						<strong>Start Date:</strong> 07/21/14<br />Explore how to identify and develop great ideas into great companies. Learn how to identify opportunities...<br>
-								<a href="portfolio-project-fullwidth-video.html" class="moreLink">&rarr; read more</a>
-							</p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="http://img.youtube.com/vi/edta3Be3Yec/0.jpg"  class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks"> 
-								<a href="portfolio-project-fullwidth-carousel.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-camera iconRounded"></i>
-								</a> 
-								<a href="images/portfolio/carousel-1.jpg" class="image-link" title="Zoom" data-gallery="images/portfolio/carousel-2.jpg,images/portfolio/carousel-3.jpg">
-									<i class="icon-search iconRounded"></i>
-								</a> 
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Algorithmic Thinking</h3>
-							<p><b>Provider:</b> Coursera<br /><b>Start Date:</b> 08/25/14<br />This class is designed to train students in the mathematical concepts and process of ���������Algorithmic Thinking���������, allowing them to build simpler, more efficient solutions to computational... <br>
-								<a href="portfolio-project-fullwidth-carousel.html" class="moreLink">&rarr; read more</a>
-							</p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="http://img.youtube.com/vi/hdsKr1q2loc/0.jpg" class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks"> 
-								<a href="portfolio-project-fullwidth-video.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-link iconRounded"></i>
-								</a> 
-								<a href="http://youtube.com/watch?v=hdsKr1q2loc" class="image-iframe" title="Video Popup" >
-									<i class="icon-videocam iconRounded"></i>
-								</a> 
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Introduction to Computing with Java</h3>
-							<p><strong>Provider: </strong>edX<br/><strong>Start Date: </strong>06/20/14<br/>This course aims to provide you with a good understanding of basic Java programming elements and data abstraction using problem representation and...<br>
-								<a href="#" class="moreLink">&rarr; read more</a>
-							</p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="images/coursera.png" class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks">
-								<a href="portfolio-project-fullwidth-image.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-picture iconRounded"></i>
-								</a>
-								<a href="images/portfolio/zoom4.jpg" class="image-link" title="Zoom">
-									<i class="icon-search iconRounded"></i>
-								</a>
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Learning How to Learn: Powerful mental tools to help you master tough subjects</h3>
-							<p><b>Provider:</b> Coursera<br /><b>Start Date:</b> 08/01/14<br />This course gives you easy access to the invaluable learning techniques used by experts in art, music, literature, math, science, sports, and...  <br>
-								<a href="#" class="moreLink">&rarr; read more</a>
-							</p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<!-- Visualizing Postwar Tokyo, Part 1 -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="images/portfolio/vign8.jpg" class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks">
-								<a href="portfolio-project-fullwidth-image.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-picture iconRounded"></i>
-								</a>
-								<a href="images/portfolio/zoom8.jpg" class="image-link" title="Zoom" >
-									<i class="icon-search iconRounded"></i>
-								</a>
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Visualizing Postwar Tokyo, Part 1</h3>
-							<p><strong>Provider: </strong>edX<br/><strong>Start Date: </strong>11/04/14</strong><br/>Tokyo emerged out of the ruins of war to become a large city of 10 million people in only a quarter of a century...<br />
-								<a href="#" class="moreLink">&rarr; read more</a>
-							</p>
-						</div>
-					</article>
-					<!-- portfolio item -->
-					<article class="item">
-						<div class="imgWrapper">
-							<img alt="" src="images/portfolio/vign5.jpg" class="img-responsive">
-						</div>
-						<div class="mediaHover">
-							<div class="mask"></div>
-							<div class="iconLinks">
-								<a href="portfolio-project-fullwidth-image.html" title="link" class="sizer portfolioSheet">
-									<i class="icon-picture iconRounded"></i>
-								</a>
-								<a href="images/portfolio/zoom5.jpg" class="image-link" title="Zoom" >
-									<i class="icon-search iconRounded"></i>
-								</a>
-							</div>
-						</div>
-						<div class="boxContent">
-							<h3>Lorem ipsum dolor sit amet</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate nunc ut tellus sollicitudin placerat.<br />
-								<a href="#" class="moreLink">&rarr; read more</a> </p>
-							</div>
-						</article>
-						<!-- portfolio item -->
-						<article class="item">
-							<div class="imgWrapper">
-								<img alt="" src="images/portfolio/vign9.jpg" class="img-responsive">
-							</div>
-							<div class="mediaHover">
-								<div class="mask"></div>
-								<div class="iconLinks">
-									<a href="portfolio-project-fullwidth-carousel.html" title="link" class="sizer portfolioSheet">
-										<i class="icon-camera iconRounded"></i>
-									</a>
-									<a href="images/portfolio/zoom9.jpg" class="image-link" title="Zoom">
-										<i class="icon-search iconRounded"></i>
-									</a>
-								</div>
-							</div>
-							<div class="boxContent">
-								<h3>Lorem ipsum dolor sit amet</h3>
-								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate nunc ut tellus sollicitudin placerat. <br>
-									<a href="#" class="moreLink">&rarr; read more</a>
-								</p>
-							</div>
-						</article>
 					</section>
 					<!-- works -->
 					<!-- parallax -->
