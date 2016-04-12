@@ -41,6 +41,7 @@
 				keyword: getParameterByName('keyword')
 			},
 			success : function(result) {
+				//alert(result.length);
 				console.log(result);
 				makeTable(result);
 				/* alert("Data type process: "+result.name
