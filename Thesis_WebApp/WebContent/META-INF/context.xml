@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/somepath/myapp">
     <Loader className="org.apache.catalina.loader.VirtualWebappLoader"
-              virtualClasspath="C:\Users\Avani\Downloads\apache-jena-3.0.1\apache-jena-3.0.1\lib\*.jar"/>
+              virtualClasspath="D:\apache-jena-3.0.1\lib\*.jar"/>
 </Context>

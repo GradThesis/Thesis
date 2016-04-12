@@ -29,7 +29,7 @@ import com.ml.query.QueryInfo;
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 //	private static final String url = "/home/cdhekne/Documents/Thesis/udacity_1.ttl";
-	private static final String db = "http://localhost:3030/Coursera/query";
+	private static final String db = "http://localhost:3030/Thesis/query";
 	private final OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, null);
 	private QueryInfo qi = new QueryInfo();
 	

@@ -104,7 +104,7 @@
 								</li>
 								<li class="sep"></li>
 								<li id="lastMenu" class="last">
-									<form class="navbar-form navbar-right" method="post" role="search" id="nav-search">
+									<form class="navbar-form navbar-right" method="post" action="search" id="nav-search">
 									      <div class="form-group">
 									        <input type="text" name="keyword" class="form-control" placeholder="Search" id="nav-form">
 									      </div>
