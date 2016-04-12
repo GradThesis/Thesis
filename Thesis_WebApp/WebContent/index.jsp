@@ -42,6 +42,62 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+	<script type="text/javascript">
+	function returnJSONData() {
+		var processData = 'JSON';
+		$.ajax({
+			type : "POST",
+			url : "./search",
+			data : "processData=" + processData,
+			success : function(result) {
+				console.log(result);
+				makeTable(result);
+				/* alert("Data type process: "+result.name
+				        +" First Name: "+result.duration) */
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				alert("Error status code: " + xhr.status);
+				alert("Error details: " + thrownError);
+			}
+		});
+
+	}
+	function makeTable(result) {
+		var columns = [];
+		var columns1= [];
+		
+		 jQuery.each(result, function(i, value) {
+		 var obj = {};
+		 var ct =0;
+		 	jQuery.each(value, function(j, v1){
+				obj[ct++] = v1;
+				
+			});
+			columns1.push(obj);
+		}); 
+		
+		var obj = {
+			sTitle : "duration"
+			
+		};
+		columns.push(obj);
+		var obj1 = {
+			sTitle : "difficulty"
+			
+		};
+		columns.push(obj1);
+		var obj1 = {
+			sTitle : "name"
+			
+		};
+		columns.push(obj1);
+		$('#myTable').dataTable({
+			"columns" : columns,
+			"data" : columns1,
+		});
+	}
+</script>
 </head>
 <body class="activateAppearAnimation">
 	<!-- Primary Page Layout 
@@ -104,11 +160,11 @@
 								</li>
 								<li class="sep"></li>
 								<li id="lastMenu" class="last">
-									<form class="navbar-form navbar-right" method="post" action="search" id="nav-search">
+									<form class="navbar-form navbar-right" id="nav-search" method="get" action="results.jsp"> 
 									      <div class="form-group">
 									        <input type="text" name="keyword" class="form-control" placeholder="Search" id="nav-form">
 									      </div>
-									      <button type="submit" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+									      <button type="submit" class="btn btn-lg" id="searchButton"><span class="glyphicon glyphicon-search"></span></button>
 									</form>
 								</li>
 

@@ -36,7 +36,7 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String keyword;
 		
-		keyword = "computer";/*request.getParameter("keyword")*/;
+		keyword = request.getParameter("keyword");
 		
 		/*if(keyword.isEmpty()) {
 			// Send back to home page

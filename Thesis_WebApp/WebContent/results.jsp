@@ -21,12 +21,25 @@
 	src="//datatables.net/release-datatables/extensions/ColReorder/js/dataTables.colReorder.js"></script>
 
 <script type="text/javascript">
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
 	function returnJSONData() {
 		var processData = 'JSON';
 		$.ajax({
 			type : "POST",
 			url : "./search",
-			data : "processData=" + processData,
+			data : {
+				processData: processData,
+				keyword: getParameterByName('keyword')
+			},
 			success : function(result) {
 				console.log(result);
 				makeTable(result);
