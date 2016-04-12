@@ -162,7 +162,7 @@
 								<li id="lastMenu" class="last">
 									<form class="navbar-form navbar-right" id="nav-search" method="get" action="results.jsp"> 
 									      <div class="form-group">
-									        <input type="text" name="keyword" class="form-control" placeholder="Search" id="nav-form">
+									        <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search" id="nav-form">
 									      </div>
 									      <button type="submit" class="btn btn-lg" id="searchButton"><span class="glyphicon glyphicon-search"></span></button>
 									</form>
