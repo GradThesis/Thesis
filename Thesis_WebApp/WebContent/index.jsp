@@ -160,7 +160,7 @@
 								</li>
 								<li class="sep"></li>
 								<li id="lastMenu" class="last">
-									<form class="navbar-form navbar-right" id="nav-search" method="get" action="results.jsp"> 
+									<form class="navbar-form navbar-right" id="nav-search" method="get" action="myresults.jsp"> 
 									      <div class="form-group">
 									        <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search" id="nav-form">
 									      </div>
