@@ -180,7 +180,7 @@
 						
 						
 						
-						</article> <!-- portfolio item --> </section> <!-- works --> <!-- parallax -->
+			</article> <!-- portfolio item --> </section> <!-- works --> <!-- parallax -->
 			<section id="paralaxSlice3" data-stellar-background-ratio="0.5">
 			<div class="maskParent">
 				<div class="paralaxMask"></div>
@@ -435,7 +435,7 @@
 	    
 	    <script type="text/javascript">
 	
-		/* function getParameterByName(name, url) {
+		 function getParameterByName(name, url) {
 		    if (!url) url = window.location.href;
 		    name = name.replace(/[\[\]]/g, "\\$&");
 		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
@@ -443,91 +443,97 @@
 		    if (!results) return null;
 		    if (!results[2]) return '';
 		    return decodeURIComponent(results[2].replace(/\+/g, " "));
-		} */
-		
+		} 
+		 
+		//alert('alert1');
+		var processData = 'JSON';
+		$.ajax({
+			type : "POST",
+			url : "./search",
+			data : {
+				processData: processData,
+				keyword: getParameterByName('keyword')
+			},
+			success : function(result) {
+				//alert(result.length);
+				var rowCounter = 0;
+                var course="";
+				for(var i = 0; i <= result.length; i++) {
+
+                        if (result[i] !== undefined) {
+
+                            if ( rowCounter == 0) {
+                                course += "<div class=\"row\">";
+                            }
+
+                            course += "<div class=\"boxContent\">";
+							//course += "<div class=\"col-md-4 portfolio-item\">";
+
+
+                           /*  course += "<a href=\"#\">";
+                           
+                            if(result[i]["image"] === "-"){
+
+                                if(result[i]["courseProvider"] === "khanacademy.com") {
+                                    course += "<img class=\"img-responsive\" src=\"img/ka.png\" alt=\"\">";    
+                                } else {
+                                    course += "<img class=\"img-responsive\" src=\"img/ocw.png\" alt=\"\">";    
+                                }
+                           		
+                            }
+                           	else{
+                           			course += "<img class=\"img-responsive\" src=\""+data[i]["image"]+"\" alt=\"\">";
+                           	} */
+                           // course += "<\/a>";
+                            course += "<h3> "+result[i]["Course_name"]+"<\/h3>";
+                            course += "<h3> "+result[i]["Course_Format"]+"<\/h3>";
+                            course += "<h3> "+result[i]["Course_ID"]+"<\/h3>";
+                            //course += "<a title=\""+ result[i]["name"] +"\" href=\""+ result[i]["courseLink"] +"\">"+ result[i]["name"] +"<\/a>";
+                            //course += "<\/h3>";
+                            course += "<p> <strong>Provider:<\/strong> Coursera<br \/>"; 
+                            //course += "<div class=\"description\">";
+                            //course += result[i]["desc"].replace(/(<([^>]+)>)/ig,"").truncate(100);
+                            //course += "<\/div>";
+                            //course += "<ul class=\"course-info\">";
+                            //course += "<li><strong>Provider:<\/strong> " + result[i]["courseProvider"] + "<\/li>";
+                            //course += "<li><strong>Duration:<\/strong> " + result[i]["duration"] + "<\/li>";
+                            // course += "<li><strong>Published:<\/strong> 19 Nov, 2015<\/li>";
+                            // course += "<li><strong>Type:<\/strong> Video<\/li>";
+                            // course += "<li><strong>Name:<\/strong> <a href=\"http:\/\/tutsplus.com\/authors\/adi-purdila\">" + data[i]["categoryName"] + "<\/a><\/li>";
+                           // course += "<li><strong>Categories:<\/strong> " + result[i]["categoryName"] + " <\/li>";
+                           // course += "<li><strong>Price:<\/strong> " + result[i]["price"] + " <\/li>";
+                            //course += "<li><strong>Teacher:<\/strong> " + result[i]["tname"] + " <\/li>";
+                           // course += "<li><strong>Course Type:<\/strong> " + result[i]["type"] + " <\/li>";
+                           // course += "<\/ul>";
+                            course += "<\/div>";
+
+                            if (rowCounter == 2) {
+                                course += "<\/div>";
+                                rowCounter = -1;
+                            }
+
+                            rowCounter++;
+
+
+                        }
+                      
+
+                    }
+				  $('#allresults').append(course);
+				//console.log(result);
+				//makeTable(result);
+				/* alert("Data type process: "+result.name
+				        +" First Name: "+result.duration) */
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				alert("Error status code: " + xhr.status);
+				alert("Error details: " + thrownError);
+			}
+		});
+
 			function returnJSONData() {
-				alert('alert1');	
-				var processData = 'JSON';
-				$.ajax({
-					type : "POST",
-					url : "./search",
-					data : {
-						processData: processData,
-						keyword: getParameterByName('keyword')
-					},
-					success : function(result) {
-						alert(result.length);
-						var rowCounter = 0;
-		                var course="";
-						for(var i = 0; i <= result.length; i++) {
-		
-		                        if (result[i] !== undefined) {
-		
-		                            if ( rowCounter == 0) {
-		                                course += "<div class=\"row\">";
-		                            }
-		
-		                            course += "<div class=\"boxContent\">";
-		                           /*  course += "<a href=\"#\">";
-		                           
-		                            if(result[i]["image"] === "-"){
-		
-		                                if(result[i]["courseProvider"] === "khanacademy.com") {
-		                                    course += "<img class=\"img-responsive\" src=\"img/ka.png\" alt=\"\">";    
-		                                } else {
-		                                    course += "<img class=\"img-responsive\" src=\"img/ocw.png\" alt=\"\">";    
-		                                }
-		                           		
-		                            }
-		                           	else{
-		                           			course += "<img class=\"img-responsive\" src=\""+data[i]["image"]+"\" alt=\"\">";
-		                           	} */
-		                           // course += "<\/a>";
-		                            course += "<h3> "+result[i]["Course_name"]+"<\/h3>";
-		                            //course += "<a title=\""+ result[i]["name"] +"\" href=\""+ result[i]["courseLink"] +"\">"+ result[i]["name"] +"<\/a>";
-		                            //course += "<\/h3>";
-		                            course += "<p> <strong>Provider:<\/strong> Coursera<br \/>"; 
-		                            //course += "<div class=\"description\">";
-		                            course += result[i]["desc"].replace(/(<([^>]+)>)/ig,"").truncate(100);
-		                            course += "<\/div>";
-		                            course += "<ul class=\"course-info\">";
-		                            course += "<li><strong>Provider:<\/strong> " + result[i]["courseProvider"] + "<\/li>";
-		                            course += "<li><strong>Duration:<\/strong> " + result[i]["duration"] + "<\/li>";
-		                            // course += "<li><strong>Published:<\/strong> 19 Nov, 2015<\/li>";
-		                            // course += "<li><strong>Type:<\/strong> Video<\/li>";
-		                            // course += "<li><strong>Name:<\/strong> <a href=\"http:\/\/tutsplus.com\/authors\/adi-purdila\">" + data[i]["categoryName"] + "<\/a><\/li>";
-		                           // course += "<li><strong>Categories:<\/strong> " + result[i]["categoryName"] + " <\/li>";
-		                           // course += "<li><strong>Price:<\/strong> " + result[i]["price"] + " <\/li>";
-		                            //course += "<li><strong>Teacher:<\/strong> " + result[i]["tname"] + " <\/li>";
-		                           // course += "<li><strong>Course Type:<\/strong> " + result[i]["type"] + " <\/li>";
-		                            course += "<\/ul>";
-		                            course += "<\/div>";
-		
-		                            if (rowCounter == 2) {
-		                                course += "</div>";
-		                                rowCounter = -1;
-		                            }
-		
-		                            rowCounter++;
-		
-		
-		                        }
-		                      
-		
-		                    }
-						  $('#allresults').append(course);
-						//console.log(result);
-						//makeTable(result);
-						/* alert("Data type process: "+result.name
-						        +" First Name: "+result.duration) */
-		
-					},
-					error : function(xhr, ajaxOptions, thrownError) {
-						alert("Error status code: " + xhr.status);
-						alert("Error details: " + thrownError);
-					}
-				});
-		
+				
 			}
 		
 		</script>

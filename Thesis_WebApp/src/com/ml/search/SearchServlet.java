@@ -51,7 +51,7 @@ public class SearchServlet extends HttpServlet {
 				"PREFIX schema: <http://schema.org/>\n" +
 				"SELECT ?Course_ID ?Course_Format ?Course_name WHERE {\n" +
 		        "  ?course j.0:Course_ID ?Course_ID ; j.0:Course_Format ?Course_Format ; schema:name ?Course_name .\n" +
-//		        "FILTER (regex(?Short_Name, \"" + keyword + "\", \"i\")).\n" +
+		        "FILTER (regex(?Course_name, \"" + keyword + "\", \"i\")).\n" +
 				"}";
 			
 			Query query = QueryFactory.create(queryString) ;
