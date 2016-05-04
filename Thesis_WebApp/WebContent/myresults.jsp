@@ -57,7 +57,22 @@
 			href="images/apple-touch-icon-114x114.png">
 		<link rel="apple-touch-icon" sizes="144x144"
 			href="images/apple-touch-icon-144x144.png">
-	
+		
+		<style>		
+
+			.owl-wrapper, .owl-item {
+				width: auto !important;
+			}
+			
+			#allresults {
+				padding-left: 3%;
+			}
+			
+			#allresults .boxContent {
+				width: 30%; float: left;
+				margin-bottom: 30px;
+			}
+		</style>
 	
 	</head>
 

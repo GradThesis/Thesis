@@ -6,6 +6,7 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:vocab="http://vocab.sindice.net/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/">
     <owl:Ontology rdf:about="http://cdhekne.github.io/mooc.owl">
@@ -45,12 +46,54 @@
     
 
 
+    <!-- http://cdhekne.github.io/mooc.owl#Category_Name -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Category_Name">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Desc -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Desc">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://cdhekne.github.io/mooc.owl#Course_Format -->
 
     <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Format">
         <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Language -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Language">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Name -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Name">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Provider -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Provider"/>
     
 
 
@@ -81,6 +124,24 @@
     
 
 
+    <!-- http://cdhekne.github.io/mooc.owl#Person_Fname -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Person_Fname">
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Person_Lname -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Person_Lname">
+        <rdfs:domain rdf:resource="http://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://cdhekne.github.io/mooc.owl#Recommended_Background -->
 
     <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Recommended_Background">
@@ -102,6 +163,15 @@
     <!-- http://cdhekne.github.io/mooc.owl#Syllabus_Link -->
 
     <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Syllabus_Link">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Video_Link -->
+
+    <owl:ObjectProperty rdf:about="http://cdhekne.github.io/mooc.owl#Video_Link">
         <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:ObjectProperty>
@@ -233,12 +303,24 @@
     
 
 
+    <!-- http://cdhekne.github.io/mooc.owl#Category_Name -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Category_Name"/>
+    
+
+
     <!-- http://cdhekne.github.io/mooc.owl#Certificate_ID -->
 
     <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Certificate_ID">
         <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Certificate_ID"/>
         <rdfs:label xml:lang="en">Certificate ID</rdfs:label>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Desc -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Desc"/>
     
 
 
@@ -253,8 +335,28 @@
     <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_ID">
         <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
-        <rdfs:label rdf:resource="http://cdhekne.github.io/mooc.owl#Course_ID"/>
         <rdfs:label xml:lang="en">Course ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Language -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Language"/>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Name -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Name"/>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Course_Provider -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Course_Provider">
+        <rdfs:domain rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -305,6 +407,18 @@
     
 
 
+    <!-- http://cdhekne.github.io/mooc.owl#Person_Fname -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Person_Fname"/>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Person_Lname -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Person_Lname"/>
+    
+
+
     <!-- http://cdhekne.github.io/mooc.owl#Recommended_Background -->
 
     <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Recommended_Background"/>
@@ -351,6 +465,12 @@
     <!-- http://cdhekne.github.io/mooc.owl#Syllabus_Link -->
 
     <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Syllabus_Link"/>
+    
+
+
+    <!-- http://cdhekne.github.io/mooc.owl#Video_Link -->
+
+    <owl:DatatypeProperty rdf:about="http://cdhekne.github.io/mooc.owl#Video_Link"/>
     
 
 
@@ -438,6 +558,22 @@
     
 
 
+    <!-- http://cdhekne.github.io/mooc.owl#C101 -->
+
+    <owl:NamedIndividual rdf:about="http://cdhekne.github.io/mooc.owl#C101">
+        <rdf:type rdf:resource="http://cdhekne.github.io/mooc.owl#Course"/>
+        <hasCategory rdf:resource="http://cdhekne.github.io/mooc.owl#Computer_Science:_Software_Engineering"/>
+        <hasSession rdf:resource="http://cdhekne.github.io/mooc.owl#C101-34"/>
+        <Course_Format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Obstacle courses, chess tournaments, programming assignments.</Course_Format>
+        <Course_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#int">353</Course_ID>
+        <Course_Syllabus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Week 1: Eskimo pop culture\nWeek2: Eskimo economics</Course_Syllabus>
+        <Difficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beginner</Difficulty>
+        <Recommended_Background rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Be able to do at least 10 consecutive jumping jacks.</Recommended_Background>
+        <Syllabus_Link rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.coursera.org/course/principlescomputing</Syllabus_Link>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://cdhekne.github.io/mooc.owl#C101-34 -->
 
     <owl:NamedIndividual rdf:about="http://cdhekne.github.io/mooc.owl#C101-34"/>
@@ -458,9 +594,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Category_Name">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Category_Name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Desc">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Desc"/>
+    </rdf:Description>
     <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Format">
         <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Format"/>
         <rdfs:label xml:lang="en">Course Format</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Language">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Language"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Name">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Provider">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Course_Provider"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Course_Syllabus">
         <rdfs:label xml:lang="en">Course Syllabus</rdfs:label>
@@ -478,6 +629,12 @@
         <rdfs:label rdf:resource="http://cdhekne.github.io/mooc.owl#Organization_ID"/>
         <rdfs:label xml:lang="en">Organization ID</rdfs:label>
     </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Person_Fname">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Person_Fname"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Person_Lname">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Person_Lname"/>
+    </rdf:Description>
     <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Recommended_Background">
         <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Recommended_Background"/>
         <rdfs:label xml:lang="en">Recommended Background</rdfs:label>
@@ -489,6 +646,9 @@
     <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Syllabus_Link">
         <rdfs:label xml:lang="en">Syllabus Link</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Syllabus_Link"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://cdhekne.github.io/mooc.owl#Video_Link">
+        <rdfs:isDefinedBy rdf:resource="http://cdhekne.github.io/mooc.owl#Video_Link"/>
     </rdf:Description>
 </rdf:RDF>
 
