@@ -8,5 +8,5 @@ try:
 	c.getCourseraSessions()
 	c.getCourseraUniversities()
 except:
-    print "Unexpected error:", sys.exc_info()[0]
-    raise
+	print ("Unexpected error:", sys.exc_info()[0])
+	raise
