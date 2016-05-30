@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://mooclink.asu.edu/final_Mooc.owl#"
+     xml:base="http://mooclink.asu.edu/final_Mooc.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://mooclink.asu.edu/final_Mooc.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl# -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#">
+        <owl:equivalentProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Belongs_to_Session"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Category -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Category">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Session -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Session">
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <owl:inverseOf rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Includes_Category"/>
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Belongs_to_Session -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Belongs_to_Session">
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+        <owl:inverseOf rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#includes_Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Includes_Category -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Includes_Category">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#includes_Course -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#includes_Course">
+        <owl:inverseOf rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Category"/>
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#is_Taught_By -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#is_Taught_By">
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+        <owl:inverseOf rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#teaches_Course"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#teaches_Course -->
+
+    <owl:ObjectProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#teaches_Course">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Category_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Category_ID">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Category_Name -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Category_Name">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Desc -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Desc">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Format -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Format">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_ID">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Language -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Language">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Name -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Name">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Provider -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Provider">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_RecBackground -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_RecBackground">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_Syllabus -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_Syllabus">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course_VideoLink -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course_VideoLink">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Person_Fname -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Person_Fname">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Person_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Person_ID">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Person_Lname -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Person_Lname">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Session_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Session_ID">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Session_end_Date -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Session_end_Date">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Session_start_Date -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Session_start_Date">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Session_status -->
+
+    <owl:DatatypeProperty rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Session_status">
+        <rdfs:domain rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Category -->
+
+    <owl:Class rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Category">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Includes_Category"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Category"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Course -->
+
+    <owl:Class rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Course">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#teaches_Course"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Person"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#includes_Course"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#includes_Course"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Session"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Person -->
+
+    <owl:Class rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#is_Taught_By"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://mooclink.asu.edu/final_Mooc.owl#Session -->
+
+    <owl:Class rdf:about="http://mooclink.asu.edu/final_Mooc.owl#Session">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Belongs_to_Session"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Course"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Belongs_To_Session"/>
+                <owl:onClass rdf:resource="http://mooclink.asu.edu/final_Mooc.owl#Category"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.10-SNAPSHOT) http://owlapi.sourceforge.net -->
+

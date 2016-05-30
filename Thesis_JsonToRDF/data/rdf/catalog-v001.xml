@@ -2,7 +2,8 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="User Entered Import Resolution" name="http://schema.rdfs.org/all" uri="file:/C:/Users/Chinmay/Downloads/schema_rdfs_all.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1462316953652" name="duplicate:http://cdhekne.github.io/mooc.owl" uri="MOOC.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1462316953652" name="duplicate:http://cdhekne.github.io/mooc.owl" uri="Original_MOOC.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1462407738305" name="duplicate:http://cdhekne.github.io/mooc.owl" uri="MOOC.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1462407738305" name="duplicate:http://cdhekne.github.io/mooc.owl" uri="MOOC_Final.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1462407738305" name="duplicate:http://cdhekne.github.io/mooc.owl" uri="Original_MOOC.owl"/>
     </group>
 </catalog>
