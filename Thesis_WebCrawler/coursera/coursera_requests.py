@@ -32,8 +32,8 @@ def getCourseraCourses():
 			  "faq",
 			  "aboutTheInstructor",
 			  "recommendedBackground"]
-	link = "https://api.coursera.org/api/catalog.v1/courses?fields="
-	link = link + ','.join(fields)
+	link = "https://api.coursera.org/api/catalog.v1/courses?fields=id,startDate,name,shortDescription,language,courseFormat,courseSyllabus,recommendedBackground,aboutTheCourse&includes=universities,categories"
+# 	link = link + ','.join(fields)
 	link = link + "&includes=categories,instructors";
 
 	# Retrieve courses, convert to JSON, format
@@ -49,7 +49,7 @@ def getCourseraCourses():
 def getCourseraInstructors():
 	# Define fields to be retrieved from Coursera API
 	fields = ["fullName", "id"]
-	link = "https://api.coursera.org/api/catalog.v1/instructors?fields="
+	link = "https://api.coursera.org/api/catalog.v1/instructors"
 	link = link + ','.join(fields)
 	link = link + "&includes=universities"
 

@@ -36,13 +36,6 @@
             "name": "University of California, Santa Cruz"
         }, 
         {
-            "website": "http://www.uoregon.edu/", 
-            "shortName": "uo", 
-            "id": 185, 
-            "links": {}, 
-            "name": "University of Oregon"
-        }, 
-        {
             "website": "http://new.huji.ac.il/en", 
             "shortName": "huji", 
             "id": 24, 
@@ -113,13 +106,6 @@
             "name": "Technische Universit\u00e4t M\u00fcnchen (TUM)"
         }, 
         {
-            "website": "", 
-            "shortName": "christenseninstitute", 
-            "id": 164, 
-            "links": {}, 
-            "name": "Clayton Christensen Institute"
-        }, 
-        {
             "website": "http://spbu.ru/", 
             "shortName": "spbu", 
             "id": 179, 
@@ -148,11 +134,25 @@
             "name": "Nanyang Technological University, Singapore"
         }, 
         {
+            "website": "http://ibm.com/developerworks", 
+            "shortName": "ibm", 
+            "id": 348, 
+            "links": {}, 
+            "name": "IBM"
+        }, 
+        {
             "website": "http://www.manchester.ac.uk/", 
             "shortName": "manchester", 
             "id": 147, 
             "links": {}, 
             "name": "University of Manchester"
+        }, 
+        {
+            "website": "http://uchile.cl/", 
+            "shortName": "uchile", 
+            "id": 280, 
+            "links": {}, 
+            "name": "Universidad de Chile"
         }, 
         {
             "website": "http://www.ie.edu/", 
@@ -225,7 +225,7 @@
             "name": "The State University of New York"
         }, 
         {
-            "website": "", 
+            "website": "http://www.uu.nl/en", 
             "shortName": "utrecht", 
             "id": 270, 
             "links": {}, 
@@ -253,7 +253,7 @@
             "name": "The Ohio State University"
         }, 
         {
-            "website": "http://www.hse.ru/", 
+            "website": "http://www.hse.ru/?utm_source=Coursera&utm_medium=Uni&utm_campaign=Coursera", 
             "shortName": "hse", 
             "id": 160, 
             "links": {}, 
@@ -278,7 +278,7 @@
             "shortName": "berklee", 
             "id": 21, 
             "links": {}, 
-            "name": "Berklee College of Music"
+            "name": "Berklee"
         }, 
         {
             "website": "http://www.unimelb.edu.au/", 
@@ -288,11 +288,11 @@
             "name": "The University of Melbourne"
         }, 
         {
-            "website": "http://www.wisc.edu/", 
-            "shortName": "wisconsin", 
-            "id": 65, 
+            "website": "http://www.ita.br/", 
+            "shortName": "ita", 
+            "id": 252, 
             "links": {}, 
-            "name": "University of Wisconsin\u2013Madison"
+            "name": "Instituto Tecnol\u00f3gico de Aeron\u00e1utica"
         }, 
         {
             "website": "http://fundacaolemann.org.br/", 
@@ -355,7 +355,7 @@
             "shortName": "ub", 
             "id": 212, 
             "links": {}, 
-            "name": "University of Barcelona"
+            "name": "Universitat de Barcelona"
         }, 
         {
             "website": "http://rice.edu/", 
@@ -421,6 +421,13 @@
             "name": "McMaster University"
         }, 
         {
+            "website": "http://sydney.edu.au/", 
+            "shortName": "sydney", 
+            "id": 264, 
+            "links": {}, 
+            "name": "The University of Sydney"
+        }, 
+        {
             "website": "http://www.cuhk.edu.hk/", 
             "shortName": "cuhk", 
             "id": 45, 
@@ -467,7 +474,7 @@
             "shortName": "emlyon", 
             "id": 286, 
             "links": {}, 
-            "name": "EMLYON Business School"
+            "name": "emlyon business school"
         }, 
         {
             "website": "http://calarts.edu/", 
@@ -512,6 +519,13 @@
             "name": "Northwestern University"
         }, 
         {
+            "website": "http://www.spbstu.ru/", 
+            "shortName": "spbpu", 
+            "id": 313, 
+            "links": {}, 
+            "name": "St. Petersburg State Polytechnic University"
+        }, 
+        {
             "website": "http://www.unige.ch/", 
             "shortName": "unige", 
             "id": 49, 
@@ -554,11 +568,11 @@
             "name": "Duke University"
         }, 
         {
-            "website": "", 
-            "shortName": "kcmuc", 
-            "id": 245, 
+            "website": "http://www.enpc.fr/", 
+            "shortName": "enpc", 
+            "id": 271, 
             "links": {}, 
-            "name": "Kilimanjaro Christian Medical University College"
+            "name": "\u00c9cole des Ponts Paritech"
         }, 
         {
             "website": "http://www.unicamp.br/", 
@@ -638,13 +652,6 @@
             "name": "The Hong Kong University of Science and Technology"
         }, 
         {
-            "website": "", 
-            "shortName": "siliconschools", 
-            "id": 162, 
-            "links": {}, 
-            "name": "Silicon Schools Fund"
-        }, 
-        {
             "website": "http://www.uct.ac.za/", 
             "shortName": "uct", 
             "id": 255, 
@@ -687,13 +694,6 @@
             "name": "Shanghai Jiao Tong University"
         }, 
         {
-            "website": "", 
-            "shortName": "cirtl", 
-            "id": 327, 
-            "links": {}, 
-            "name": "Center for the Integration of Research, Teaching, and Learning"
-        }, 
-        {
             "website": "http://www.umn.edu/", 
             "shortName": "minnesota", 
             "id": 50, 
@@ -727,6 +727,13 @@
             "id": 182, 
             "links": {}, 
             "name": "Ko\u00e7 University"
+        }, 
+        {
+            "website": "https://www.gwu.edu/", 
+            "shortName": "gwu", 
+            "id": 331, 
+            "links": {}, 
+            "name": "The George Washington University"
         }, 
         {
             "website": "http://www.epfl.ch/", 
@@ -769,13 +776,6 @@
             "id": 175, 
             "links": {}, 
             "name": "Copenhagen Business School"
-        }, 
-        {
-            "website": "", 
-            "shortName": "institutopeninsula", 
-            "id": 314, 
-            "links": {}, 
-            "name": "Instituto Pen\u00ednsula "
         }, 
         {
             "website": "http://www.relay.edu/", 
@@ -834,13 +834,6 @@
             "name": "Universidad Nacional Aut\u00f3noma de M\u00e9xico"
         }, 
         {
-            "website": "http://www.hku.hk/", 
-            "shortName": "hku", 
-            "id": 235, 
-            "links": {}, 
-            "name": "The University of Hong Kong"
-        }, 
-        {
             "website": "http://www.escpeurope.eu/", 
             "shortName": "escp", 
             "id": 207, 
@@ -888,13 +881,6 @@
             "id": 190, 
             "links": {}, 
             "name": "Pontificia Universidad Cat\u00f3lica de Chile"
-        }, 
-        {
-            "website": "", 
-            "shortName": "iitd", 
-            "id": 19, 
-            "links": {}, 
-            "name": "Indian Institute of Technology Delhi"
         }, 
         {
             "website": "http://www.uniandes.edu.co/", 
