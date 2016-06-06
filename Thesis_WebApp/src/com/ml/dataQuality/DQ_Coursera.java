@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,13 +11,31 @@ import org.json.simple.parser.JSONParser;
 public class DQ_Coursera {
 
 	public static void main(String[] args) throws Exception {
+		
+		DQ_Coursera dqCoursera = new DQ_Coursera();
+		dqCoursera.checkQualityOfDataFromCoursera();
 
+	}
+
+	private void checkQualityOfDataFromCoursera() throws Exception {
+		
+		/*
+		 * Loading new JSON file into HashMap
+		 * 
+		*/
+		
 		JSONParser parser = new JSONParser(); 
 
-		Object obj= parser.parse(new FileReader("D:\\c_test_new.json"));
+		Object obj= parser.parse(new FileReader("D:\\courses_new.json"));
 
 		JSONObject inner = (JSONObject) obj;
 		JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+		
+		/*
+		 * Loading courses
+		 * 
+		*/
+		
 		Map<String,ArrayList<String>> courseMap = new HashMap<String,ArrayList<String>>();
 		int count=0;
 		for(Object o: jArrayForElements){
@@ -29,38 +46,31 @@ public class DQ_Coursera {
 			ArrayList<String> value = new ArrayList<String>();
 
 			String name = (String) course.get("name");
-			//			System.out.println(name);
 			value.add(name);
 			courseMap.put(courseID, value);
 
 			String shortDescription = (String) course.get("shortDescription");
-			//			System.out.println(shortDescription);
 			value.add(shortDescription);
 			courseMap.put(courseID, value);
 
 			String courseFormat = (String) course.get("courseFormat");
-			//			System.out.println(courseFormat);
 			value.add(courseFormat);
 			courseMap.put(courseID, value);
 
 			String courseSyllabus = (String) course.get("courseSyllabus");
-			//			System.out.println(courseSyllabus);
 			value.add(courseSyllabus);
 			courseMap.put(courseID, value);
 
 
 			String language = (String) course.get("language");
-			//			System.out.println(language);
 			value.add(language);
 			courseMap.put(courseID, value);
 
 			String recommendedBackground = (String) course.get("recommendedBackground");
-			//			System.out.println(recommendedBackground);
 			value.add(recommendedBackground);
 			courseMap.put(courseID, value);
 
 			String aboutTheCourse = (String) course.get("aboutTheCourse");
-			//			System.out.println(aboutTheCourse);
 			value.add(aboutTheCourse);
 			courseMap.put(courseID, value);
 
@@ -70,6 +80,10 @@ public class DQ_Coursera {
 
 		JSONObject links =  (JSONObject) inner.get("linked");
 		JSONArray instructorArray = (JSONArray) links.get("instructors");
+		
+		/*
+		 * Loading instructors
+		 * */
 		Map<String,ArrayList<String>> instructorMap = new HashMap<String,ArrayList<String>>();
 
 		for(Object o: instructorArray){
@@ -91,6 +105,9 @@ public class DQ_Coursera {
 
 		}
 
+		/*
+		 * Loading categories
+		 * */
 		JSONArray categoryArray = (JSONArray) links.get("categories");
 		Map<String,ArrayList<String>> categoryMap = new HashMap<String,ArrayList<String>>();
 
@@ -102,17 +119,19 @@ public class DQ_Coursera {
 			ArrayList<String> value = new ArrayList<String>();
 
 			String nameOfCategory = (String) category.get("name");
-			//			System.out.println(nameOfCategory);
 			value.add(nameOfCategory);
 			categoryMap.put(categoryID, value);
 
 		}
 
+		
+		/*
+		 * call to get the score of Coursera
+		 * */
 		getScore(courseMap,instructorMap,categoryMap);
 
 
-
-
+		
 	}
 
 	public static void getScore(Map<String,ArrayList<String>> courseMap, Map<String,ArrayList<String>> instructorMap, Map<String,ArrayList<String>> categoryMap){
@@ -125,11 +144,18 @@ public class DQ_Coursera {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\c_test.json"));
+			/*
+			 *	Loading the old JSON data. 
+			*/
+			
+			
+			Object obj= parser.parse(new FileReader("D:\\courses_old.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 
-
+			/*
+			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
+			*/
 
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
@@ -200,12 +226,16 @@ public class DQ_Coursera {
 
 	@SuppressWarnings("unchecked")
 	private static void changeOriginalJSONAccToScore(Map<String, Map<String, String>> mapForChangesToBeMadeInOriginalJson, int score) {
-		// TODO Auto-generated method stub
 
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\c_test.json"));
+			/*  Now, update the original JSON file with the changes.
+			 * 
+			*/
+			
+			
+			Object obj= parser.parse(new FileReader("D:\\courses.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			int locationCount = 0;
@@ -242,7 +272,7 @@ public class DQ_Coursera {
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
 			inner.put("elements", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\c_test.json");
+			FileWriter fw = new FileWriter("D:\\courses_old.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
