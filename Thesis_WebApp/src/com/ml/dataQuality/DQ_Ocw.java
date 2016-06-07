@@ -4,11 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.json.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -21,8 +25,8 @@ public class DQ_Ocw {
 	public static void main(String[] args) {
 
 		DQ_Ocw edx = new DQ_Ocw();
-//		edx.getNewDataFromEdX();
-		edx.checkQualityOfDataFromEdX();
+		edx.getNewDataFromOCW();
+//		edx.checkQualityOfDataFromEdX();
 	}
 
 	public void checkQualityOfDataFromEdX() {
@@ -222,16 +226,61 @@ public class DQ_Ocw {
 
 	}
 
-	public void getNewDataFromEdX(){
+	@SuppressWarnings("unchecked")
+	public void getNewDataFromOCW(){
 		try {
 
-			InputStream io = new FileInputStream(new File("D:\\rss.xml"));
+			FileInputStream io = new FileInputStream(new File("D:\\ocw-courses.xls"));
+			
+			Workbook wb = WorkbookFactory.create(io);
+			Sheet sheet = wb.getSheetAt(0);
+			
+			org.json.JSONObject json = new org.json.JSONObject();
 
-			org.json.JSONObject xmlJSONObj = XML.toJSONObject(IOUtils.toString(io));
+		    // Iterate through the rows.
+			
+			org.json.JSONArray rows = new org.json.JSONArray();
+			
+			Iterator<Row> rowsIT = sheet.rowIterator();
+			rowsIT.next();
+			ArrayList<String> keyList = new ArrayList<>();
+			keyList.add("OCW Link");
+			keyList.add("URL Hash");
+			keyList.add("Link");
+			keyList.add("Provider");
+			keyList.add("Language");
+			keyList.add("Tags");
+			keyList.add("Author");
+			keyList.add("Title");
+			keyList.add("Description");
+			keyList.add("Published");
+			keyList.add("Indexed");
+			keyList.add("Modified");
+			keyList.add("Categories");
+			
+			
+		    while(rowsIT.hasNext())
+		    {
+		        Row row = rowsIT.next();
+		        JSONObject jRow = new JSONObject();
 
-			String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-			System.out.println(jsonPrettyPrintString);
-			FileWriter fw = new FileWriter("D:\\edx1.json");
+		        org.json.JSONArray cells = new org.json.JSONArray();
+		        int i=0;
+		        JSONObject jcell = new JSONObject();
+		        for ( Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); )
+		        {
+		            Cell cell = cellsIT.next();
+		            if(i>=9 && i<=11)
+		            	jcell.put(keyList.get(i++), cell.getNumericCellValue());
+		            else
+		            	jcell.put(keyList.get(i++), cell.getStringCellValue());
+		        }
+		        rows.put( jcell );
+		    }
+			
+		    json.put( "rows", rows );
+		    String jsonPrettyPrintString = json.toString(PRETTY_PRINT_INDENT_FACTOR);
+			FileWriter fw = new FileWriter("D:\\ocw.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
