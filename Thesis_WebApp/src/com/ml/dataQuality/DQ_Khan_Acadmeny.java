@@ -166,7 +166,6 @@ public class DQ_Khan_Acadmeny {
 
 			Object obj= parser.parse(new FileReader("D:\\khan.json"));
 			JSONObject inner = (JSONObject) obj;
-			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();

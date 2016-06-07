@@ -94,7 +94,6 @@ public class DQ_EdX {
 			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
 			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
 			
-			int count=0;
 
 			/*
 			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
@@ -107,7 +106,9 @@ public class DQ_EdX {
 				if(courseMap.get(courseID)==null){
 					//This is a course which has been removed since the last run
 					countOfCoursesDeleted++;
-					changeInJsonMap.put(courseID, null);
+					Map<String,String> dummyMap = new HashMap<>();
+					dummyMap.put("dummy", "dummy");
+					changeInJsonMap.put(courseID, dummyMap);
 					//delete this course from the original JSON
 				}
 				else{
@@ -158,12 +159,14 @@ public class DQ_EdX {
 			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
 			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
 			int locationCount = 0;
+			Map<String,String> dummyMap = new HashMap<>();
+			dummyMap.put("dummy", "dummy");
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				String courseID = course.get("course:code").toString();
 
-				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
+				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==dummyMap){ //Delete course from JSON file
 					locationList.add(locationCount);
 				}
 				else{

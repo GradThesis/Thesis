@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +21,9 @@ public class DQ_Udacity {
 
 	public static void main(String[] args) {
 
-		DQ_Udacity edx = new DQ_Udacity();
-//		edx.getNewDataFromEdX();
-		edx.checkQualityOfDataFromEdX();
+		DQ_Udacity udacity = new DQ_Udacity();
+		//udacity.getNewDataFromUdacity();
+		udacity.checkQualityOfDataFromEdX();
 	}
 
 	public void checkQualityOfDataFromEdX() {
@@ -35,12 +36,10 @@ public class DQ_Udacity {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\edx1.json"));
+			Object obj= parser.parse(new FileReader("D:\\udacity_new.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
-			org.json.simple.JSONObject rssElements = (org.json.simple.JSONObject)inner.get("rss");
-			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
-			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
+			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("courses");
 			Map<String,ArrayList<String>> courseMap = new HashMap<String,ArrayList<String>>();
 			
 			int count=0;
@@ -48,7 +47,7 @@ public class DQ_Udacity {
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 
-				String courseID = course.get("course:code").toString();
+				String courseID = course.get("key").toString();
 				courseMap.put(courseID, null);
 				ArrayList<String> value = new ArrayList<String>();
 				
@@ -56,11 +55,11 @@ public class DQ_Udacity {
 				value.add(name);
 				courseMap.put(courseID, value);
 
-				String shortDescription = (String) course.get("description");
+				String shortDescription = (String) course.get("expected_learning");
 				value.add(shortDescription);
 				courseMap.put(courseID, value);
 				
-				String recommendedBackground = (String) course.get("prerequisites");
+				String recommendedBackground = (String) course.get("required_knowledge");
 				value.add(recommendedBackground);
 				courseMap.put(courseID, value);
 				
@@ -76,8 +75,8 @@ public class DQ_Udacity {
 	public static void getScore(Map<String,ArrayList<String>> courseMap){
 
 
-		int countOfCoursesDeleted=0;
-		int countOfCoursesWithDetailsChanged=0;
+		long countOfCoursesDeleted=0;
+		long countOfCoursesWithDetailsChanged=0;
 		Map<String,Map<String,String>> changeInJsonMap = new HashMap<String,Map<String,String>>();
 
 		try{
@@ -88,9 +87,9 @@ public class DQ_Udacity {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses_old.json"));
-			JSONObject inner = (JSONObject) obj;
-			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+			Object obj= parser.parse(new FileReader("D:\\udacity.json"));
+			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
+			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("courses");
 
 			/*
 			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
@@ -99,58 +98,35 @@ public class DQ_Udacity {
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				Map<String,String> courseDetailsChangeMap = new HashMap<String,String>();
-				String courseID = course.get("id").toString();
+				String courseID = course.get("key").toString();
 				if(courseMap.get(courseID)==null){
 					//This is a course which has been removed since the last run
 					countOfCoursesDeleted++;
-					changeInJsonMap.put(courseID, null);
+					Map<String,String> dummyMap = new HashMap<>();
+					dummyMap.put("dummy", "dummy");
+					changeInJsonMap.put(courseID, dummyMap);
 					//delete this course from the original JSON
 				}
 				else{
 					int arrayListIterator=0;
-					String name = (String) course.get("name");
+					String name = (String) course.get("title");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(name)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("name", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("title", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String shortDescription = (String) course.get("shortDescription");
+					String shortDescription = (String) course.get("expected_learning");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(shortDescription)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("shortDescription", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("expected_learning", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String courseFormat = (String) course.get("courseFormat");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseFormat)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("courseFormat", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					String courseSyllabus = (String) course.get("courseSyllabus");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseSyllabus)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("courseSyllabus", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					String language = (String) course.get("language");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(language)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("language", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					String recommendedBackground = (String) course.get("recommendedBackground");
+					String recommendedBackground = (String) course.get("required_knowledge");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(recommendedBackground)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("recommendedBackground", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("required_knowledge", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String aboutTheCourse = (String) course.get("aboutTheCourse");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(aboutTheCourse)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("aboutTheCourse", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					//if(!courseDetailsChangeMap.isEmpty())
 					changeInJsonMap.put(courseID, courseDetailsChangeMap);
 				}
 
@@ -164,7 +140,7 @@ public class DQ_Udacity {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static void changeOriginalJSONAccToScore(Map<String, Map<String, String>> mapForChangesToBeMadeInOriginalJson, int score) {
+	private static void changeOriginalJSONAccToScore(Map<String, Map<String, String>> mapForChangesToBeMadeInOriginalJson, long score) {
 
 		try{
 			JSONParser parser = new JSONParser(); 
@@ -174,14 +150,14 @@ public class DQ_Udacity {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses.json"));
+			Object obj= parser.parse(new FileReader("D:\\udacity.json"));
 			JSONObject inner = (JSONObject) obj;
-			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+			JSONArray jArrayForElements = (JSONArray)inner.get("courses");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
-				String courseID = course.get("id").toString();
+				String courseID = course.get("key").toString();
 
 				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
 					locationList.add(locationCount);
@@ -210,8 +186,8 @@ public class DQ_Udacity {
 				list1.remove(loc);
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
-			inner.put("elements", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\courses_old.json");
+			inner.put("courses", finalJsonArray);
+			FileWriter fw = new FileWriter("D:\\udacity_updated.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
@@ -222,16 +198,13 @@ public class DQ_Udacity {
 
 	}
 
-	public void getNewDataFromEdX(){
+	public void getNewDataFromUdacity(){
 		try {
 
-			InputStream io = new FileInputStream(new File("D:\\rss.xml"));
+			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("https://www.udacity.com/public-api/v0/courses")));
 
-			org.json.JSONObject xmlJSONObj = XML.toJSONObject(IOUtils.toString(io));
-
-			String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-			System.out.println(jsonPrettyPrintString);
-			FileWriter fw = new FileWriter("D:\\edx1.json");
+			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+			FileWriter fw = new FileWriter("D:\\udacity.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();

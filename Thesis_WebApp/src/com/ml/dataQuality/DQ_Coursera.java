@@ -164,7 +164,9 @@ public class DQ_Coursera {
 				if(courseMap.get(courseID)==null){
 					//This is a course which has been removed since the last run
 					countOfCoursesDeleted++;
-					changeInJsonMap.put(courseID, null);
+					Map<String,String> dummyMap = new HashMap<>();
+					dummyMap.put("dummy", "dummy");
+					changeInJsonMap.put(courseID, dummyMap);
 					//delete this course from the original JSON
 				}
 				else{
@@ -240,11 +242,13 @@ public class DQ_Coursera {
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
+			Map<String,String> dummyMap = new HashMap<>();
+			dummyMap.put("dummy", "dummy");
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				String courseID = course.get("id").toString();
 
-				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
+				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==dummyMap){ //Delete course from JSON file
 					locationList.add(locationCount);
 				}
 				else{
