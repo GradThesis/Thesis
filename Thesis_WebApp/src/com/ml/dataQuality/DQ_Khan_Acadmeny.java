@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,65 +15,72 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class DQ_EdX {
+public class DQ_Khan_Acadmeny {
 
 	public static int PRETTY_PRINT_INDENT_FACTOR = 4;
 
 	public static void main(String[] args) {
 
-		DQ_EdX edx = new DQ_EdX();
-		edx.getNewDataFromEdX();
-		edx.checkQualityOfDataFromEdX();
+		DQ_Khan_Acadmeny khan_acad = new DQ_Khan_Acadmeny();
+		//khan_acad.getNewDataFromKhanAcademy();
+		khan_acad.checkQualityOfDataFromKhanAcademy();
 	}
 
-	public void checkQualityOfDataFromEdX() {
-		
+	public void checkQualityOfDataFromKhanAcademy() {
+
 		/*
 		 * Loading new JSON file into HashMap
 		 * 
-		*/
-		
+		 */
+
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\edx_new.json"));
+			Object obj= parser.parse(new FileReader("D:\\khan.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
-			org.json.simple.JSONObject rssElements = (org.json.simple.JSONObject)inner.get("rss");
-			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
-			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
+			org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
+			org.json.simple.JSONArray jArrayForElements = null;
 			Map<String,ArrayList<String>> courseMap = new HashMap<String,ArrayList<String>>();
-			
+
 			int count=0;
-			
-			for(Object o: jArrayForElements){
-				JSONObject course = (JSONObject) o;
 
-				String courseID = course.get("course:code").toString();
-				courseMap.put(courseID, null);
-				ArrayList<String> value = new ArrayList<String>();
-				
-				String name = (String) course.get("title");
-				value.add(name);
-				courseMap.put(courseID, value);
+			for(Object o: categoryElements){
+				JSONObject category = (JSONObject) o;
+				org.json.simple.JSONArray elementsOfACategory = (org.json.simple.JSONArray)category.get("children");
 
-				String shortDescription = (String) course.get("description");
-				value.add(shortDescription);
-				courseMap.put(courseID, value);
-				
-				String recommendedBackground = (String) course.get("course:prerequisites");
-				value.add(recommendedBackground);
-				courseMap.put(courseID, value);
-				
-				count++;
+				for(Object c: elementsOfACategory){
+					JSONObject course = (JSONObject) c;
+					String courseID = course.get("id").toString();
+					courseMap.put(courseID, null);
+					ArrayList<String> value = new ArrayList<String>();
+
+					String name = (String) course.get("title");
+					value.add(name);
+					courseMap.put(courseID, value);
+
+					String shortDescription = (String) course.get("description");
+					value.add(shortDescription);
+					courseMap.put(courseID, value);
+					
+					String courseFormat = (String) course.get("content_kind");
+					value.add(courseFormat);
+					courseMap.put(courseID, value);
+					
+					String language = (String) course.get("translated_youtube_lang");
+					value.add(language);
+					courseMap.put(courseID, value);
+
+					count++;
+				}
 			}
 			System.out.println(count);
 			getScore(courseMap);
-			
+
 		}
 		catch(Exception e ){e.printStackTrace();}
 	}
-	
+
 	public static void getScore(Map<String,ArrayList<String>> courseMap){
 
 
@@ -85,25 +93,21 @@ public class DQ_EdX {
 
 			/*
 			 *	Loading the old JSON data. 
-			*/
-			
-			
-			Object obj= parser.parse(new FileReader("D:\\edx.json"));
-			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
-			org.json.simple.JSONObject rssElements = (org.json.simple.JSONObject)inner.get("rss");
-			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
-			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
-			
-			int count=0;
+			 */
+
+
+			Object obj= parser.parse(new FileReader("D:\\courses_old.json"));
+			JSONObject inner = (JSONObject) obj;
+			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 
 			/*
 			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
-			*/
+			 */
 
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				Map<String,String> courseDetailsChangeMap = new HashMap<String,String>();
-				String courseID = course.get("course:code").toString();
+				String courseID = course.get("id").toString();
 				if(courseMap.get(courseID)==null){
 					//This is a course which has been removed since the last run
 					countOfCoursesDeleted++;
@@ -112,24 +116,49 @@ public class DQ_EdX {
 				}
 				else{
 					int arrayListIterator=0;
-					String name = (String) course.get("title");
+					String name = (String) course.get("name");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(name)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("title", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("name", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String shortDescription = (String) course.get("description");
+					String shortDescription = (String) course.get("shortDescription");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(shortDescription)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("description", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("shortDescription", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String recommendedBackground = (String) course.get("course:prerequisites");
+					String courseFormat = (String) course.get("courseFormat");
+					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseFormat)){}
+					else{
+						countOfCoursesWithDetailsChanged++;
+						courseDetailsChangeMap.put("courseFormat", courseMap.get(courseID).get(arrayListIterator-1));
+					}
+					String courseSyllabus = (String) course.get("courseSyllabus");
+					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseSyllabus)){}
+					else{
+						countOfCoursesWithDetailsChanged++;
+						courseDetailsChangeMap.put("courseSyllabus", courseMap.get(courseID).get(arrayListIterator-1));
+					}
+					String language = (String) course.get("language");
+					if(courseMap.get(courseID).get(arrayListIterator++).equals(language)){}
+					else{
+						countOfCoursesWithDetailsChanged++;
+						courseDetailsChangeMap.put("language", courseMap.get(courseID).get(arrayListIterator-1));
+					}
+					String recommendedBackground = (String) course.get("recommendedBackground");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(recommendedBackground)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("course:prerequisites", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("recommendedBackground", courseMap.get(courseID).get(arrayListIterator-1));
 					}
+					String aboutTheCourse = (String) course.get("aboutTheCourse");
+					if(courseMap.get(courseID).get(arrayListIterator++).equals(aboutTheCourse)){}
+					else{
+						countOfCoursesWithDetailsChanged++;
+						courseDetailsChangeMap.put("aboutTheCourse", courseMap.get(courseID).get(arrayListIterator-1));
+					}
+					//if(!courseDetailsChangeMap.isEmpty())
 					changeInJsonMap.put(courseID, courseDetailsChangeMap);
 				}
 
@@ -138,9 +167,10 @@ public class DQ_EdX {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+
 		changeOriginalJSONAccToScore(changeInJsonMap,(countOfCoursesDeleted+(countOfCoursesWithDetailsChanged/2)));
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private static void changeOriginalJSONAccToScore(Map<String, Map<String, String>> mapForChangesToBeMadeInOriginalJson, int score) {
 
@@ -149,19 +179,17 @@ public class DQ_EdX {
 
 			/*  Now, update the original JSON file with the changes.
 			 * 
-			*/
-			
-			
-			Object obj= parser.parse(new FileReader("D:\\edx.json"));
-			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
-			org.json.simple.JSONObject rssElements = (org.json.simple.JSONObject)inner.get("rss");
-			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
-			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
+			 */
+
+
+			Object obj= parser.parse(new FileReader("D:\\courses.json"));
+			JSONObject inner = (JSONObject) obj;
+			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
-				String courseID = course.get("course:code").toString();
+				String courseID = course.get("id").toString();
 
 				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
 					locationList.add(locationCount);
@@ -184,14 +212,14 @@ public class DQ_EdX {
 					list1.add(jArrayForElements.get(i).toString());
 				} 
 			}
-			
+
 			for(int i=0;i<locationList.size();i++){
 				int loc = locationList.get(i);
 				list1.remove(loc);
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
-			channelElements.put("item", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\edx_updated.json");
+			inner.put("elements", finalJsonArray);
+			FileWriter fw = new FileWriter("D:\\courses_old.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
@@ -202,16 +230,16 @@ public class DQ_EdX {
 
 	}
 
-	public void getNewDataFromEdX(){
+	public void getNewDataFromKhanAcademy(){
 		try {
 
 			InputStream io = new FileInputStream(new File("D:\\rss.xml"));
 
-			org.json.JSONObject xmlJSONObj = XML.toJSONObject(IOUtils.toString(io));
+			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("http://www.khanacademy.org/api/v1/topictree")));
 
-			String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-//			System.out.println(jsonPrettyPrintString);
-			FileWriter fw = new FileWriter("D:\\edx.json");
+
+			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+			FileWriter fw = new FileWriter("D:\\khan.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
