@@ -1,13 +1,19 @@
 package com.ml.dataQuality;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -24,17 +30,17 @@ public class DQ_Ocw {
 	public static void main(String[] args) {
 
 		DQ_Ocw ocw = new DQ_Ocw();
-		//ocw.getNewDataFromOCW();
-		ocw.checkQualityOfDataFromOCW();
+		ocw.getNewDataFromOCW();
+		//ocw.checkQualityOfDataFromOCW();
 	}
 
 	public void checkQualityOfDataFromOCW() {
-		
+
 		/*
 		 * Loading new JSON file into HashMap
 		 * 
-		*/
-		
+		 */
+
 		try{
 			JSONParser parser = new JSONParser(); 
 
@@ -43,16 +49,16 @@ public class DQ_Ocw {
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
 			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("rows");
 			Map<String,ArrayList<String>> courseMap = new HashMap<String,ArrayList<String>>();
-			
+
 			int count=0;
-			
+
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 
 				String courseID = course.get("URL Hash").toString();
 				courseMap.put(courseID, null);
 				ArrayList<String> value = new ArrayList<String>();
-				
+
 				String name = (String) course.get("Title");
 				value.add(name);
 				courseMap.put(courseID, value);
@@ -60,24 +66,24 @@ public class DQ_Ocw {
 				String shortDescription = (String) course.get("Description");
 				value.add(shortDescription);
 				courseMap.put(courseID, value);
-				
+
 				String language = (String) course.get("Language");
 				value.add(language);
 				courseMap.put(courseID, value);
-				
+
 				String Provider = (String) course.get("Provider");
 				value.add(Provider);
 				courseMap.put(courseID, value);
-				
+
 				count++;
 			}
 			System.out.println(count);
 			getScore(courseMap);
-			
+
 		}
 		catch(Exception e ){e.printStackTrace();}
 	}
-	
+
 	public static void getScore(Map<String,ArrayList<String>> courseMap){
 
 
@@ -90,16 +96,16 @@ public class DQ_Ocw {
 
 			/*
 			 *	Loading the old JSON data. 
-			*/
-			
-			
+			 */
+
+
 			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
 
 			/*
 			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
-			*/
+			 */
 
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
@@ -150,7 +156,7 @@ public class DQ_Ocw {
 
 		changeOriginalJSONAccToScore(changeInJsonMap,(countOfCoursesDeleted+(countOfCoursesWithDetailsChanged/2)));
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private static void changeOriginalJSONAccToScore(Map<String, Map<String, String>> mapForChangesToBeMadeInOriginalJson, int score) {
 
@@ -159,9 +165,9 @@ public class DQ_Ocw {
 
 			/*  Now, update the original JSON file with the changes.
 			 * 
-			*/
-			
-			
+			 */
+
+
 			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
@@ -194,7 +200,7 @@ public class DQ_Ocw {
 					list1.add(jArrayForElements.get(i).toString());
 				} 
 			}
-			
+
 			for(int i=0;i<locationList.size();i++){
 				int loc = locationList.get(i);
 				list1.remove(loc);
@@ -216,17 +222,37 @@ public class DQ_Ocw {
 	public void getNewDataFromOCW(){
 		try {
 
-			FileInputStream io = new FileInputStream(new File("D:\\ocw-courses.xls"));
+			URL link = new URL("http://data.oeconsortium.org/dbdump/ocw-courses.xls");
+			InputStream in = new BufferedInputStream(link.openStream());
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
 			
+			byte[] buf = new byte[1024];
+			 int n = 0;
+			 while (-1!=(n=in.read(buf)))
+			 {
+			    out.write(buf, 0, n);
+			 }
+			 out.close();
+			 in.close();
+			 byte[] response = out.toByteArray();
+	 
+			 FileOutputStream fos = new FileOutputStream("D:\\ocw-courses.xls");
+			 fos.write(response);
+			 fos.flush();
+			 fos.close();
+
+
+			FileInputStream io = new FileInputStream(new File("D:\\ocw-courses.xls"));
+
 			Workbook wb = WorkbookFactory.create(io);
 			Sheet sheet = wb.getSheetAt(0);
-			
+
 			org.json.JSONObject json = new org.json.JSONObject();
 
-		    // Iterate through the rows.
-			
+			// Iterate through the rows.
+
 			org.json.JSONArray rows = new org.json.JSONArray();
-			
+
 			Iterator<Row> rowsIT = sheet.rowIterator();
 			rowsIT.next();
 			ArrayList<String> keyList = new ArrayList<>();
@@ -243,29 +269,29 @@ public class DQ_Ocw {
 			keyList.add("Indexed");
 			keyList.add("Modified");
 			keyList.add("Categories");
-			
-			
-		    while(rowsIT.hasNext())
-		    {
-		        Row row = rowsIT.next();
-		        JSONObject jRow = new JSONObject();
 
-		        org.json.JSONArray cells = new org.json.JSONArray();
-		        int i=0;
-		        JSONObject jcell = new JSONObject();
-		        for ( Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); )
-		        {
-		            Cell cell = cellsIT.next();
-		            if(i>=9 && i<=11)
-		            	jcell.put(keyList.get(i++), cell.getNumericCellValue());
-		            else
-		            	jcell.put(keyList.get(i++), cell.getStringCellValue());
-		        }
-		        rows.put( jcell );
-		    }
-			
-		    json.put( "rows", rows );
-		    String jsonPrettyPrintString = json.toString(PRETTY_PRINT_INDENT_FACTOR);
+
+			while(rowsIT.hasNext())
+			{
+				Row row = rowsIT.next();
+				JSONObject jRow = new JSONObject();
+
+				org.json.JSONArray cells = new org.json.JSONArray();
+				int i=0;
+				JSONObject jcell = new JSONObject();
+				for ( Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); )
+				{
+					Cell cell = cellsIT.next();
+					if(i>=9 && i<=11)
+						jcell.put(keyList.get(i++), cell.getNumericCellValue());
+					else
+						jcell.put(keyList.get(i++), cell.getStringCellValue());
+				}
+				rows.put( jcell );
+			}
+
+			json.put( "rows", rows );
+			String jsonPrettyPrintString = json.toString(PRETTY_PRINT_INDENT_FACTOR);
 			FileWriter fw = new FileWriter("D:\\ocw.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
