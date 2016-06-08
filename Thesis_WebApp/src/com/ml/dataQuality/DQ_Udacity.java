@@ -155,11 +155,13 @@ public class DQ_Udacity {
 			JSONArray jArrayForElements = (JSONArray)inner.get("courses");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
+			Map<String,String> dummyMap = new HashMap<>();
+			dummyMap.put("dummy", "dummy");
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				String courseID = course.get("key").toString();
 
-				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
+				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==dummyMap){ //Delete course from JSON file
 					locationList.add(locationCount);
 				}
 				else{

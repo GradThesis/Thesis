@@ -13,7 +13,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.json.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,12 +23,12 @@ public class DQ_Ocw {
 
 	public static void main(String[] args) {
 
-		DQ_Ocw edx = new DQ_Ocw();
-		edx.getNewDataFromOCW();
-//		edx.checkQualityOfDataFromEdX();
+		DQ_Ocw ocw = new DQ_Ocw();
+		//ocw.getNewDataFromOCW();
+		ocw.checkQualityOfDataFromOCW();
 	}
 
-	public void checkQualityOfDataFromEdX() {
+	public void checkQualityOfDataFromOCW() {
 		
 		/*
 		 * Loading new JSON file into HashMap
@@ -39,12 +38,10 @@ public class DQ_Ocw {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\edx1.json"));
+			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
-			org.json.simple.JSONObject rssElements = (org.json.simple.JSONObject)inner.get("rss");
-			org.json.simple.JSONObject channelElements = (org.json.simple.JSONObject)rssElements.get("channel");
-			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)channelElements.get("item");
+			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("rows");
 			Map<String,ArrayList<String>> courseMap = new HashMap<String,ArrayList<String>>();
 			
 			int count=0;
@@ -52,20 +49,24 @@ public class DQ_Ocw {
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 
-				String courseID = course.get("course:code").toString();
+				String courseID = course.get("URL Hash").toString();
 				courseMap.put(courseID, null);
 				ArrayList<String> value = new ArrayList<String>();
 				
-				String name = (String) course.get("title");
+				String name = (String) course.get("Title");
 				value.add(name);
 				courseMap.put(courseID, value);
 
-				String shortDescription = (String) course.get("description");
+				String shortDescription = (String) course.get("Description");
 				value.add(shortDescription);
 				courseMap.put(courseID, value);
 				
-				String recommendedBackground = (String) course.get("prerequisites");
-				value.add(recommendedBackground);
+				String language = (String) course.get("Language");
+				value.add(language);
+				courseMap.put(courseID, value);
+				
+				String Provider = (String) course.get("Provider");
+				value.add(Provider);
 				courseMap.put(courseID, value);
 				
 				count++;
@@ -92,9 +93,9 @@ public class DQ_Ocw {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses_old.json"));
+			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
-			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
 
 			/*
 			 *  For each old JSON element, compare it with the new JSON file which is already loaded. 
@@ -103,58 +104,41 @@ public class DQ_Ocw {
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
 				Map<String,String> courseDetailsChangeMap = new HashMap<String,String>();
-				String courseID = course.get("id").toString();
+				String courseID = course.get("URL Hash").toString();
 				if(courseMap.get(courseID)==null){
 					//This is a course which has been removed since the last run
 					countOfCoursesDeleted++;
-					changeInJsonMap.put(courseID, null);
+					Map<String,String> dummyMap = new HashMap<>();
+					dummyMap.put("dummy", "dummy");
+					changeInJsonMap.put(courseID, dummyMap);
 					//delete this course from the original JSON
 				}
 				else{
 					int arrayListIterator=0;
-					String name = (String) course.get("name");
+					String name = (String) course.get("Title");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(name)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("name", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("Title", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String shortDescription = (String) course.get("shortDescription");
+					String shortDescription = (String) course.get("Description");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(shortDescription)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("shortDescription", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("Description", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String courseFormat = (String) course.get("courseFormat");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseFormat)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("courseFormat", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					String courseSyllabus = (String) course.get("courseSyllabus");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(courseSyllabus)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("courseSyllabus", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					String language = (String) course.get("language");
+					String language = (String) course.get("Language");
 					if(courseMap.get(courseID).get(arrayListIterator++).equals(language)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("language", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("Language", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String recommendedBackground = (String) course.get("recommendedBackground");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(recommendedBackground)){}
+					String Provider = (String) course.get("Provider");
+					if(courseMap.get(courseID).get(arrayListIterator++).equals(Provider)){}
 					else{
 						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("recommendedBackground", courseMap.get(courseID).get(arrayListIterator-1));
+						courseDetailsChangeMap.put("Provider", courseMap.get(courseID).get(arrayListIterator-1));
 					}
-					String aboutTheCourse = (String) course.get("aboutTheCourse");
-					if(courseMap.get(courseID).get(arrayListIterator++).equals(aboutTheCourse)){}
-					else{
-						countOfCoursesWithDetailsChanged++;
-						courseDetailsChangeMap.put("aboutTheCourse", courseMap.get(courseID).get(arrayListIterator-1));
-					}
-					//if(!courseDetailsChangeMap.isEmpty())
 					changeInJsonMap.put(courseID, courseDetailsChangeMap);
 				}
 
@@ -178,16 +162,18 @@ public class DQ_Ocw {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses.json"));
+			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
-			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
 			int locationCount = 0;
 			ArrayList<Integer> locationList = new ArrayList<Integer>();
+			Map<String,String> dummyMap = new HashMap<>();
+			dummyMap.put("dummy", "dummy");
 			for(Object o: jArrayForElements){
 				JSONObject course = (JSONObject) o;
-				String courseID = course.get("id").toString();
+				String courseID = course.get("URL Hash").toString();
 
-				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==null){ //Delete course from JSON file
+				if(mapForChangesToBeMadeInOriginalJson.get(courseID)==dummyMap){ //Delete course from JSON file
 					locationList.add(locationCount);
 				}
 				else{
@@ -214,8 +200,8 @@ public class DQ_Ocw {
 				list1.remove(loc);
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
-			inner.put("elements", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\courses_old.json");
+			inner.put("rows", finalJsonArray);
+			FileWriter fw = new FileWriter("D:\\ocw_updated.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
