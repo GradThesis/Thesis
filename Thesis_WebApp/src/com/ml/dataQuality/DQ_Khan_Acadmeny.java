@@ -15,13 +15,47 @@ public class DQ_Khan_Acadmeny {
 
 	public static int PRETTY_PRINT_INDENT_FACTOR = 4;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		
 		DQ_Khan_Acadmeny khan_acad = new DQ_Khan_Acadmeny();
 		khan_acad.getNewDataFromKhanAcademy();
-		
+		//khan_acad.makeChangesToJSONForEvaluation();
 		//khan_acad.checkQualityOfDataFromKhanAcademy();
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	private void makeChangesToJSONForEvaluation() throws Exception{
+
+
+		JSONParser parser = new JSONParser(); 
+
+		Object obj= parser.parse(new FileReader("D:\\Project\\KhanAcad\\khan.json"));
+
+		org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
+		org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
+		double count=0;
+		for(Object o: categoryElements){
+			JSONObject category = (JSONObject) o;
+			org.json.simple.JSONArray elementsOfACategory = (org.json.simple.JSONArray)category.get("children");
+			for(Object c: elementsOfACategory){
+				count++;
+				if(Math.random() < 0.9){
+					JSONObject course = (JSONObject) c;
+					course.put("title", "This is a change in name for course ID"+ course.get("id").toString());
+					course.put("description", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+					course.put("content_kind", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+					course.put("translated_youtube_lang", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				}
+			}
+		}
+		System.out.println(count);
+		inner.put("elements", categoryElements);
+		FileWriter fw = new FileWriter("D:\\Project\\KhanAcad\\khan_90.json");
+		fw.write(inner.toString());
+		fw.flush();
+		fw.close();
 	}
 
 	public void checkQualityOfDataFromKhanAcademy() {
@@ -34,7 +68,7 @@ public class DQ_Khan_Acadmeny {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\khan_new.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\KhanAcad\\khan_90.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
 			org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
@@ -94,7 +128,7 @@ public class DQ_Khan_Acadmeny {
 			 */
 
 
-			Object obj= parser.parse(new FileReader("D:\\khan.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\KhanAcad\\khan.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
@@ -166,7 +200,7 @@ public class DQ_Khan_Acadmeny {
 			 */
 
 
-			Object obj= parser.parse(new FileReader("D:\\khan.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\KhanAcad\\khan.json"));
 			JSONObject inner = (JSONObject) obj;
 			org.json.simple.JSONArray categoryElements = (org.json.simple.JSONArray)inner.get("children");
 			int locationCount = 0;
@@ -197,10 +231,7 @@ public class DQ_Khan_Acadmeny {
 					courseCount++;
 					locationCount++;
 				}
-
-				
 			}
-
 			ArrayList<String> list1 = new ArrayList<String>();
 			int len = courseCount;
 
@@ -218,7 +249,7 @@ public class DQ_Khan_Acadmeny {
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
 			inner.put("elements", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\khan_updated.json");
+			FileWriter fw = new FileWriter("D:\\Project\\KhanAcad\\khan_90_changed.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
@@ -235,7 +266,7 @@ public class DQ_Khan_Acadmeny {
 			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("http://www.khanacademy.org/api/v1/topictree")));
 			long startTime = System.currentTimeMillis();
 			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
-			FileWriter fw = new FileWriter("D:\\khan.json");
+			FileWriter fw = new FileWriter("D:\\Project\\KhanAcad\\khan.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
