@@ -1,20 +1,71 @@
 package com.ml.dataQuality;
+
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DQ_Coursera {
 
+	public static int PRETTY_PRINT_INDENT_FACTOR = 4;
+
 	public static void main(String[] args) throws Exception {
 		
+		
+		
 		DQ_Coursera dqCoursera = new DQ_Coursera();
-		dqCoursera.checkQualityOfDataFromCoursera();
+		dqCoursera.getNewDataFromCoursera();
+		//dqCoursera.makeChangesToJSONForEvaluation();
+		//dqCoursera.checkQualityOfDataFromCoursera();
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void makeChangesToJSONForEvaluation() throws Exception{
 
+		
+		JSONParser parser = new JSONParser(); 
+		Object obj= parser.parse(new FileReader("D:\\Project\\Coursera\\coursera.json"));
+		JSONObject inner = (JSONObject) obj;
+		JSONArray jArrayForElements = (JSONArray)inner.get("elements");
+		double count=0;
+		for(Object o: jArrayForElements){
+			
+			if(Math.random() < 0.9){
+				count++;
+				JSONObject course = (JSONObject) o;
+				
+				course.put("name", "This is a change in name for course ID"+ course.get("id").toString());
+				course.put("shortDescription", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				course.put("courseFormat", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				course.put("courseSyllabus", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				course.put("language", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				course.put("recommendedBackground", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+				course.put("aboutTheCourse", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("id").toString());
+			}
+		}
+		System.out.println(count);
+		
+		inner.put("elements", jArrayForElements);
+		FileWriter fw = new FileWriter("D:\\Project\\Coursera\\coursera_90.json");
+		fw.write(inner.toString());
+		fw.flush();
+		fw.close();
+		
+		/*org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new FileReader("D:\\Project\\Coursera\\coursera_10.json")));
+		String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+		fw = new FileWriter("D:\\Project\\Coursera\\coursera_10.json");
+		fw.write(jsonPrettyPrintString.toString());
+		fw.flush();
+		fw.close();*/
+		
 	}
 
 	private void checkQualityOfDataFromCoursera() throws Exception {
@@ -26,7 +77,7 @@ public class DQ_Coursera {
 		
 		JSONParser parser = new JSONParser(); 
 
-		Object obj= parser.parse(new FileReader("D:\\courses_new.json"));
+		Object obj= parser.parse(new FileReader("D:\\Project\\Coursera\\coursera_90.json"));
 
 		JSONObject inner = (JSONObject) obj;
 		JSONArray jArrayForElements = (JSONArray)inner.get("elements");
@@ -76,7 +127,7 @@ public class DQ_Coursera {
 
 			count++;
 		}
-		//		System.out.println(count);
+		System.out.println(count);
 
 		JSONObject links =  (JSONObject) inner.get("linked");
 		JSONArray instructorArray = (JSONArray) links.get("instructors");
@@ -149,7 +200,7 @@ public class DQ_Coursera {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses_old.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\Coursera\\coursera.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 
@@ -237,7 +288,7 @@ public class DQ_Coursera {
 			*/
 			
 			
-			Object obj= parser.parse(new FileReader("D:\\courses.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\Coursera\\coursera.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("elements");
 			int locationCount = 0;
@@ -276,10 +327,17 @@ public class DQ_Coursera {
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
 			inner.put("elements", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\courses_old.json");
+			FileWriter fw = new FileWriter("D:\\Project\\Coursera\\coursera_90_changed.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
+
+			/*org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new FileReader("D:\\Project\\Coursera\\coursera_10_changed.json")));
+			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+			fw = new FileWriter("D:\\Project\\Coursera\\coursera_10_changed.json");
+			fw.write(jsonPrettyPrintString.toString());
+			fw.flush();
+			fw.close();*/
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -287,6 +345,26 @@ public class DQ_Coursera {
 
 	}
 
+	@SuppressWarnings("static-access")
+	public void getNewDataFromCoursera(){
+		try {
+
+			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("https://api.coursera.org/api/catalog.v1/courses?fields=id,startDate,name,shortDescription,language,courseFormat,courseSyllabus,recommendedBackground,aboutTheCourse&includes=instructors,categories")));
+			Thread t=null;
+			long startTime = System.currentTimeMillis();
+			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+			FileWriter fw = new FileWriter("D:\\Project\\Coursera\\coursera.json");
+			fw.write(jsonPrettyPrintString.toString());
+			fw.flush();
+			fw.close();
+			t.sleep(425);
+			long endTime   = System.currentTimeMillis();
+			long totalTime = endTime - startTime;
+			System.out.println("\n\n"+totalTime);
+		} catch (Exception je) {
+			System.out.println(je.toString());
+		}
+	}
 
 
 }

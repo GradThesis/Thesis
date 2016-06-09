@@ -22,7 +22,7 @@ public class DQ_EdX {
 
 		DQ_EdX edx = new DQ_EdX();
 		edx.getNewDataFromEdX();
-		edx.checkQualityOfDataFromEdX();
+		//edx.checkQualityOfDataFromEdX();
 	}
 
 	public void checkQualityOfDataFromEdX() {

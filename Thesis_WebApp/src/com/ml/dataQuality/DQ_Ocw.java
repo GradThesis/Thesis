@@ -27,11 +27,53 @@ public class DQ_Ocw {
 
 	public static int PRETTY_PRINT_INDENT_FACTOR = 4;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
+		
 		DQ_Ocw ocw = new DQ_Ocw();
 		ocw.getNewDataFromOCW();
+		//ocw.makeChangesToJSONForEvaluation();
 		//ocw.checkQualityOfDataFromOCW();
+		
+	}
+
+
+	@SuppressWarnings("unchecked")
+	private void makeChangesToJSONForEvaluation() throws Exception{
+
+
+		JSONParser parser = new JSONParser(); 
+		Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw.json"));
+		JSONObject inner = (JSONObject) obj;
+		JSONArray jArrayForElements = (JSONArray)inner.get("rows");
+		double count=0;
+		for(Object o: jArrayForElements){
+
+			if(Math.random() < 0.9){
+				count++;
+				JSONObject course = (JSONObject) o;
+
+				course.put("Title", "This is a change in Title for course ID"+ course.get("URL Hash").toString());
+				course.put("Description", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("URL Hash").toString());
+				course.put("Language", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("URL Hash").toString());
+				course.put("Provider", "<div>This course gives a broad overview of contraceptive methods and explores issues that influence contraceptive choices today. <\\//div>\n<div><\\/div>\\n<div>We will discuss the mechanism of action, effectiveness, risk/benefit, side effects and contraindications for each contraceptive method, as well as ask some questions about contraceptive decision making. What are some of the factors that influence contraception use and decision making?   Are there specific cultural, ethnic, social and environmental factors?  We will also look at the relationship between contraception use and risk of acquiring Sexually Transmitted Infections (STIs). <\\/div>\\n<div><\\/div>"+ course.get("URL Hash").toString());
+			}
+		}
+		System.out.println(count);
+
+		inner.put("elements", jArrayForElements);
+		FileWriter fw = new FileWriter("D:\\Project\\OCW\\ocw_90.json");
+		fw.write(inner.toString());
+		fw.flush();
+		fw.close();
+
+		/*org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new FileReader("D:\\Project\\Coursera\\coursera_10.json")));
+		String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
+		fw = new FileWriter("D:\\Project\\Coursera\\coursera_10.json");
+		fw.write(jsonPrettyPrintString.toString());
+		fw.flush();
+		fw.close();*/
+
 	}
 
 	public void checkQualityOfDataFromOCW() {
@@ -44,7 +86,7 @@ public class DQ_Ocw {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw_90.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
 			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("rows");
@@ -99,7 +141,7 @@ public class DQ_Ocw {
 			 */
 
 
-			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
 
@@ -168,7 +210,7 @@ public class DQ_Ocw {
 			 */
 
 
-			Object obj= parser.parse(new FileReader("D:\\ocw.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw.json"));
 			JSONObject inner = (JSONObject) obj;
 			JSONArray jArrayForElements = (JSONArray)inner.get("rows");
 			int locationCount = 0;
@@ -207,7 +249,7 @@ public class DQ_Ocw {
 			}
 			org.json.JSONArray finalJsonArray = new org.json.JSONArray(list1);
 			inner.put("rows", finalJsonArray);
-			FileWriter fw = new FileWriter("D:\\ocw_updated.json");
+			FileWriter fw = new FileWriter("D:\\Project\\OCW\\ocw_90_changed.json");
 			fw.write(inner.toString());
 			fw.flush();
 			fw.close();
@@ -218,31 +260,30 @@ public class DQ_Ocw {
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "static-access" })
 	public void getNewDataFromOCW(){
 		try {
-
+			Thread t = null;
 			URL link = new URL("http://data.oeconsortium.org/dbdump/ocw-courses.xls");
 			InputStream in = new BufferedInputStream(link.openStream());
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			
 			byte[] buf = new byte[1024];
-			 int n = 0;
-			 while (-1!=(n=in.read(buf)))
-			 {
-			    out.write(buf, 0, n);
-			 }
-			 out.close();
-			 in.close();
-			 byte[] response = out.toByteArray();
-	 
-			 FileOutputStream fos = new FileOutputStream("D:\\ocw-courses.xls");
-			 fos.write(response);
-			 fos.flush();
-			 fos.close();
+			int n = 0;
+			while (-1!=(n=in.read(buf)))
+			{
+				out.write(buf, 0, n);
+			}
+			out.close();
+			in.close();
+			long startTime = System.currentTimeMillis();
+			byte[] response = out.toByteArray();
+			FileOutputStream fos = new FileOutputStream("D:\\Project\\OCW\\ocw.json");
+			fos.write(response);
+			fos.flush();
+			fos.close();
 
 
-			FileInputStream io = new FileInputStream(new File("D:\\ocw-courses.xls"));
+			FileInputStream io = new FileInputStream(new File("D:\\Project\\OCW\\ocw.json"));
 
 			Workbook wb = WorkbookFactory.create(io);
 			Sheet sheet = wb.getSheetAt(0);
@@ -292,10 +333,14 @@ public class DQ_Ocw {
 
 			json.put( "rows", rows );
 			String jsonPrettyPrintString = json.toString(PRETTY_PRINT_INDENT_FACTOR);
-			FileWriter fw = new FileWriter("D:\\ocw.json");
+			FileWriter fw = new FileWriter("D:\\Project\\OCW\\ocw.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
+			t.sleep(3500);
+			long endTime   = System.currentTimeMillis();
+			long totalTime = endTime - startTime;
+			System.out.println("\n\n"+totalTime);
 		} catch (Exception je) {
 			System.out.println(je.toString());
 		}

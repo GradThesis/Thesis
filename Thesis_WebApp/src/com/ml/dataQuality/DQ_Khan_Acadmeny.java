@@ -17,9 +17,11 @@ public class DQ_Khan_Acadmeny {
 
 	public static void main(String[] args) {
 
+		
 		DQ_Khan_Acadmeny khan_acad = new DQ_Khan_Acadmeny();
-		//khan_acad.getNewDataFromKhanAcademy();
-		khan_acad.checkQualityOfDataFromKhanAcademy();
+		khan_acad.getNewDataFromKhanAcademy();
+		
+		//khan_acad.checkQualityOfDataFromKhanAcademy();
 	}
 
 	public void checkQualityOfDataFromKhanAcademy() {
@@ -231,12 +233,15 @@ public class DQ_Khan_Acadmeny {
 		try {
 
 			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("http://www.khanacademy.org/api/v1/topictree")));
-
+			long startTime = System.currentTimeMillis();
 			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
 			FileWriter fw = new FileWriter("D:\\khan.json");
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
+			long endTime   = System.currentTimeMillis();
+			long totalTime = endTime - startTime;
+			System.out.println("\n\n"+totalTime);
 		} catch (Exception je) {
 			System.out.println(je.toString());
 		}
