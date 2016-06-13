@@ -233,7 +233,7 @@ public class DQ_Udacity {
 	public void getNewDataFromUdacity(){
 		try {
 
-			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("https://www.udacity.com/public-api/v0/courses")));
+			org.json.JSONObject jsonObject = new org.json.JSONObject(IOUtils.toString(new URL("https://www.udacity.com/public-api/v1/courses")));
 			long startTime = System.currentTimeMillis();
 			String jsonPrettyPrintString = jsonObject.toString(PRETTY_PRINT_INDENT_FACTOR);
 			FileWriter fw = new FileWriter("D:\\Project\\Udacity\\udacity.json");
