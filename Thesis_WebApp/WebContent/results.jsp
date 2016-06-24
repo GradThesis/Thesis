@@ -70,20 +70,20 @@
 			}); 
 			
 			var obj = {
-				sTitle : "duration"
+				sTitle : "name"
 				
 			};
 			columns.push(obj);
 			var obj1 = {
-				sTitle : "difficulty"
+				sTitle : "recommended background"
 				
 			};
-			columns.push(obj1);
-			var obj1 = {
+			 columns.push(obj1);
+			 /*var obj1 = {
 				sTitle : "name"
 				
-			};
-			columns.push(obj1);
+			}; 
+			columns.push(obj1);*/
 			$('#myTable').dataTable({
 				"columns" : columns,
 				"data" : columns1,

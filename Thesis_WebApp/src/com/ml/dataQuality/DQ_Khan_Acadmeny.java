@@ -19,9 +19,9 @@ public class DQ_Khan_Acadmeny {
 
 		
 		DQ_Khan_Acadmeny khan_acad = new DQ_Khan_Acadmeny();
-		khan_acad.getNewDataFromKhanAcademy();
+		//khan_acad.getNewDataFromKhanAcademy();
 		//khan_acad.makeChangesToJSONForEvaluation();
-		//khan_acad.checkQualityOfDataFromKhanAcademy();
+		khan_acad.checkQualityOfDataFromKhanAcademy();
 		
 	}
 
@@ -107,7 +107,7 @@ public class DQ_Khan_Acadmeny {
 				}
 			}
 			System.out.println(count);
-			getScore(courseMap);
+			//getScore(courseMap);
 
 		}
 		catch(Exception e ){e.printStackTrace();}

@@ -500,12 +500,13 @@
                            			course += "<img class=\"img-responsive\" src=\""+data[i]["image"]+"\" alt=\"\">";
                            	} */
                            // course += "<\/a>";
-                            course += "<h3> "+result[i]["Course_name"]+"<\/h3>";
-                            course += "<h3> "+result[i]["Course_Format"]+"<\/h3>";
-                            course += "<h3> "+result[i]["Course_ID"]+"<\/h3>";
+                            course += "Name: <h3> "+result[i]["Course_Name"]+"<\/h3>";
+                            course += "Language: <h3> "+result[i]["Course_Language"]+"<\/h3>";
+                            course += "Background: <h3> "+result[i]["Course_RecBackground"]+"<\/h3>";
+                            course += "Provider: <h3> "+result[i]["Course_Provider"]+"<\/h3>";
                             //course += "<a title=\""+ result[i]["name"] +"\" href=\""+ result[i]["courseLink"] +"\">"+ result[i]["name"] +"<\/a>";
                             //course += "<\/h3>";
-                            course += "<p> <strong>Provider:<\/strong> Coursera<br \/>"; 
+                            /* course += "<p> <strong>Provider:<\/strong> Coursera<br \/>";  */
                             //course += "<div class=\"description\">";
                             //course += result[i]["desc"].replace(/(<([^>]+)>)/ig,"").truncate(100);
                             //course += "<\/div>";

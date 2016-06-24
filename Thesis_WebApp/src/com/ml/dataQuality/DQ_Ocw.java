@@ -31,9 +31,9 @@ public class DQ_Ocw {
 
 		
 		DQ_Ocw ocw = new DQ_Ocw();
-		ocw.getNewDataFromOCW();
+		//ocw.getNewDataFromOCW();
 		//ocw.makeChangesToJSONForEvaluation();
-		//ocw.checkQualityOfDataFromOCW();
+		ocw.checkQualityOfDataFromOCW();
 		
 	}
 
@@ -86,7 +86,7 @@ public class DQ_Ocw {
 		try{
 			JSONParser parser = new JSONParser(); 
 
-			Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw_90.json"));
+			Object obj= parser.parse(new FileReader("D:\\Project\\OCW\\ocw.json"));
 
 			org.json.simple.JSONObject inner = (org.json.simple.JSONObject) obj;
 			org.json.simple.JSONArray jArrayForElements = (org.json.simple.JSONArray)inner.get("rows");
@@ -120,7 +120,7 @@ public class DQ_Ocw {
 				count++;
 			}
 			System.out.println(count);
-			getScore(courseMap);
+			//getScore(courseMap);
 
 		}
 		catch(Exception e ){e.printStackTrace();}

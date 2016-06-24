@@ -23,9 +23,9 @@ public class DQ_Udacity {
 
 		
 		DQ_Udacity udacity = new DQ_Udacity();
-		udacity.getNewDataFromUdacity();
+		//udacity.getNewDataFromUdacity();
 		//udacity.makeChangesToJSONForEvaluation();
-		//udacity.checkQualityOfDataFromEdX();
+		udacity.checkQualityOfDataFromEdX();
 		
 
 	}
@@ -96,7 +96,7 @@ public class DQ_Udacity {
 				count++;
 			}
 			System.out.println(count);
-			getScore(courseMap);
+			//getScore(courseMap);
 
 		}
 		catch(Exception e ){e.printStackTrace();}

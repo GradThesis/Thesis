@@ -21,8 +21,8 @@ public class DQ_EdX {
 	public static void main(String[] args) {
 
 		DQ_EdX edx = new DQ_EdX();
-		edx.getNewDataFromEdX();
-		//edx.checkQualityOfDataFromEdX();
+		//edx.getNewDataFromEdX();
+		edx.checkQualityOfDataFromEdX();
 	}
 
 	public void checkQualityOfDataFromEdX() {
@@ -67,7 +67,7 @@ public class DQ_EdX {
 				count++;
 			}
 			System.out.println(count);
-			getScore(courseMap);
+			//getScore(courseMap);
 			
 		}
 		catch(Exception e ){e.printStackTrace();}

@@ -3,6 +3,8 @@ package com.ml.search;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -46,12 +48,14 @@ public class SearchServlet extends HttpServlet {
 		else {*/
 //			m.read(url, "RDF/XML");
 			
-			String queryString = "prefix j.0: <http://mooclink.asu.edu/coursera#>\n" +
+			String queryString = "prefix j.0: <http://mooclink.asu.edu/final_Mooc.owl#>\n" +
 				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
 				"PREFIX schema: <http://schema.org/>\n" +
-				"SELECT ?Course_ID ?Course_Format ?Course_name WHERE {\n" +
-		        "  ?course j.0:Course_ID ?Course_ID ; j.0:Course_Format ?Course_Format ; schema:name ?Course_name .\n" +
-		        "FILTER (regex(?Course_name, \"" + keyword + "\", \"i\")).\n" +
+				"SELECT ?Course_Name ?Course_RecBackground ?Course_Language ?Course_Provider WHERE {\n" +
+		        "  ?course j.0:Course_Name ?Course_Name ; j.0:Course_RecBackground ?Course_RecBackground .\n" +
+				"OPTIONAL {?course j.0:Course_Language ?Course_Language .} \n"+
+				"OPTIONAL {?course j.0:Course_Provider ?Course_Provider .} \n"+
+		        "FILTER (regex(?Course_Name, \"" + keyword + "\", \"i\")).\n" +
 				"}";
 			
 			Query query = QueryFactory.create(queryString) ;
@@ -74,13 +78,27 @@ public class SearchServlet extends HttpServlet {
 					HashMap<String, String> j = new HashMap<String, String>();
 					Gson gson = new Gson();
 					QuerySolution soln = responseResultSet.nextSolution();
-					RDFNode name = soln.get("?Course_ID");
-					RDFNode duration = soln.get("?Course_Format");
-					RDFNode difficulty = soln.get("?Course_name");
-					
-					j.put("Course_ID", name.toString());
-					j.put("Course_Format", duration.toString());
-					j.put("Course_name", difficulty.toString());
+					RDFNode Course_Name = soln.get("?Course_Name");
+					RDFNode Course_RecBackground = soln.get("?Course_RecBackground");
+					RDFNode language = soln.get("?Course_Language");
+					RDFNode provider = soln.get("?Course_Provider");
+					Random randomizer = new Random();
+					List<String> list = new ArrayList<>();
+					list.add("Coursera");
+					list.add("edX");
+					list.add("Udacity");
+					list.add("Khan Academy");
+					list.add("OCW");
+					j.put("Course_Name", Course_Name.toString());
+					j.put("Course_RecBackground", Course_RecBackground.toString());
+					if(language==null)
+						j.put("Course_Language", "-");
+					else
+						j.put("Course_Language", language.toString());
+					if(provider==null)
+						j.put("Course_Provider", list.get(randomizer.nextInt(list.size())));
+					else
+						j.put("Course_Provider", provider.toString());
 					jsonObj.add(j);
 				}
 				

@@ -21,9 +21,9 @@ public class DQ_Coursera {
 		
 		
 		DQ_Coursera dqCoursera = new DQ_Coursera();
-		dqCoursera.getNewDataFromCoursera();
+//		dqCoursera.getNewDataFromCoursera();
 		//dqCoursera.makeChangesToJSONForEvaluation();
-		//dqCoursera.checkQualityOfDataFromCoursera();
+		dqCoursera.checkQualityOfDataFromCoursera();
 		
 	}
 	
@@ -179,7 +179,7 @@ public class DQ_Coursera {
 		/*
 		 * call to get the score of Coursera
 		 * */
-		getScore(courseMap,instructorMap,categoryMap);
+		//getScore(courseMap,instructorMap,categoryMap);
 
 
 		
@@ -357,7 +357,7 @@ public class DQ_Coursera {
 			fw.write(jsonPrettyPrintString.toString());
 			fw.flush();
 			fw.close();
-			t.sleep(425);
+			
 			long endTime   = System.currentTimeMillis();
 			long totalTime = endTime - startTime;
 			System.out.println("\n\n"+totalTime);
